@@ -149,6 +149,9 @@ const l2String = lst => lst.join(space)
 ## 3. Function composition
 I will define clear composition strategy to combines functions from similar or different categories. 
 
+
+> I will define composition function as '$'. It will be of arbitraray arity, so we won't  use currying. Also since it's a one of kind, we will not say $A, but simple $.
+
 #### Structure preserving functions
 By default all the functions that preserve the structure are composable within that category.
 ```
