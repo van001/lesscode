@@ -18,7 +18,7 @@ Sentence is a String of words (String) separated by a whitespace, so
 or programatically :
 const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 ```
-> Or if I ask you to find intersection of 2 Lists of String : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
+> Or if I ask you to find intersection of 2 Lists of Strings : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
 1. If either of the list is empty, return empty list : []
@@ -31,10 +31,10 @@ const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $
 ```
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
-
-# Approach
+# Goal
 Initial goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(no side-effect) and function composition (lego blocks) using fewer data-structures and tools(functions).
 
+# Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
 I will not impelement any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
