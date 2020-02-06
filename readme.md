@@ -38,6 +38,8 @@ Initial goal is to influence programmers, including myself to start thinking in 
 # Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
+I will also solve real-world programming problems like making Http calls, Fetching data from database etc and that is when I will introduce parallel composition techniques.
+
 I will not impelement any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
 
 # Design
@@ -150,7 +152,7 @@ const l2String = lst => lst.join(space)
 I will define clear composition strategy to combines functions from similar or different categories. 
 
 
-> I will define composition function as '$'. It will be of arbitrary arity, so we won't  use currying. Also since it's a one of kind, we will not say $A, but simple $.
+> I will define composition function as '$'. It will be of arbitrary arity, so we won't  use currying. Also since it's a one of kind, we will not say $A (used lated for special case), but simple $. Eventaully I will define parallel composition using $$, $$$, $$$$ or $A, to allow upto 3 parallel composition or parallel composition of any arity ($A).
 
 #### Structure preserving functions
 By default all the functions that preserve the structure are composable within that category.
