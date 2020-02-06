@@ -29,7 +29,7 @@ or programatically :
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
 
 ```
-** $ is way to compose functions. **
+**$ is way to compose functions.**
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
 # Goal
