@@ -56,10 +56,14 @@ In future I may use this base object and categories to build complex data struct
 ## 2. Pure Functions 
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
 
-Functions will be named as 
+#### Function naming
+
+Name makes a huge difference. Just looking at the function name we should be able to tell on what category it applies, what it does and what is the arity. 
+I suggest we name functions as 
 ```
 [l|s|m][operation][arity] 
 
+e.g. 
 const lhead = l => l[0] // function to retrieve head of the List
 ```
 > Where [l|s|m] denote category - String, List or Map; operation - what function is suppose to do; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary. 
@@ -145,10 +149,10 @@ console.log(reverseSentence('my name is neelesh'))
 $ is a composition function. Enabling print with $p, we get
 
 ```
-hseleen si eman ym
-[ 'hseleen', 'si', 'eman', 'ym' ]
-[ 'neelesh', 'is', 'name', 'my' ]
-neelesh is name my
+hseleen si eman ym // sreverse
+[ 'hseleen', 'si', 'eman', 'ym' ] // s2List2(space)
+[ 'neelesh', 'is', 'name', 'my' ] // lapply2(sreverse)
+neelesh is name my // l2String2(space)
 ```
 
 

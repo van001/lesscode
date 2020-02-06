@@ -6,7 +6,7 @@
  */
 
 
-const { leqEmpty, lhead, lshift, lpush2, lappend2, $ } = require('../lib/fp')
+const { leqEmpty, lhead, lshift, lpush2, lappend2, $ } = require('../lib/lc-core')
 
 l1 = [1, 3, 5, 7, 9, 11, 13, 15]
 l2 = [2, 4, 6, 8, 10, 12]
