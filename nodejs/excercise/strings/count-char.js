@@ -7,11 +7,21 @@
  * 2. Use reduce to compare the character and increment the count. Do not forget to initialize accumlator with 0
  * 
  */
-let chez = require('../lib/typechez')
 let countChar =(str, char) => {
-    chez.string(str);chez.char(char)
+    if(str == undefined || str == null || str.length == 0 || char == undefined || char == null || char.length == 0) return 0
     return str.split('').reduce((acc, ch) => acc  + ((ch == char)?1:0),0)
 } 
-let str = 'My name is Neelesh has'
-console.log(`${str} has ${countChar(str,'e')} e(s)`)
+let data = [      
+        [null,'e',0],
+        [undefined,'e',0],
+        ['','e',0],
+        ['aba',null,0],
+        ['aba',undefined,0],
+        ['aba','',0],
+        ['name','o',0],
+        ['My name is Neelesh has','e',4]
+    ]
+data.forEach( (val) => {
+    console.assert(countChar(val[0],val[1]) == val[2], ` ${val}`)
+})
 

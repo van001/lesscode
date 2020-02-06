@@ -1,6 +1,6 @@
 /**
  * Print first non repeated character from String
- * e.g :  "morning" should print "M".
+ * e.g :  "morning" should print "m".
  * 
  * 
  */
