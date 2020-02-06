@@ -21,9 +21,13 @@ const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), s
 > Or if I ask you to Find intersection of 2 lists of string : ['dog','cat','horse','mouse'] interesect ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
-1. If either of the list is empty, return empty list
-2. Convert one list to map (to save space convert smaller list to map) 
-3. Return all the items form the 2nd list which are found in the Map. 
+1. If either of the list is empty, return empty list : []
+2. Convert one list to map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
+3. Return all the items form the 2nd list which are found in the Map : [dog','cat']
+
+or programatically : 
+const intersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
+
 ```
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.

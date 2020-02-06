@@ -9,7 +9,7 @@
  */
 
  /** Toolset */
-const { leqEmpty, l2Map, minList2, $ } = require('../lib/fp')
+const { leqEmpty, l2Map, minList2, $ } = require('../lib/lc-core')
 
 /** Function */
 const intersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
