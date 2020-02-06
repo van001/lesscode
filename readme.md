@@ -100,7 +100,7 @@ const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceW
 ```
 
 #### Single input functions
-By default every function will have one input and one output. Both input and/or output can be functions.
+Most of the functions will have only one input and one output. Both input and/or output can be functions.
 ```
 const lhead = l => l[0]
 ```
