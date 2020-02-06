@@ -9,10 +9,10 @@
  */
 
  /** Toolset */
-const { leqEmpty, l2Map, minList2, $ } = require('../lib/lc-core')
+const { leqEmpty, l2Map, minList2, $, $p } = require('../lib/lc-core')
 
 /** Function */
-const intersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
+const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
 
 
 /** Test */
@@ -21,4 +21,4 @@ const data = [
     [[], ['dog'], []]
 ]
 
-data.forEach(val => console.assert(intersection2(val[0])(val[1]).join('') == val[2].join(''), ` ${val}`))
+data.forEach(val => console.assert(lintersection2(val[0])(val[1]).join('') == val[2].join(''), ` ${val}`))

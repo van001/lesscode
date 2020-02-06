@@ -16,7 +16,7 @@ Sentence is a String of words (String) separated by a whitespace, so
 4. And finally join the List of Strings to form one String : neelesh is name my
 
 or programatically :
-const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 ```
 > Or if I ask you to Find intersection of 2 lists of string : ['dog','cat','horse','mouse'] interesect ['dog','cat','bird'] = ['dog','cat']
 ```
@@ -26,7 +26,7 @@ And you say ,
 3. Return all the items form the 2nd list which are found in the Map : [dog','cat']
 
 or programatically : 
-const intersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
+const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
 
 ```
 
