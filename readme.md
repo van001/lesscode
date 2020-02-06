@@ -51,7 +51,8 @@ Map may contain another String, List or a Map, uniquely itendified by a key (Str
     'patents' : ['123','456','8910']
 }
 ```
-In future I may use this base object and categories to build complex data structures like Heap, Tree & Graph.
+Most programming language provide the implementation of the above categories, so we may not have to implement them bust just use them.
+In future I may use this base object and categories to build complex categories like Heap, Tree & Graph.
 
 ## 2. Pure Functions 
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
@@ -157,7 +158,7 @@ neelesh is name my // l2String2(space)
 
 # Application
 
-1. [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise)
+1. [Common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise)
 
 
 
