@@ -123,7 +123,7 @@ const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 
 #### Category conversion functions
-Conversion functions will morph object from one category to another.
+Conversion functions will morph object from one category to another. I should come up with a clear naming convention to identify such functions.
 ```
 const l2Map = lst => lst.reduce((acc, val) => { 
         (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc 
