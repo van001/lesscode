@@ -49,6 +49,8 @@ I will also solve real-world programming problems like making Http calls, Fetchi
 I will not impelement any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
 
 # Design
+> I like to [KISS](https://en.wikipedia.org/wiki/KISS_principle) ;)
+
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
 
 ## 1. Fewer objects and categories
