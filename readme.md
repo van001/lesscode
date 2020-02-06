@@ -18,7 +18,7 @@ Sentence is a String of words (String) separated by a whitespace, so
 or programatically :
 const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 ```
-> Or if I ask you to Find intersection of 2 lists of string : ['dog','cat','horse','mouse'] interesect ['dog','cat','bird'] = ['dog','cat']
+> Or if I ask you to find intersection of 2 Lists of String : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
 1. If either of the list is empty, return empty list : []
