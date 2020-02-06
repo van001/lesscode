@@ -12,8 +12,8 @@ and you think
 Sentence is a String of words (String) separated by a whitespace, so
 1. I can reverse the entire String so it becomes : 'hseleen si eman ym'
 2. Then I can break this one String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
-3. Now for all the Strings in that List in can reverse them : [ 'neelesh', 'is', 'name', 'my' ]
-4. Now I can join the List of String to form one String : neelesh is name my
+3. Now I can just reverse all those Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
+4. And finally join the List of Strings to form one String : neelesh is name my
 
 or programatically :
 const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
