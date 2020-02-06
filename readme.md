@@ -3,7 +3,21 @@
 ![Lego Kids](lego-kid.jpeg) Inspired by the work of [Alonzo Church](https://en.wikipedia.org/wiki/Alonzo_Church)(Lambda Calculus) & John Backus's paper '[Can programming be liberated...](https://github.com/van001/lesscode/blob/master/can-programming-be-liberated.pdf)', this is my first attempt to define a functional library/construct that could be implemented in any programming language that supports functional programming and can be applied to solve complex problems in variety of industry/ domain. 
 
 # Philosophy
-In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to their way of thinking :). Functional thinking abstracts the complexity and opinion & provide us a generic way to  communicate and work together. None-the-less we need both, individualism as well as ability to work/exist as a group.
+In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to their way of thinking :). Functional thinking abstracts the complexity (function) and opinion(implementation) & provide us a generic way to  communicate and work together. None-the-less we need both, individualism as well as ability to work/exist as a group.
+
+> What if I ask you to reverse words in a sentence like 'my name is neelesh' -> 'neelesh is name my'
+
+and you think
+```
+Sentence is a String of words (String) separated by a whitespace, so
+1. I can reverse the entire String so it becomes : 'hseleen si eman ym'
+2. Then I can break this one String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
+3. Now for all the Strings in that List in can reverse them : [ 'neelesh', 'is', 'name', 'my' ]
+4. Now I can join the List of String to form one String : neelesh is name my
+
+or programatically :
+const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+```
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
 
