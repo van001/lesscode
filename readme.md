@@ -3,6 +3,7 @@
 ![Lego Kids](lego-kid.jpeg) Inspired by the work of [Alonzo Church](https://en.wikipedia.org/wiki/Alonzo_Church)(Lambda Calculus) & John Backus's paper '[Can programming be liberated...](https://github.com/van001/lesscode/blob/master/can-programming-be-liberated.pdf)', this is my first attempt to define a functional library/construct that could be implemented in any programming language that supports functional programming and can be applied to solve complex problems in variety of industry/ domain. 
 
 # Philosophy
+> Universe is either expanding or contracting - Albert Eienstien.
 In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to their way of thinking :). Functional thinking abstracts the complexity (function) and opinion(implementation) & provide us a generic way to  communicate and work together. None-the-less we need both, individualism as well as ability to work/exist as a group.
 
 > What if I ask you to reverse words in a sentence like 'my name is neelesh' -> 'neelesh is name my'
@@ -149,7 +150,7 @@ const l2String = lst => lst.join(space)
 
 
 ## 3. Function composition
-> Whole is greater than the sum of parts
+> Whole is greater than the sum of parts.
 
 A single function is limited, but combined can accomplish major task. I will define clear composition strategy to combine functions from similar or different categories, or the functions that transform categories (String to List, List to Map etc).
 
