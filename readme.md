@@ -52,13 +52,17 @@ For each of the above categories(String, List & Map), I will build functions to 
 
 #### Single input/Output
 By default every function will have one input and one output. Both input and/or output can be functions.
+```
+const lhead = l => l[0]
+```
+> l denote it's a List function, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
 
 #### Multiple input - Currying
 I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
 ```
 const sconcat2 = a => b => a+b 
 ```
-> s denote it's a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
+> s denotes it's a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
 
 #### Conversion
 Conversion functions to morph object from one category to another.
