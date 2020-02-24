@@ -63,15 +63,16 @@ By default last parameter of a function acts on the object from the same categor
 const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 ```
 
-#### Single input/Output
+#### Single input functions
 By default every function will have one input and one output. Both input and/or output can be functions.
 ```
 const lhead = l => l[0]
 ```
 > 'l' denotes a List function, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
 
-#### Multiple input - Currying
-I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
+#### Multiple input functions
+###### Currying
+I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no. of parameters (up to 3). 
 ```
 const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 ```
@@ -85,6 +86,8 @@ const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 ```
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 
+###### Point free style
+
 #### Conversion
 Conversion functions will morph object from one category to another.
 ```
@@ -92,9 +95,12 @@ const l2Map = lst => lst.reduce((acc, val) => {
         (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc 
     }, {})
 
+const space = ' '
 const l2String = lst => lst.join(space)
 ```
 > l2Map - converts List to Map; l2String - converts List to String
+
+
 
 
 ## 3. Function composition
