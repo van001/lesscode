@@ -15,20 +15,27 @@ I will try to solve [common algorithm and interview questions](https://github.co
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
 
 ## 1. Fewer objects/ structures
-I will start with frequently used objects and data-structures that are used in real world to solve many complex business problems.
+I will start with frequently used objects and data-structures (categories) that are used in real world to solve many complex business problems.
 
-### Strings (single object)
+#### Strings (single object)
 
-### List (container - multiple objects) 
+#### List (container - multiple objects) 
 
-### Maps (dictionary - multiple objects; key-value store )
+#### Maps (dictionary - multiple objects; key-value store )
 
 
 ## 2. Pure Functions 
 I will build functions around those data-structures to help us consume and manipulate them. 
-- By defauly every function will have one input and one output. Both input and/or output can be functions.
-- Currying to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. 
-- 
+
+#### Single input/Output
+By default every function will have one input and one output. Both input and/or output can be functions.
+
+#### Currying
+Currying to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
+
+#### Conversion
+Conversion functions to morph object from one category to another.
+
 
 ## 3. Function composition
 We will define clear composition techniques to combines functions that operate on different data-structures. 
