@@ -24,11 +24,17 @@ String will be used as a single object. e,g,
 > 'Neelesh Vaikhary'
 
 #### List (container - multiple objects) 
-List will be used to contain list of Strings or List of List of Strings etc.
+List will be used to contain list of Strings or List itself.
 > ['My','Name','is','Neelesh Vaikhary']
 
 #### Maps (dictionary - multiple objects; key-value store)
 Map may contain another String, List or Map, uniquely itendified by a key (String). 
+> {'name' : 'Neelesh Vaikhary',
+    'address' : {
+                'city': 'San Francisco',
+                'state':'CA'
+                }
+}
 
 
 ## 2. Pure Functions 
