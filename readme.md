@@ -31,13 +31,14 @@ List will be used to contain list of Strings or List itself.
 ['My','Name','is','Neelesh Vaikhary']
 ```
 
-#### Maps (dictionary - multiple objects; key-value store)
+#### Map (dictionary - multiple objects; key-value store)
 Map may contain another String, List or Map, uniquely itendified by a key (String). 
 ```
-{'name' : 'Neelesh Vaikhary',
+{
+    'name' : 'Neelesh Vaikhary',
     'address' : {
-                'city': 'San Francisco',
-                'state':'CA'
+                    'city': 'San Francisco',
+                    'state':'CA'
                 }
 }
 ```
