@@ -86,8 +86,6 @@ const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 ```
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 
-###### Point free style
-
 #### Conversion
 Conversion functions will morph object from one category to another.
 ```
@@ -99,6 +97,14 @@ const space = ' '
 const l2String = lst => lst.join(space)
 ```
 > l2Map - converts List to Map; l2String - converts List to String
+
+#### Point free style
+I will write functions in [point free style](https://en.wikipedia.org/wiki/Tacit_programming), as much as possible. 
+```
+const space = ' '
+const l2String = lst => lst.join(space)
+```
+> l2String is declared in Point free style 
 
 
 
