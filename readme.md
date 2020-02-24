@@ -11,8 +11,8 @@ I will try to solve [common algorithm and interview questions](https://github.co
 
 # Design
 ## 1. Fewer objects/ structures
-We will start with frequently used objects and data-stractures like Strings, List (container) and Maps (dictionary).
+We will start with frequently used objects and data-structures like Strings, List (container) and Maps (dictionary).
 
-## 2. Pure Functions to operate on those objects and structures.
+## 2. Pure Functions 
 
-## 3. Function composition to solve complex problems
+## 3. Function composition
