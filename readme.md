@@ -111,3 +111,15 @@ const l2String = lst => lst.join(space)
 
 ## 3. Function composition
 We will define clear composition techniques to combines functions that operate on different categories. 
+
+#### Structure preservring functions
+By default all the functions that preserve the structure are composable
+```
+```
+
+#### Structure transforming functions
+After applying structure transformation function you can keep composing with structure preserving functions of the trsformed category
+```
+```
+
+
