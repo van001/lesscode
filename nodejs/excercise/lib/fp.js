@@ -79,7 +79,7 @@ const minList2 = lst => map => lst.filter( val => map[val] !=null)
 /** String **/
 const isString = a => typeof a == 'string'
 const splitS = p => a =>  a.split(p) 
-const sreplace = p => w => s =>  s.replace(p,w) 
+const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 const split = p => splitS(p)
 
 //const rmWhitespace = replace(space)(blank)
@@ -122,7 +122,7 @@ module.exports = {
     assert, test,
     print,
     isList, lhead, lpop, lshift, leqEmpty,  lconcat, l2Map, l2String , lmap2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
-    isString, split,sreverse, sreplace, toUppercase, s2List, s2List2, 
+    isString, split,sreverse, sreplace3, toUppercase, s2List, s2List2, 
     minList2,
     success, error, throwE,
     sort,curry, fork, ret

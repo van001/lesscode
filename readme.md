@@ -56,7 +56,12 @@ Functions will be named as
 
 const lhead = l => l[0] // function to retrieve head of the List
 ```
-> Where [l|s|m] denote category - String, List or Map; operation - what function is suppose to do; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary.
+> Where [l|s|m] denote category - String, List or Map; operation - what function is suppose to do; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary. 
+
+By default last parameter of a function acts on the object from the same category on which it is defined.
+```
+const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
+```
 
 #### Single input/Output
 By default every function will have one input and one output. Both input and/or output can be functions.
@@ -68,17 +73,28 @@ const lhead = l => l[0]
 #### Multiple input - Currying
 I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
 ```
-const sconcat2 = a => b => a+b 
+const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 ```
-> 's' denotes a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
+> 's' denotes a String function, replace tells us about the operation, 3 tells that function takes 3 parameters. 
+
+Currying also helps us to partially apply a function so that we can use it over
+```
+const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
+
+const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
+```
+> You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 
 #### Conversion
 Conversion functions will morph object from one category to another.
 ```
-const l2Map = lst => lst.reduce((acc, val) => { (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc }, {})
+const l2Map = lst => lst.reduce((acc, val) => { 
+        (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc 
+    }, {})
+
 const l2String = lst => lst.join(space)
 ```
-> l2Map , converts List to Map and l2String, converts List to String
+> l2Map - converts List to Map; l2String - converts List to String
 
 
 ## 3. Function composition
