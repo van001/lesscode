@@ -21,21 +21,26 @@ I will start with frequently used objects and data-structures (categories) that 
 
 #### Strings (single object)
 String will be used as a single object. e,g, 
-> 'Neelesh Vaikhary'
+```
+'Neelesh Vaikhary'
+```
 
 #### List (container - multiple objects) 
 List will be used to contain list of Strings or List itself.
-> ['My','Name','is','Neelesh Vaikhary']
+```
+['My','Name','is','Neelesh Vaikhary']
+```
 
 #### Maps (dictionary - multiple objects; key-value store)
 Map may contain another String, List or Map, uniquely itendified by a key (String). 
-> {'name' : 'Neelesh Vaikhary',
+```
+{'name' : 'Neelesh Vaikhary',
     'address' : {
                 'city': 'San Francisco',
                 'state':'CA'
                 }
 }
-
+```
 
 ## 2. Pure Functions 
 For each of those categories I will build functions to consume & transform (to similar or other categories). Similar category transformation will preserve the structure - a List will stay List. Other categroy transformation will not preserve the structure - for e.g. when a List is converted to Map or a String
