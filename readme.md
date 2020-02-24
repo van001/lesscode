@@ -1,8 +1,4 @@
-#Inspiration
-Inspired by the Jon Bakus paper "Can programming be liberated...", I have made an initial attempt to define a functional librarary that could be applied to to solve problems in variety of domain. 
+# Inspiration
+Inspired by the Jon Bakus paper [Can programming be liberated...](https://github.com/van001/lesscode/blob/master/can-programming-be-liberated.pdf), this is my first attempt to define a functional library that could be applied to solve problems in variety of domain. 
 
-My design goal is to bring FP to genral progrommers and so I will try to explain many mathematical concepts behind the design in a simple and plain english.
-
-Initially my goal is to try to solve as many algorithm and atastrustures questions using pure functional programming (as much as possible).
-
-This is a work in progress effort a
+My design goal is to influence programmers thinking in terms of functional programming and constructing program structure using pure fucntion(as much as) and function composition (lego blocks), which means using fewer data-strucutres and tools to solve variety of complex problems.
