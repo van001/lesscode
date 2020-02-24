@@ -50,19 +50,25 @@ In future I may use this base object and categories to build complex data struct
 ## 2. Pure Functions 
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
 
+Functions will be named as 
+```
+[l|s|m][operation][arity]
+```
+> Where [l|s|m] denote category - String, List or Map; operation - what function is suppose to do; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary.
+
 #### Single input/Output
 By default every function will have one input and one output. Both input and/or output can be functions.
 ```
 const lhead = l => l[0]
 ```
-> l denote it's a List function, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
+> 'l' denotes a List function, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
 
 #### Multiple input - Currying
 I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
 ```
 const sconcat2 = a => b => a+b 
 ```
-> s denotes it's a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
+> 's' denotes a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
 
 #### Conversion
 Conversion functions to morph object from one category to another.
