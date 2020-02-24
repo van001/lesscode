@@ -17,7 +17,7 @@ I will not be impelementing any number or mathemetical functions but reuse it fo
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
 
 ## 1. Fewer objects/ structures
-I will start with frequently used objects and data-structures (categories) that are used in real-world to solve many complex business problems. 
+I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 
 
 Atomic/ single object will be String and sequence/container object will be List or Map.
 
@@ -45,6 +45,7 @@ Map may contain another String, List or a Map, uniquely itendified by a key (Str
     'patents' : ['123','456','8910']
 }
 ```
+In future we may use this base object and categories to build complex data structures like Heap, Tree & Graph.
 
 ## 2. Pure Functions 
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories. Similar category transformation will preserve the structure - a List will stay List. Other categroy transformation will not preserve the structure - for e.g. when a List is converted to Map or a String
