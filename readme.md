@@ -7,7 +7,7 @@ In grand schemes of things entire universe can be described in terms of few abst
 Even-though it's started by an individual 'I', it cannot be functional unless it's adaopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
 
 # Approach
-Initial goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(as much as) and function composition (lego blocks) using fewer data-structures and tools(functions) to solve variety of complex problems.
+Initial goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(no side-effect) and function composition (lego blocks) using fewer data-structures and tools(functions) to solve variety of complex problems.
 
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
@@ -25,7 +25,7 @@ I will start with frequently used objects and data-structures (categories) that 
 
 
 ## 2. Pure Functions 
-I will build functions around those data-structures to help us consume and manipulate them. 
+For each of those categories I will build functions to consume & transform (to similar or other categories). Similar category transformation will preserve the structure - a List will stay List. Other categroy transformation will not preserve the structure - for e.g. when a List is converted to Map or a String
 
 #### Single input/Output
 By default every function will have one input and one output. Both input and/or output can be functions.
@@ -38,4 +38,4 @@ Conversion functions to morph object from one category to another.
 
 
 ## 3. Function composition
-We will define clear composition techniques to combines functions that operate on different data-structures. 
+We will define clear composition techniques to combines functions that operate on different categories. 
