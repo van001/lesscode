@@ -2,7 +2,7 @@
 Inspired by the John Backus paper '[Can programming be liberated...](https://github.com/van001/lesscode/blob/master/can-programming-be-liberated.pdf)', this is my first attempt to define a functional library that could be applied to solve complex problems in variety of industry/ domain. 
 
 # Philosophy
-In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be individual, it may confuse others if they are not used to your way of thinking :). Functional thinking abstracts the complexity and provide us a better way to communicate or work together. None the less we need both, individualism as well as ability to work/exist as group.
+In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be individual, it may confuse others if they are not used to your way of thinking :). Functional thinking abstracts the complexity and provide us a better way to communicate or work together. None the less we need both, individualism as well as ability to work/exist as a group.
 
 My inital goal is to influence programmers, including myself to start thinking in terms of functional programming and constructing program structures using pure fucntions(as much as) and function composition (lego blocks), which means using fewer data-strucutures and tools(functions) to solve variety of complex problems.
 
