@@ -11,19 +11,22 @@ Initial goal is to influence programmers, including myself to start thinking in 
 
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
-I will not be impelementing any number or mathemetical functions but reuse it form the stardard libraries provided my the language itself.
+I will not be impelementing any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
 
 # Design
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
 
 ## 1. Fewer objects/ structures
-I will start with frequently used objects and data-structures (categories) that are used in real world to solve many complex business problems.
+I will start with frequently used objects and data-structures (categories) that are used in real world to solve many complex business problems. Simple object will be String and Container objects will be List and Map.
 
 #### Strings (single object)
+Single will be used as a single object. e,g, "Neelesh Vaikhary"
 
 #### List (container - multiple objects) 
+List will be used to contain list of Strings or List of List of Strings etc.
 
-#### Maps (dictionary - multiple objects; key-value store )
+#### Maps (dictionary - multiple objects; key-value store)
+Map may contain another String, List or Map, uniquely itendified by a key (String). 
 
 
 ## 2. Pure Functions 
