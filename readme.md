@@ -4,7 +4,7 @@ Inspired by the work of [Alonzo Church](https://en.wikipedia.org/wiki/Alonzo_Chu
 # Philosophy
 In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to their way of thinking :). Functional thinking abstracts the complexity and provide us a better way to communicate or work together. None the less we need both, individualism as well as ability to work/exist as a group.
 
-My inital goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(as much as) and function composition (lego blocks), which means using fewer data-strucutures and tools(functions) to solve variety of complex problems.
+My inital goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(as much as) and function composition (lego blocks), which means using fewer data-structures and tools(functions) to solve variety of complex problems.
 
 # Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
