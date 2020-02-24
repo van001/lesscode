@@ -20,10 +20,12 @@ The goal of any functional programming language is to have pure functions (funct
 I will start with frequently used objects and data-structures (categories) that are used in real world to solve many complex business problems. Simple object will be String and Container objects will be List and Map.
 
 #### Strings (single object)
-Single will be used as a single object. e,g, "Neelesh Vaikhary"
+String will be used as a single object. e,g, 
+> 'Neelesh Vaikhary'
 
 #### List (container - multiple objects) 
 List will be used to contain list of Strings or List of List of Strings etc.
+> ['My','Name','is','Neelesh Vaikhary']
 
 #### Maps (dictionary - multiple objects; key-value store)
 Map may contain another String, List or Map, uniquely itendified by a key (String). 
