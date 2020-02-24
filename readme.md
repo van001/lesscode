@@ -45,16 +45,20 @@ Map may contain another String, List or a Map, uniquely itendified by a key (Str
     'patents' : ['123','456','8910']
 }
 ```
-In future we may use this base object and categories to build complex data structures like Heap, Tree & Graph.
+In future I may use this base object and categories to build complex data structures like Heap, Tree & Graph.
 
 ## 2. Pure Functions 
-For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories. Similar category transformation will preserve the structure - a List will stay List. Other categroy transformation will not preserve the structure - for e.g. when a List is converted to Map or a String
+For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
 
 #### Single input/Output
 By default every function will have one input and one output. Both input and/or output can be functions.
 
-#### Currying
-Currying to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
+#### Multiple input - Currying
+I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no of parameters (up to 3). 
+```
+const sconcat2 = a => b => a+b 
+```
+> s denote it's a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
 
 #### Conversion
 Conversion functions to morph object from one category to another.
