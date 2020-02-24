@@ -52,7 +52,7 @@ For each of the above categories(String, List & Map), I will build functions to 
 
 Functions will be named as 
 ```
-[l|s|m][operation][arity]
+[l|s|m][operation][arity] - lhead - obtain the head of the List
 ```
 > Where [l|s|m] denote category - String, List or Map; operation - what function is suppose to do; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary.
 
