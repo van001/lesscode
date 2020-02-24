@@ -20,13 +20,13 @@ The goal of any functional programming language is to have pure functions (funct
 I will start with frequently used objects and data-structures (categories) that are used in real world to solve many complex business problems. Simple object will be String and Container objects will be List and Map.
 
 #### String (single object)
-String will be used as a single object. e,g, 
+String may conatin bunch of characters. e.g, 
 ```
 'Neelesh Vaikhary'
 ```
 
 #### List (container - multiple objects; serially accessible) 
-List will be used to contain list of Strings or List itself.
+List may contain list of Strings or List itself.
 ```
 ['My','Name','is','Neelesh Vaikhary']
 ```
