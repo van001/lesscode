@@ -19,19 +19,19 @@ The goal of any functional programming language is to have pure functions (funct
 ## 1. Fewer objects/ structures
 I will start with frequently used objects and data-structures (categories) that are used in real world to solve many complex business problems. Simple object will be String and Container objects will be List and Map.
 
-#### Strings (single object)
+#### String (single object)
 String will be used as a single object. e,g, 
 ```
 'Neelesh Vaikhary'
 ```
 
-#### List (container - multiple objects) 
+#### List (container - multiple objects; serially accessible) 
 List will be used to contain list of Strings or List itself.
 ```
 ['My','Name','is','Neelesh Vaikhary']
 ```
 
-#### Map (dictionary - multiple objects; key-value store)
+#### Map (dictionary - multiple objects; randomly accessible via key)
 Map may contain another String, List or Map, uniquely itendified by a key (String). 
 ```
 {
@@ -44,7 +44,7 @@ Map may contain another String, List or Map, uniquely itendified by a key (Strin
 ```
 
 ## 2. Pure Functions 
-For each of those categories I will build functions to consume & transform (to similar or other categories). Similar category transformation will preserve the structure - a List will stay List. Other categroy transformation will not preserve the structure - for e.g. when a List is converted to Map or a String
+For each of the above categories(String, List & Map), I will build functions to consume & transform (to similar or other) categories. Similar category transformation will preserve the structure - a List will stay List. Other categroy transformation will not preserve the structure - for e.g. when a List is converted to Map or a String
 
 #### Single input/Output
 By default every function will have one input and one output. Both input and/or output can be functions.
