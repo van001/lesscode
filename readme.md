@@ -73,7 +73,12 @@ const sconcat2 = a => b => a+b
 > 's' denotes a String function, concat tells us about the operation, 2 tells that function takes 2 parameters. 
 
 #### Conversion
-Conversion functions to morph object from one category to another.
+Conversion functions will morph object from one category to another.
+```
+const l2Map = lst => lst.reduce((acc, val) => { (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc }, {})
+const l2String = lst => lst.join(space)
+```
+> l2Map , converts List to Map and l2String, converts List to String
 
 
 ## 3. Function composition
