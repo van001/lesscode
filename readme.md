@@ -1,7 +1,7 @@
 # Inspiration
 Inspired by the John Backus paper '[Can programming be liberated...](https://github.com/van001/lesscode/blob/master/can-programming-be-liberated.pdf)', this is my first attempt to define a functional library that could be applied to solve complex problems in variety of industry/ domain. 
 
-My design goal is to influence programmers(including myself) thinking in terms of functional programming and constructing program structures using pure fucntions(as much as) and function composition (lego blocks), which means using fewer data-strucutures and tools to solve variety of complex problems.
+My design goal is to influence programmers(including myself) thinking in terms of functional programming and constructing program structures using pure fucntions(as much as) and function composition (lego blocks), which means using fewer data-strucutures and tools(functions) to solve variety of complex problems.
 
 # Philosophy
 
