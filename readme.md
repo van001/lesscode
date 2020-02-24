@@ -32,14 +32,15 @@ List may contain list of Strings or List itself.
 ```
 
 #### Map (dictionary - multiple objects; randomly accessible via key)
-Map may contain another String, List or Map, uniquely itendified by a key (String). 
+Map may contain another String, List or a Map, uniquely itendified by a key (String). 
 ```
 {
     'name' : 'Neelesh Vaikhary',
     'address' : {
                     'city': 'San Francisco',
                     'state':'CA'
-                }
+                },
+    'patents' : ['123','456','8910']
 }
 ```
 
