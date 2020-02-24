@@ -10,3 +10,9 @@ My inital goal is to influence programmers, including myself to start thinking i
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
 # Design
+## 1. Fewer objects/ structures
+We will start with frequently used objects and data-stractures like Strings, List (container) and Maps (dictionary).
+
+## 2. Pure Functions to operate on those objects and structures.
+
+## 3. Function composition to solve complex problems
