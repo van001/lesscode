@@ -7,6 +7,6 @@ In grand schemes of things entire universe can be described in terms of few abst
 My inital goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(as much as) and function composition (lego blocks), which means using fewer data-strucutures and tools(functions) to solve variety of complex problems.
 
 # Approach
-I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with functional construct that is independent of language and can be implemented in any language that supports functional programming.
+I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
 # Design
