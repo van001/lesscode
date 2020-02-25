@@ -17,10 +17,10 @@ I will not impelement any number or mathemetical functions but reuse it form the
 # Design
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
 
-## 1. Fewer objects/ structures
+## 1. Fewer objects and categories
 I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 
 
-Atomic/ single object will be String and sequence/container object will be List or Map.
+Single object will belong to String category and bunch of objects will belong to either List or Map. 
 
 #### String (single object)
 String may conatin bunch of characters. e.g, 
