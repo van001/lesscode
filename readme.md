@@ -126,7 +126,7 @@ By default all the functions that preserve the structure are composable within t
 #### Non-structure preserving functions
 After applying non-structure preserving function you can keep composing with structure preserving functions of the transformed category.
 ```
-const { $,  l2String2, lapply2, space, s2List2, sreverse} = require('../lib/fp')
+const { $,  l2String2, lapply2, space, s2List2, sreverse} = require('../lib/lc-core')
 
 /** 
 reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
