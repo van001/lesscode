@@ -58,6 +58,7 @@ const l2String = lst => lst.join(space)
 
 // 2 param functions
 const lmap2 = f=> l => l.map(f)
+const lapply2 = lmap2
 const lpush2 = lst => val => lst.push(val)
 const lappend2 = lst1 => lst2 =>  lst1.forEach( val => lst2.push(val)) 
 const l2String2 = ptrn=> lst => lst.join(ptrn)
@@ -121,7 +122,7 @@ module.exports = {
     measure, min,
     assert, test,
     print,
-    isList, lhead, lpop, lshift, leqEmpty,  lconcat, l2Map, l2String , lmap2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
+    isList, lhead, lpop, lshift, leqEmpty,  lconcat, l2Map, l2String , lmap2, lapply2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
     isString, split,sreverse, sreplace3, toUppercase, s2List, s2List2, 
     minList2,
     success, error, throwE,

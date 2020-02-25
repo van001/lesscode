@@ -11,7 +11,7 @@ Initial goal is to influence programmers, including myself to start thinking in 
 
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
-I will not be impelementing any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
+I will not impelement any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
 
 # Design
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
@@ -86,7 +86,7 @@ const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 ```
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 
-#### Conversion
+#### Category conversion functions
 Conversion functions will morph object from one category to another.
 ```
 const l2Map = lst => lst.reduce((acc, val) => { 
@@ -110,16 +110,28 @@ const l2String = lst => lst.join(space)
 
 
 ## 3. Function composition
-We will define clear composition techniques to combines functions that operate on different categories. 
+I will define clear composition strategy to combines functions from similar or different categories. 
 
 #### Structure preserving functions
-By default all the functions that preserve the structure are composable.
+By default all the functions that preserve the structure are composable within that category.
 ```
 ```
 
 #### Non-structure preserving functions
-After applying structure transformation function you can keep composing with structure preserving functions of the transformed category.
+After applying non-structure preserving function you can keep composing with structure preserving functions of the transformed category.
 ```
+const { $,  l2String2, lapply2, space, s2List2, sreverse} = require('../lib/fp')
+
+//reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
+const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+
+console.log(reverseSentence('my name is neelesh'))
+
 ```
+will print
+```
+'neelesh is name my'
+```
+> After s2List2 (String to List transformation), one could only compose with List fucntions - lapply2, l2String2 etc.
 
 
