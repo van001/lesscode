@@ -23,6 +23,7 @@ I will start with frequently used objects and categories that are used in real-w
 Single object will belong to String category and bunch of objects will belong to either List or Map. 
 
 #### String (single object)
+![String](string.png)
 String may conatin bunch of characters. e.g, 
 ```
 'Neelesh Vaikhary'
