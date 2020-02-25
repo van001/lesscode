@@ -30,6 +30,7 @@ String may conatin bunch of characters. e.g,
 ```
 
 #### List (container - multiple objects; serially accessible) 
+![List](list.png)
 List may contain list of Strings or List itself.
 ```
 ['My','Name','is','Neelesh Vaikhary']
