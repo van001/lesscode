@@ -141,7 +141,7 @@ const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), s
 console.log(reverseSentence('my name is neelesh'))
 
 ```
-enabling print we get
+$ is a composition function. Enabling print with $p, we get
 
 ```
 hseleen si eman ym
