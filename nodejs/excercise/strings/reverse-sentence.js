@@ -1,8 +1,8 @@
 
-const { $,  l2String2, lapply2, space, s2List2, sreverse} = require('../lib/fp')
+const { $, $p, l2String2, lapply2, space, s2List2, sreverse} = require('../lib/fp')
 
 //reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
-const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+const reverseSentence = $p(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 
 /** Test */
 const data = [

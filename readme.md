@@ -128,15 +128,26 @@ After applying non-structure preserving function you can keep composing with str
 ```
 const { $,  l2String2, lapply2, space, s2List2, sreverse} = require('../lib/fp')
 
-//reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
+/** 
+reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
+1. reverse the string
+2. split string into list of strings
+3. Apply reverse operation to all items in the list
+4. Convert List back to String
+**/
+
 const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 
 console.log(reverseSentence('my name is neelesh'))
 
 ```
-will print
+enabling print we get
+
 ```
-'neelesh is name my'
+hseleen si eman ym
+[ 'hseleen', 'si', 'eman', 'ym' ]
+[ 'neelesh', 'is', 'name', 'my' ]
+neelesh is name my
 ```
 > $ is a composition function. After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
 
