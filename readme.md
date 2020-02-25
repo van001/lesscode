@@ -132,6 +132,6 @@ will print
 ```
 'neelesh is name my'
 ```
-> $ is a composition function. After s2List2 (String to List transformation), one could only compose with List fucntions - lapply2, l2String2 etc.
+> $ is a composition function. After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
 
 
