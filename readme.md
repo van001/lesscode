@@ -38,6 +38,8 @@ List may contain list of Strings or List itself.
 ```
 
 #### Map (dictionary - multiple objects; randomly accessible via key)
+![Map](map.jpeg)
+
 Map may contain another String, List or a Map, uniquely itendified by a key (String). 
 ```
 {
