@@ -139,12 +139,12 @@ reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
 const reverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 
 console.log(reverseSentence('my name is neelesh'))
-
 ```
+> After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
+
 $ is a composition function. Enabling print with $p, we get
 
 ```
-> After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
 hseleen si eman ym
 [ 'hseleen', 'si', 'eman', 'ym' ]
 [ 'neelesh', 'is', 'name', 'my' ]
