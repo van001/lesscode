@@ -1,10 +1,9 @@
-/** Basic */
+/** Generic functions */
 const blank = ''
 const comma =','
 const line = '\r\n'
 const space = ' '
 const len = a => a.length
-const add = a => b => a+b
 const nothing = null;
 
 const print = arg => {console.log(arg); return arg;}
@@ -21,10 +20,10 @@ const eqEmpty2 = l1 =>l2 => (eqEmpty(l1) && eqEmpty(l2))
 const gtlt2 = gt => lt => v => (v >=gt && v <= lt)
 const maybe = a =>  a || nothing
 
-/**  **/
+/** Construction functions   **/
 const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
-const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
-const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0]
+const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0] 
+const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
 const fork = f => args => ({ 'join' : f2 => Promise.all(args.map(f)).then(f2)})
 const decorate = f1 => f2 => f3 => (...args) => f4 => f2(f3(...args)(f4), f1())
 const range = start => end => f => { for (let i = start; i < end; i++) { f(i) } }
@@ -32,14 +31,11 @@ const loop = start => till => f => { let iter = start; do { f(iter) } while (!eq
 const next = value => value.next
 
 /** Math */
-const measure = label => f => decorate(console.time(label))(f)(console.timeEnd(label))
 const min2 = (a, b) => Math.min(a, b)
-const min = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
+const minA = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
 
 const assert = a => b => m => console.assert(eq(a)(b), `${m}`)
 const test = f => i => o => d.forEach(val => assert(f(...i))(...o)(` ${i}`))
-
-
 
 
 /** List **/
@@ -68,7 +64,6 @@ const lfoldR3 = func => init => lst => lst.reduce((acc, val) => func(val)(acc),i
 const lfoldL3 = func => init => lst => lst.reduce((acc, val) => func(acc)(val),init)
 
 //composite
-const lconcat = lfoldL3(add)(blank)
 
 /** Map **/
 //atomic operations
@@ -79,21 +74,27 @@ const minList2 = lst => map => lst.filter( val => map[val] !=null)
 
 /** String **/
 const isString = a => typeof a == 'string'
-const splitS = p => a =>  a.split(p) 
-const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
-const split = p => splitS(p)
+
+
+const ssplit = p => splitS(p)
 
 //const rmWhitespace = replace(space)(blank)
-const toUppercase = s=> s.toUpperCase()
+const suppercase = s=> s.toUpperCase()
 
+//2 param
+const sadd2 = str1 => str2 => str1+str2
+const sppend2 = str2 => str1 => str1+str2
+const ssplit2 = ptrn => str =>  str.split(ptrn) 
 
+//3 param
+const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 
 //conversion
-const s2List = s => s.split(blank)
-const s2List2 = p => s => s.split(p)
+const s2List = str => str.split(blank)
+const s2List2 = ptrn => str => str.split(ptrn)
 
 //composite 
-const sreverse = $(lfoldR3(add)(blank), s2List)
+const sreverse = $(lfoldR3(sadd2)(blank), s2List)
 
 filter = v => !eqNull(v) && v.length > 0
 
@@ -115,15 +116,15 @@ const curry = f => {
 const ret = b => v => {  if(b) return v;}
 
 module.exports = {
-    blank, space, comma, line, add, len, 
+    blank, space, comma, line, len, 
     memoize, $, $p, decorate,
     type, eq, eq0, eq1, eq01, eqNull, eqEmpty, eqEmpty2, gtlt2, 
     range, loop, next,
-    measure, min,
+    minA,
     assert, test,
     print,
-    isList, lhead, lpop, lshift, leqEmpty,  lconcat, l2Map, l2String , lmap2, lapply2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
-    isString, split,sreverse, sreplace3, toUppercase, s2List, s2List2, 
+    isList, lhead, lpop, lshift, leqEmpty, l2Map, l2String , lmap2, lapply2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
+    isString, ssplit,sreverse, sreplace3, suppercase, sadd2,sppend2,ssplit2,  s2List, s2List2, 
     minList2,
     success, error, throwE,
     sort,curry, fork, ret
