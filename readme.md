@@ -144,11 +144,12 @@ console.log(reverseSentence('my name is neelesh'))
 $ is a composition function. Enabling print with $p, we get
 
 ```
+> After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
 hseleen si eman ym
 [ 'hseleen', 'si', 'eman', 'ym' ]
 [ 'neelesh', 'is', 'name', 'my' ]
 neelesh is name my
 ```
-> After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
+
 
 
