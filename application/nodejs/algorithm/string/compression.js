@@ -2,6 +2,12 @@
  * Compress a string. e.g aabcccccaaa would become a2b1c5a3.
  * Solution to this is one of the best display of functional programming.
  * 
+ * 1. Transfrom String to List
+ * 2. Transform List to CompressMap
+ * 3. return the comoressed data from the CompressMap
+ * 
+ * Compress Map - { 'char': null, 'count': 0, 'data': '' }
+ * create helper functions to add, update data.
  */
 /** ToolSet */
 const { sappend2, gt2, lXfoldL3, mXfind, assert, $p, $, blank, s2List2, eq2 } = require('../../lc-core')
