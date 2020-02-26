@@ -7,7 +7,7 @@
 # Philosophy
 > Universe is either expanding or contracting - Albert Eienstien.
 
-In grand schemes of things entire universe can be described in terms of few abstractions. We call them law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to their way of thinking :). Functional thinking abstracts the complexity (function) and opinion(implementation) & provide us a generic way to  communicate and work together. None-the-less we need both, individualism as well as ability to work/exist as a group.
+In the grand scheme of things, the entire universe can be described in terms of few a abstractions. We call them the law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to "their" way of thinking :). Functional thinking abstracts the complexity (function) and opinion (implementation) & provide us a generic way to  communicate and work together. Nonetheless, we need both individualism and the ability to work/exist as a group.
 
 > What if I ask you to reverse words in a sentence like 'my name is neelesh' -> 'neelesh is name my'
 
@@ -25,21 +25,21 @@ const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), 
 > Or if I ask you to find intersection of 2 Lists of Strings : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
-1. If either of the list is empty, return empty list : []
-2. Convert one list to map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
+1. If either of the lists are empty, return the empty list : []
+2. Convert one list to a map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
 3. Return all the items form the 2nd list which are found in the Map : [dog','cat']
 
 or programatically : 
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
 
 ```
-**$ is way to compose functions.**
+** $ is way to compose functions.
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
 # Goal
 > Eating your own dog food.
 
-Initial goal is to influence programmers, including myself to start thinking in terms of functional programming and start constructing programs using pure functions(no side-effect) and function composition (lego blocks) using fewer data-structures and tools(functions).
+The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and start constructing programs using pure functions (no side-effect) and function composition (lego blocks) using fewer data-structures and tools (functions).
 
 # Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
