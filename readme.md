@@ -45,7 +45,7 @@ The initial goal is to influence programmers (including myself), to start thinki
 Eventually I want to solve many real-world complex problems and see how practical is it to do clutter-free programming using functional thinking.
 
 # Approach
-I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
+I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/application/nodejs) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
 I will also solve real-world programming problems like making Http calls, Fetching data from database etc and that is when I will introduce parallel composition techniques.
 
@@ -222,7 +222,7 @@ neelesh is name my // l2String2(space)
 # Application
 > There is a saying in the valley - ideas are dime a dozen. So let's execute & prove it...
 
-1. [Common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise)
+1. [Common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/application/nodejs)
 
 
 
