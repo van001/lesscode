@@ -63,8 +63,9 @@ const lfoldL3 = func => init => lst => lst.reduce((acc, val) => func(acc)(val),i
  * String 
  ****************************************************************************/
 // Helper functions
-const isString = a => typeof a == 'string'
-const suppercase = s => s.toUpperCase()
+const isString = str => typeof str == 'string'
+const suppercase = str => str.toUpperCase()
+const snoWhitespace = str => str.replace(space,blank)
 const sadd2 = str1 => str2 => str1 + str2
 const sppend2 = str2 => str1 => str1 + str2
 const ssplit2 = ptrn => str =>  str.split(ptrn) 
@@ -91,7 +92,7 @@ module.exports = {
     type, eq, eq0, eq1, eq01, eqNull,
     min2, minA, gtlt2, 
     isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lfoldR3, lfoldL3, 
-    isString, sreplace3, suppercase, sadd2,sppend2,ssplit2, s2List2, sreverse,
+    isString, snoWhitespace, suppercase, sadd2,sppend2,ssplit2, sreplace3, s2List2, sreverse,
     isMap, m2List2,
     print,assert, test,
 

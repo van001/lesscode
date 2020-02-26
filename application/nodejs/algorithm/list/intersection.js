@@ -14,7 +14,6 @@ const { leqEmpty, histogram, l2Map2, m2List2, $, $p } = require('../../lc-core')
 /** Function */
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(m2List2(lst2), l2Map2(histogram))(lst1)
 
-
 /** Test */
 const data = [
     [['dog', 'cat', 'horse', 'mouse'], ['dog', 'cat', 'bird'], ['dog', 'cat']],
