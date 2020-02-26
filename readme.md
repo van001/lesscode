@@ -22,6 +22,8 @@ Sentence is a just a String of Strings (words) separated by a whitespace, so
 or programatically :
 const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 ```
+[reverse-sentence.js](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/reverse-sentence.js)
+
 > Or if I ask you to find intersection of 2 Lists of Strings : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
@@ -33,6 +35,7 @@ or programatically :
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(m2List2(lst2), l2Map)(lst1)
 
 ```
+[intersection.js](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/list/intersection.js)
 ** $ is a [composiotion functions](https://github.com/van001/lesscode/blob/master/readme.md#3.) and functions are named with certain [rules](https://github.com/van001/lesscode/blob/master/readme.md#Function-naming).
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to send me your your feedbacks, suggestions or whatever way you feel like connecting/ contributing. 
