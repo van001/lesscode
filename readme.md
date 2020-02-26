@@ -13,7 +13,7 @@ In the grand scheme of things, the entire universe can be described in terms of 
 
 and you think
 ```
-Sentence is a String of words (String) separated by a whitespace, so
+Sentence is a just a String of Strings (words) separated by a whitespace, so
 1. Reverse the entire String so it becomes : 'hseleen si eman ym'
 2. Transform the String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
 3. Apply reverse to all the Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
@@ -33,7 +33,7 @@ or programatically :
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(m2List2(lst2), l2Map)(lst1)
 
 ```
-** $ is way to [compose functions](https://github.com/van001/lesscode/blob/master/readme.md#3. Function composition) and functions are named with certain [rules](https://github.com/van001/lesscode/blob/master/readme.md#Function naming).
+** $ is a [composiotion functions](https://github.com/van001/lesscode/blob/master/readme.md#3.) and functions are named with certain [rules](https://github.com/van001/lesscode/blob/master/readme.md#Function-naming).
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
 # Goal
@@ -93,7 +93,7 @@ In future I may use this base object and categories to build complex categories 
 ## 2. Pure Functions 
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
 
-#### Function naming
+#### Function-naming
 
 Name makes a huge difference. Just looking at the function name we should be able to tell on what category it applies, what it does and what is the arity. 
 I suggest we name functions as 
@@ -110,14 +110,14 @@ By default last parameter of a function acts on the object from the same categor
 const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 ```
 
-#### Single input functions
+#### Single-input 
 Most of the functions will have only one input and one output. Both input and/or output can be functions.
 ```
 const lhead = l => l[0]
 ```
 > 'l' denotes a List function, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
 
-#### Multiple input functions
+#### Multiple-input 
 ###### Currying
 I will use [Currying](https://en.wikipedia.org/wiki/Currying) to define functions with more than one parameter and upto 3 parameters, after which function will have arbitrary paramaters. If a function takes more than one parameter we post-fix the name with no. of parameters (up to 3). 
 ```
@@ -133,7 +133,7 @@ const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 ```
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 
-#### Category conversion functions
+#### Category-conversion 
 Conversion functions will morph object from one category to another. I should come up with a clear naming convention to identify such functions.
 ```
 const l2Map = lst => lst.reduce((acc, val) => { 
@@ -145,7 +145,7 @@ const l2String = lst => lst.join(space)
 ```
 > l2Map - converts List to Map; l2String - converts List to String
 
-#### Point free style
+#### Point-free-style
 I will write functions in [point free style](https://en.wikipedia.org/wiki/Tacit_programming), as much as possible. 
 ```
 const space = ' '
