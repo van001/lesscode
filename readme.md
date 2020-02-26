@@ -27,10 +27,10 @@ const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), 
 And you say , 
 1. If either of the lists are empty, return the empty list : []
 2. Transform one of the List to a Map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
-3. Match the 2nd List against the Map and retunrn the matching items as a List : [dog','cat']
+3. Transform the Map to List by matching it against another List : [dog','cat']
 
 or programatically : 
-const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
+const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(m2List2(lst2), l2Map)(lst1)
 
 ```
 ** $ is way to compose functions.

@@ -9,10 +9,10 @@
  */
 
  /** Toolset */
-const { leqEmpty, l2Map, minList2, $, $p } = require('../lib/lc-core')
+const { leqEmpty, l2Map, m2List2, $, $p } = require('../lib/lc-core')
 
 /** Function */
-const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
+const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(m2List2(lst2), l2Map)(lst1)
 
 
 /** Test */

@@ -69,8 +69,8 @@ const lfoldL3 = func => init => lst => lst.reduce((acc, val) => func(acc)(val),i
 //atomic operations
 const isMap = a => typeof a == 'object'
 
-//2 param functions
-const minList2 = lst => map => lst.filter( val => map[val] !=null)
+//conversion function
+const m2List2 = lst => map => lst.filter( val => map[val] !=null)
 
 /** String **/
 const isString = a => typeof a == 'string'
@@ -125,7 +125,7 @@ module.exports = {
     print,
     isList, lhead, lpop, lshift, leqEmpty, l2Map, l2String , lmap2, lapply2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
     isString, ssplit,sreverse, sreplace3, suppercase, sadd2,sppend2,ssplit2,  s2List, s2List2, 
-    minList2,
+    isMap, m2List2,
     success, error, throwE,
     sort,curry, fork, ret
 
