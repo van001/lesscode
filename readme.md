@@ -14,10 +14,10 @@ In the grand scheme of things, the entire universe can be described in terms of 
 and you think
 ```
 Sentence is a String of words (String) separated by a whitespace, so
-1. I can reverse the entire String so it becomes : 'hseleen si eman ym'
-2. Then I can break this one String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
-3. Now I can just reverse all those Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
-4. And finally join the List of Strings to form one String : neelesh is name my
+1. Reverse the entire String so it becomes : 'hseleen si eman ym'
+2. Transform the String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
+3. Apply reverse  to all the Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
+4. Transform the List of Strings to String again : neelesh is name my
 
 or programatically :
 const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
@@ -26,8 +26,8 @@ const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), 
 ```
 And you say , 
 1. If either of the lists are empty, return the empty list : []
-2. Convert one list to a map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
-3. Return all the items form the 2nd list which are found in the Map : [dog','cat']
+2. Transform one of the List to a Map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
+3. Match the 2nd List against the Map and retunrn the matching items as a List : [dog','cat']
 
 or programatically : 
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(minList2(lst2), l2Map)(lst1)
