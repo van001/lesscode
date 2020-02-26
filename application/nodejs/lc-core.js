@@ -40,9 +40,9 @@ const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))]
  ****************************************************************************/
 // Helper functions
 const isMap = a => typeof a == 'object'
-const mfind = key => map => map[key]
 
 // Conversion functions
+const mXfind = key => map => map[key]
 const m2List2 = lst => map => lst.filter( val => map[val] !=null)
 
 /*****************************************************************************
@@ -101,7 +101,7 @@ module.exports = {
     min2, minA, gtlt2, 
     isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lfoldR3, lfoldL3, 
     isString, snoWhitespace, suppercase, sadd2,sppend2,ssplit2, sreplace3, s2List2, sreverse,
-    isMap, mfind, m2List2,
+    isMap, mXfind, m2List2,
     print,assert, test,
 
 }

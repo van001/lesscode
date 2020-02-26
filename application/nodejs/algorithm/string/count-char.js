@@ -8,10 +8,10 @@
  */
 
  /** ToolSet */
-let {$, zeroOnNull, mfind, histogram,l2Map2, blank,s2List2} = require('../../lc-core')
+let {$, zeroOnNull, mXfind, histogram,l2Map2, blank,s2List2} = require('../../lc-core')
 
 /** Function */
-let countChar = char => str = $(zeroOnNull, mfind(char),l2Map2(histogram),s2List2(blank))
+let countChar = char => str = $(zeroOnNull, mXfind(char),l2Map2(histogram),s2List2(blank))
 
 /** Test */
 let data = [      
