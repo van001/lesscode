@@ -1,6 +1,6 @@
 /**
  * Compress a string. e.g aabcccccaaa would become a2b1c5a3.
- * Solution to this is one of the best display of functional programming.
+ * Solution to this is one of the best display of functional programming. 
  * 
  * 1. Transfrom String to List
  * 2. Transform List to CompressMap
@@ -29,4 +29,20 @@ const scompress = str => $(mXfind('data'), cbuildFromList, s2List2(blank))(str)
 
 let data = [['aabcccccaaa', 'a2b1c5a3']]
 data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
+
+/***
+ *  // Output : you can actually see how it is built.
+    { char: null, count: 0, data: 'a' }
+    { char: 'a', count: 0, data: 'a' }
+    { char: 'a', count: 1, data: 'a' }
+    { char: 'a', count: 2, data: 'a2b' }
+    { char: 'b', count: 2, data: 'a2b' }
+    { char: 'b', count: 1, data: 'a2b' }
+    { char: 'b', count: 1, data: 'a2b1c' }
+    { char: 'c', count: 1, data: 'a2b1c' }
+    { char: 'c', count: 1, data: 'a2b1c' }
+    { char: 'c', count: 5, data: 'a2b1c5a' }
+    { char: 'a', count: 5, data: 'a2b1c5a' }
+    { char: 'a', count: 1, data: 'a2b1c5a' }
+ */
 
