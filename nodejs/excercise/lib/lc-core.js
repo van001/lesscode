@@ -90,7 +90,6 @@ const ssplit2 = ptrn => str =>  str.split(ptrn)
 const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith) 
 
 //conversion
-const s2List = str => str.split(blank)
 const s2List2 = ptrn => str => str.split(ptrn)
 
 //composite 
@@ -124,7 +123,7 @@ module.exports = {
     assert, test,
     print,
     isList, lhead, lpop, lshift, leqEmpty, l2Map, l2String , lmap2, lapply2, lpush2, lappend2, l2String2,  lfoldR3, lfoldL3, 
-    isString, ssplit,sreverse, sreplace3, suppercase, sadd2,sppend2,ssplit2,  s2List, s2List2, 
+    isString, ssplit,sreverse, sreplace3, suppercase, sadd2,sppend2,ssplit2, s2List2, 
     isMap, m2List2,
     success, error, throwE,
     sort,curry, fork, ret
