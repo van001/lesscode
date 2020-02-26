@@ -22,10 +22,10 @@ const cupdateChar = char => cmap => ({ char, 'count': cmap.count, 'data': cmap.d
 const cupdateData = char => cmap => ({ 'char': cmap.char, 'count': cmap.count, 'data': cmap.count > 0 ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data) })
 const cgetData = cmap => ({ 'char': cmap.char, 'count': cmap.count, 'data': cmap.count > 1 ? $(sappend2(cmap.count))(cmap.data) : cmap.data })
 const cadd = cmap => char => eq2(char)(cmap.char) ? cincrCount(cmap) : $p(cresetCount, cupdateChar(char), cupdateData(char))(cmap)
-const cbuildFromList = lst => $(cgetData, lXfoldL3(CompressMap())(cadd))(lst)
+const cbuildFromList = lst => lXfoldL3(CompressMap())(cadd)(lst)
 
 /** Function */
-const scompress = str => $(mXfind('data'), cbuildFromList, s2List2(blank))(str)
+const scompress = str => $(mXfind('data'), cgetData, cbuildFromList, s2List2(blank))(str)
 
 let data = [['aabcccccaaa', 'a2b1c5a3']]
 data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
