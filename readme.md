@@ -134,18 +134,35 @@ const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceW
 const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 ```
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
+#### Category-helpers
+Category helper functions transform one category to another preserving the structure.
 
-#### Category-conversion 
-Conversion functions will morph object from one category to another. I should come up with a clear naming convention to identify such functions.
 ```
-const l2Map = lst => lst.reduce((acc, val) => { 
-        (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc 
-    }, {})
+// String helper functions :
+supperCase - converts String characters to uppercase
+scapitalize - converts the 1st character of a String to uppercase
+...
 
-const space = ' '
-const l2String = lst => lst.join(space)
+//List helper function
+
+//Map helper function
 ```
-> l2Map - converts List to Map; l2String - converts List to String
+
+#### Category-transformer
+Category transformer functions transform one category to another without preserving the structure. They are always
+
+```
+String to :
+
+
+List to :
+const l2Map2 = map => lst => lst.reduce((acc, val) => { acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc }, map)
+const l2String2= ptrn => lst => lst.join(ptrn)
+
+Map to : 
+const m2List2 = lst => map => lst.filter( val => map[val] !=null)
+```
+> 
 
 #### Point-free-style
 I will write functions in [point free style](https://en.wikipedia.org/wiki/Tacit_programming), as much as possible. 
