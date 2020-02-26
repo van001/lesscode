@@ -33,7 +33,7 @@ or programatically :
 const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $(m2List2(lst2), l2Map)(lst1)
 
 ```
-** $ is way to [compose functions](https://github.com/van001/lesscode/blob/master/readme.md#3.) and functions are named with certain [rules](https://github.com/van001/lesscode/blob/master/readme.md#Function-naming).
+** $ is a [composiotion functions](https://github.com/van001/lesscode/blob/master/readme.md#3.) and functions are named with certain [rules](https://github.com/van001/lesscode/blob/master/readme.md#Function-naming).
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to join hands with me with your feedbacks, suggestions or whatever way you feel like connecting/ contributing.
 # Goal
