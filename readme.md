@@ -16,7 +16,7 @@ and you think
 Sentence is a String of words (String) separated by a whitespace, so
 1. Reverse the entire String so it becomes : 'hseleen si eman ym'
 2. Transform the String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
-3. Apply reverse  to all the Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
+3. Apply reverse to all the Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
 4. Transform the List of Strings to String again : neelesh is name my
 
 or programatically :
