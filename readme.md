@@ -135,7 +135,7 @@ const replaceNYCWithJKF = sreplace3(/JFK/)('NYC')
 ```
 > You can use replaceNYCWithJKF over and over to replace 'NYC' with 'JFK' for multiple strings. Just make sure that the last paramter should be the object on which the function would apply.
 #### Category-helpers
-Category helper functions transform one category to another preserving the structure.
+Category helper functions transform one category to another preserving the structure. String remains String, List remains List and Map remains Map.
 
 ```
 // String helper functions :
@@ -149,7 +149,7 @@ scapitalize - converts the 1st character of a String to uppercase
 ```
 
 #### Category-transformer
-Category transformer functions transform one category to another without preserving the structure. They are always
+Category transformer functions transform one category to another without preserving the structure. String becomes List, List becomes String or Map, Map becomes List or String.
 
 ```
 String to :
