@@ -13,7 +13,7 @@ In the grand scheme of things, the entire universe can be described in terms of 
 
 and you think
 ```
-Sentence is a String of words (String) separated by a whitespace, so
+Sentence is a just a String of Strings (words) separated by a whitespace, so
 1. Reverse the entire String so it becomes : 'hseleen si eman ym'
 2. Transform the String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
 3. Apply reverse to all the Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
