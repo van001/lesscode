@@ -9,10 +9,7 @@ const space = ' '
 
 // Equality functions
 const type = n => type => (typeof n == type) ? true : false
-const eq = a => b => (type(a)('object') && type(b)('object')) ? a.join('') === b.join('') : (a === b)
-const eq01 = n => (n == 0 || n == 1) ? true : false
-const eq1 = eq(1)
-const eq0 = eq(0)
+const eq2 = a => b => (type(a)('object') && type(b)('object')) ? a.join('') === b.join('') : (a === b)
 const eqNull = n => (n == null || n == undefined) ? true : false
 
 // Generic Helpers
@@ -27,6 +24,7 @@ const zeroOnNull = val => eqNull(val)? 0 : val
  ****************************************************************************/
 const min2 = (a, b) => Math.min(a, b)
 const minA = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
+const gt2 = gt = val => val > gt
 const gtlt2 = gt => lt => v => (v >=gt && v <= lt)
 
 /*****************************************************************************
@@ -62,8 +60,8 @@ const lXpop = l => l.pop()
 const lXshift = l => l.shift()
 const l2Map2 = func => lst => lst.reduce(func,{})
 const l2String2 = ptrn => lst => lst.join(ptrn)
-const lfoldR3 = func => init => lst => lst.reduce((acc, val) => func(val)(acc),init)
-const lfoldL3 = func => init => lst => lst.reduce((acc, val) => func(acc)(val),init)
+const lXfoldR3 = init => func2 => lst => lst.reduce((acc, val) => func2(val)(acc),init)
+const lXfoldL3 = init => func2 => lst => lst.reduce((acc, val) => func2(acc)(val),init)
 
 
 /*****************************************************************************
@@ -74,7 +72,7 @@ const isString = str => typeof str == 'string'
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space,blank)
 const sadd2 = str1 => str2 => str1 + str2
-const sppend2 = str2 => str1 => str1 + str2
+const sappend2 = str2 => str1 => str1 + str2
 const ssplit2 = ptrn => str =>  str.split(ptrn) 
 const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceWith)
 
@@ -82,7 +80,7 @@ const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceW
 const s2List2 = ptrn => str => str.split(ptrn)
 
 //Composite 
-const sreverse = $(lfoldR3(sadd2)(blank), s2List2(blank))
+const sreverse = $(lXfoldR3(blank)(sadd2), s2List2(blank))
 
 
 
@@ -90,17 +88,17 @@ const sreverse = $(lfoldR3(sadd2)(blank), s2List2(blank))
  * Testing
  ****************************************************************************/
 const print = arg => {console.log(arg); return arg;}
-const assert = a => b => m => console.assert(eq(a)(b), `${m}`)
+const assert = a => b => m => console.assert(eq2(a)(b), `${m}`)
 
 module.exports = {
     blank, space, comma, line, 
-    type, eq, eq0, eq1, eq01, eqNull,
+    type, eq2, eqNull,
     histogram, zeroOnNull, 
-    min2, minA, gtlt2, 
+    min2, minA, gt2, gtlt2, 
     $, $p,
     isMap, mXfind, m2List2,
-    isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lfoldR3, lfoldL3, 
-    isString, snoWhitespace, suppercase, sadd2,sppend2,ssplit2, sreplace3, s2List2, sreverse,
+    isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lXfoldR3, lXfoldL3, 
+    isString, snoWhitespace, suppercase, sadd2,sappend2,ssplit2, sreplace3, s2List2, sreverse,
     print,assert
 
 }
