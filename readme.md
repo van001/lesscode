@@ -39,7 +39,7 @@ Even-though it is started by an individual 'I', it cannot be functional unless i
 # Goal
 > Eating your own dog food.
 
-The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and start constructing programs using pure functions (no side-effect) and function composition (lego blocks) using fewer data-structures and tools (functions).
+The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and start constructing programs using pure functions (no side-effect), function composition (lego blocks), fewer data-structures and tools (functions).
 
 # Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
