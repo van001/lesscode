@@ -217,7 +217,7 @@ neelesh is name my // l2String2(space)
 ```
 
 # Application
-> Even though we are all individuals, we still have a herd mentality.
+> Say they say in the valley - ideas are dime a dozen. So let's execute it...
 
 1. [Common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/nodejs/excercise)
 
