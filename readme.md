@@ -91,6 +91,8 @@ Most programming language provide the implementation of the above categories, so
 In future I may use this base object and categories to build complex categories like Heap, Tree & Graph.
 
 ## 2. Pure Functions 
+> Be a rebel but live life by few rules.
+
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
 
 #### Function-naming
