@@ -25,7 +25,7 @@ const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), 
 > Or if I ask you to find intersection of 2 Lists of Strings : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
-1. If either of the lists are empty, return the empty list : []
+1. If either of the Lists are empty, return the empty List : []
 2. Transform one of the List to a Map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
 3. Transform the Map to List by matching it against another List : [dog','cat']
 
