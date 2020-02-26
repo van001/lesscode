@@ -107,12 +107,14 @@ For each of the above categories(String, List & Map), I will build functions to 
 Name makes a huge difference. Just looking at the function name we should be able to tell on what category it applies, what it does and what is the arity. 
 I suggest we name functions as 
 ```
-[l|s|m][operation][arity] 
+<l|s|m>[2|X]<operation>[arity] 
 
 e.g. 
-const lhead = l => l[0] // function to retrieve head of the List
+suppercase - function to convert String to uppercase String
+lXhead  - function to retrieve head of the List
+l2Map2 - function to transform List to Map
 ```
-> Where [l|s|m] denote category - String, List or Map; operation - what function is suppose to do; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary. 
+> Where <l|s|m> denote category - String, List or Map; [2|X] denote category transformation; <operation> - what function does; arity - how many parameters it takes. 2 or 3 denotes 2 or 3 parameters 'A' denotes arbitrary. 
 
 By default last parameter of a function acts on the object from the same category on which it is defined.
 ```
