@@ -1,11 +1,11 @@
 /*****************************************************************************
  * Generic
  ****************************************************************************/
+// Constants 
 const blank = ''
 const comma =','
 const line = '\r\n'
 const space = ' '
-const histogram = (acc, val) => { (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc }
 
 // Equality functions
 const type = n => type => (typeof n == type) ? true : false
@@ -14,6 +14,12 @@ const eq01 = n => (n == 0 || n == 1) ? true : false
 const eq1 = eq(1)
 const eq0 = eq(0)
 const eqNull = n => (n == null || n == undefined) ? true : false
+
+// Generic Helpers
+const histogram = (acc, val) => { (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc }
+const zeroOnNull = val => eqNull(val)? 0 : val
+
+
 
 
 /*****************************************************************************
@@ -34,6 +40,7 @@ const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))]
  ****************************************************************************/
 // Helper functions
 const isMap = a => typeof a == 'object'
+const mfind = key => map => map[key]
 
 // Conversion functions
 const m2List2 = lst => map => lst.filter( val => map[val] !=null)
@@ -87,13 +94,14 @@ const assert = a => b => m => console.assert(eq(a)(b), `${m}`)
 const test = f => i => o => d.forEach(val => assert(f(...i))(...o)(` ${i}`))
 
 module.exports = {
-    blank, space, comma, line, histogram, 
-    $, $p,
+    blank, space, comma, line, 
     type, eq, eq0, eq1, eq01, eqNull,
+    histogram, zeroOnNull, 
+    $, $p,
     min2, minA, gtlt2, 
     isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lfoldR3, lfoldL3, 
     isString, snoWhitespace, suppercase, sadd2,sppend2,ssplit2, sreplace3, s2List2, sreverse,
-    isMap, m2List2,
+    isMap, mfind, m2List2,
     print,assert, test,
 
 }
