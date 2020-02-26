@@ -15,7 +15,7 @@ const { sappend2, gt2, lXfoldL3, mXfind, assert, $p, $, blank, s2List2, eq2 } = 
 /** New tool */
 const CompressMap = () => ({ 'char': null, 'count': 0, 'data': '' })
 
-// Comress map manipulators.
+// Compress map manipulators. See how the data is separate and each operastion produces a new version.
 const cresetCount = cmap => ({ 'char': cmap.char, 'count': 1, 'data': cmap.data })
 const cincrCount = cmap => ({ 'char': cmap.char, 'count': cmap.count + 1, 'data': cmap.data })
 const cupdateChar = char => cmap => ({ char, 'count': cmap.count, 'data': cmap.data })
@@ -30,7 +30,7 @@ const scompress = str => $(mXfind('data'), cgetData, cbuildFromList, s2List2(bla
 let data = [['aabcccccaaa', 'a2b1c5a3']]
 data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
 
-/***
+/***.
  *  // Output : you can actually see how it is built.
     { char: null, count: 0, data: 'a' }
     { char: 'a', count: 0, data: 'a' }
