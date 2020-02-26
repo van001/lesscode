@@ -91,17 +91,16 @@ const sreverse = $(lfoldR3(sadd2)(blank), s2List2(blank))
  ****************************************************************************/
 const print = arg => {console.log(arg); return arg;}
 const assert = a => b => m => console.assert(eq(a)(b), `${m}`)
-const test = f => i => o => d.forEach(val => assert(f(...i))(...o)(` ${i}`))
 
 module.exports = {
     blank, space, comma, line, 
     type, eq, eq0, eq1, eq01, eqNull,
     histogram, zeroOnNull, 
-    $, $p,
     min2, minA, gtlt2, 
+    $, $p,
+    isMap, mXfind, m2List2,
     isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lfoldR3, lfoldL3, 
     isString, snoWhitespace, suppercase, sadd2,sppend2,ssplit2, sreplace3, s2List2, sreverse,
-    isMap, mXfind, m2List2,
-    print,assert, test,
+    print,assert
 
 }

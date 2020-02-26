@@ -8,7 +8,7 @@
  */
 
 /** ToolSet */
-let {$, sreverse, snoWhitespace, eq} = require('../../lc-core')
+let {assert, $, sreverse, snoWhitespace, eq} = require('../../lc-core')
 
 /** Function */
 const isPalindrome = str => $(eq(snoWhitespace(str)),sreverse,snoWhitespace)(str)
@@ -20,6 +20,4 @@ const data =[
     ['',true]
 ]
 
-data.forEach( val => console.assert(isPalindrome(val[0]) == val[1],` {val}`))
-
-
+data.forEach( val => assert(isPalindrome(val[0]))(val[1])(`{val}`))

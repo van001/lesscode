@@ -8,7 +8,7 @@ Problem : reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is nam
 **/
 
 /** Toolset **/ 
-const { $, $p, l2String2, lapply2, space, s2List2, sreverse} = require('../../lc-core')
+const { assert, $, $p, l2String2, lapply2, space, s2List2, sreverse} = require('../../lc-core')
 
 /** Function */
 const reverseSentence = $p(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
@@ -18,7 +18,4 @@ const data = [
     ['my name is neelesh','neelesh is name my']
 ]
 
-data.forEach(val => console.assert(reverseSentence(val[0])==val[1], ` ${val}`))
-
-
-
+data.forEach(val => assert(reverseSentence(val[0]))(val[1])(` ${val}`))
