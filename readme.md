@@ -48,6 +48,8 @@ The initial goal is to influence programmers (including myself), to start thinki
 
 Eventually I want to solve many real-world complex problems and see how practical is it to do clutter-free programming using functional thinking.
 
+> One of the finest display : [Compress a String](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/compression.js)
+
 # Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/application/nodejs) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
