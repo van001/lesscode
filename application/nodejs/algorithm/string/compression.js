@@ -38,7 +38,7 @@ const sZList = lst => $(sdata, l2Map3(CompressedString())(sbuild2))(lst)
  * The above Category can be easily impelemted as a class and we can start doing OO :).
  * Notice we kept CompressedString as String - non mutable.
  * We are already overriding functions :).
- * Did we get OO wrong or lack of compositional structure forced the OO to become what it has become? 
+ * Did we get OO wrong by forcing mutation & tight coupling of functions?
  * As I am noticing, the key to successful FP is ability to compose, I am also thinking, what if other programming paradigms made composition trivial?
  */
 
