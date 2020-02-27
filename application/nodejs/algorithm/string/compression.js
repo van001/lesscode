@@ -14,10 +14,10 @@
  * 
  */
 /** ToolSet */
-const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2, snoNull } = require('../../lc-core')
+const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2, eqNull } = require('../../lc-core')
 
 /** New tool */
-const CompressedString = char => count => data => ({char,count,data})
+const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
 
 // Compress map manipulators. See how the data is separate and each operation produces a new version.
 // Following the naming convention to name the functions.
