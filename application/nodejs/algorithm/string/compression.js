@@ -4,7 +4,7 @@
  * 
  * 1. Transfrom String to List
  * 2. Transform List to CompressMap
- * 3. return the comoressed data from the CompressMap
+ * 3. Return the comrressed data from the CompressMap
  * 
  * Compress Map - { 'char': null, 'count': 0, 'data': '' }
  * create helper functions to add, update data.
@@ -16,12 +16,13 @@ const { sappend2, gt2, lXfoldL3, mXfind, assert, $p, $, blank, s2List2, eq2 } = 
 const CompressMap = () => ({ 'char': null, 'count': 0, 'data': '' })
 
 // Compress map manipulators. See how the data is separate and each operastion produces a new version.
-// Following our naming convention to name functions.
-const cresetCount = cmap => ({ 'char': cmap.char, 'count': 1, 'data': cmap.data })
-const cincrCount = cmap => ({ 'char': cmap.char, 'count': cmap.count + 1, 'data': cmap.data })
-const cupdateChar2 = char => cmap => ({ char, 'count': cmap.count, 'data': cmap.data })
-const cupdateData2 = char => cmap => ({ 'char': cmap.char, 'count': cmap.count, 'data': gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data) })
-const cgetData = cmap => ({ 'char': cmap.char, 'count': cmap.count, 'data': gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data })
+// Following our naming convention to name the functions.
+const cupdate3 = char => count => data => ({char,count,data})
+const cresetCount = cmap => cupdate3(cmap.char)(1)(cmap.data)
+const cincrCount = cmap => cupdate3(cmap.char)(cmap.count + 1)(cmap.data)
+const cupdateChar2 = char => cmap => cupdate3(char)(cmap.coun)(cmap.data)
+const cupdateData2 = char => cmap => cupdate3(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
+const cgetData = cmap => cupdate3(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data)
 const cadd2 = cmap => char => eq2(char)(cmap.char) ? cincrCount(cmap) : $p(cresetCount, cupdateChar2(char), cupdateData2(char))(cmap)
 const cbuildFromList = lst => lXfoldL3(CompressMap())(cadd2)(lst)
 
