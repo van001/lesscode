@@ -34,10 +34,12 @@ const sdata = cs => mXfind('data')(CompressedString(cs.char)(cs.count)(gt2(1)(cs
 const sZList = lst => $(sdata, l2Map3(CompressedString())(sbuild2))(lst)
 
 /**
- * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
- * Also you can see how similar the above is with OO without mannrying the data with the maipulators.
+ * Philosophically : 
+ * The above Category can be easily impelemted as a class and we can start doing OO :).
+ * Notice we kept CompressedString as String - non mutable.
+ * We are already overriding functions :).
  * Did we get OO wrong or lack of compositional structure forced the OO to become what it has become? 
- * As I am noticing, the key to successful FP is ability to compose, I am also thinking, what if other programming paradigms make composition trivial?
+ * As I am noticing, the key to successful FP is ability to compose, I am also thinking, what if other programming paradigms made composition trivial?
  */
 
 /** Function */
