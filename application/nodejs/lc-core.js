@@ -9,7 +9,11 @@ const space = ' '
 
 // Equality functions
 const type = n => type => (typeof n == type) ? true : false
-const eq2 = a => b => (type(a)('object') && type(b)('object')) ? a.join('') === b.join('') : (a === b)
+const eq2 = a => b => {
+    if(type(a)('array') && type(b)('array')) return a.join('') === b.join('') 
+    if(type(a)('object') && type(b)('object')) return a.toString() === b. toString()
+    return (a === b)
+}
 const eqNull = n => (n == null || n == undefined) ? true : false
 
 // Generic Helpers
@@ -17,14 +21,12 @@ const histogram = (acc, val) => { (acc[val]) ? acc[val] += 1 : acc[val] = 1; ret
 const zeroOnNull = val => eqNull(val)? 0 : val
 
 
-
-
 /*****************************************************************************
  * Math
  ****************************************************************************/
 const min2 = (a, b) => Math.min(a, b)
 const minA = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
-const gt2 = gt = val => val > gt
+const gt2 = gt => val => val > gt
 const gtlt2 = gt => lt => v => (v >=gt && v <= lt)
 
 /*****************************************************************************
@@ -38,6 +40,7 @@ const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))]
  ****************************************************************************/
 // Helper functions
 const isMap = a => typeof a == 'object'
+const mfilter2  = filter => map => {const xmap ={}; Object.keys(map).forEach(key => filter(map[key])? xmap[key]= map[key]:"");return xmap}
 
 // Conversion functions
 const mXfind = key => map => map[key]
@@ -52,7 +55,6 @@ const leqEmpty = l => eq0(l.length)
 const lapply2 = func => lst => lst.map(func)
 const lpush2 = lst => val => lst.push(val)
 const lappend2 = lst1 => lst2 =>  lst1.forEach( val => lst2.push(val)) 
-
 
 // Conversion functions
 const lXhead = l => l[0]
@@ -96,7 +98,7 @@ module.exports = {
     histogram, zeroOnNull, 
     min2, minA, gt2, gtlt2, 
     $, $p,
-    isMap, mXfind, m2List2,
+    isMap, mfilter2, mXfind, m2List2,
     isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lXfoldR3, lXfoldL3, 
     isString, snoWhitespace, suppercase, sadd2,sappend2,ssplit2, sreplace3, s2List2, sreverse,
     print,assert
