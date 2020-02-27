@@ -15,7 +15,7 @@
 /** ToolSet */
 const { sappend2, s2List2, l2Map3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
 
-/** New tool */
+/** New Category */
 const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
 
 /**
