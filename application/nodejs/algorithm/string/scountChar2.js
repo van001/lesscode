@@ -11,12 +11,12 @@
 let {mXfind, histogram,l2Map2,s2List2, zeroOnNull, assert, $, blank} = require('../../lc-core')
 
 /** Function */
-let scountChar = char => str = $(zeroOnNull, mXfind(char),l2Map2(histogram),s2List2(blank))
+let scountChar2 = char => str = $(zeroOnNull, mXfind(char),l2Map2(histogram),s2List2(blank))
 
 /** Test */
 let data = [      
         ['e','My name is Neelesh has',4],
         ['z','My name is Neelesh has',0]
     ]
-data.forEach( (val) => assert(scountChar(val[0])(val[1]))(val[2])(` ${val}`))
+data.forEach( (val) => assert(scountChar2(val[0])(val[1]))(val[2])(` ${val}`))
 
