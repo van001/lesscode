@@ -17,7 +17,7 @@ const eq2 = a => b => {
 const eqNull = n => (n == null || n == undefined) ? true : false
 
 // Generic Helpers
-const histogram = (acc, val) => { (acc[val]) ? acc[val] += 1 : acc[val] = 1; return acc }
+const histogram = (map, val) => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
 const zeroOnNull = val => eqNull(val)? 0 : val
 
 
@@ -34,6 +34,8 @@ const gtlt2 = gt => lt => v => (v >=gt && v <= lt)
  ****************************************************************************/
 const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0] 
 const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
+const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
+
 
 /*****************************************************************************
  * Map 
@@ -57,9 +59,11 @@ const lpush2 = lst => val => lst.push(val)
 const lappend2 = lst1 => lst2 =>  lst1.forEach( val => lst2.push(val)) 
 
 // Conversion functions
-const lXhead = l => l[0]
-const lXpop = l => l.pop()
-const lXshift = l => l.shift()
+const lXhead = lst => lst[0]
+const lXtail = lst => lst[lst.length -1]
+const lXpop = lst => lst.pop()
+const lXshift = lst => lst.shift()
+const lXshave2 = count => lst => lst.slice(0, lst.length - count)
 const l2Map2 = func => lst => lst.reduce(func,{})
 const l2String2 = ptrn => lst => lst.join(ptrn)
 const lXfoldR3 = init => func2 => lst => lst.reduce((acc, val) => func2(val)(acc),init)
@@ -97,9 +101,9 @@ module.exports = {
     type, eq2, eqNull,
     histogram, zeroOnNull, 
     min2, minA, gt2, gtlt2, 
-    $, $p,
+    $, $p, memoize, 
     isMap, mfilter2, mXfind, m2List2,
-    isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXpop, lXshift, lXfoldR3, lXfoldL3, 
+    isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXtail, lXshave2, lXpop, lXshift, lXfoldR3, lXfoldL3, 
     isString, snoWhitespace, suppercase, sadd2,sappend2,ssplit2, sreplace3, s2List2, sreverse,
     print,assert
 
