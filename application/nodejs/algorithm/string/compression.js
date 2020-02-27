@@ -25,6 +25,12 @@ const cgetData = cmap => ({ 'char': cmap.char, 'count': cmap.count, 'data': gt2(
 const cadd2 = cmap => char => eq2(char)(cmap.char) ? cincrCount(cmap) : $p(cresetCount, cupdateChar2(char), cupdateData2(char))(cmap)
 const cbuildFromList = lst => lXfoldL3(CompressMap())(cadd2)(lst)
 
+/**
+ * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
+ * Did we get OO wrong or lack of compositional structure forced the OO to become what it has become. 
+ * As I am noticing, the key to successful FP is ability to compose, I am also thinking, what if other programming paradigms make composition trivial?
+ */
+
 /** Function */
 const scompress = str => $(mXfind('data'), cgetData, cbuildFromList, s2List2(blank))(str)
 
