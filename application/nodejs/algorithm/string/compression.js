@@ -23,15 +23,15 @@ const CompressedString = char => count => data => ({char,'count': eqNull(count) 
 * CompressedString  functions. See how the data is separate and each operation produces a new version.
 * Following the naming convention to name the functions.
 **/
-const CSresetCount = cmap => CompressedString(cmap.char)(1)(cmap.data)
-const CSincrCount = cmap => CompressedString(cmap.char)(cmap.count + 1)(cmap.data)
-const CSupdateChar2 = char => cmap => CompressedString(char)(cmap.coun)(cmap.data)
-const CSupdateData2 = char => cmap => CompressedString(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
-const CSappend2 = cmap => char => eq2(char)(cmap.char) ? CSincrCount(cmap) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cmap)
+const CSresetCount = cs => CompressedString(cs.char)(1)(cs.data)
+const CSincrCount = cs => CompressedString(cs.char)(cs.count + 1)(cs.data)
+const CSupdateChar2 = char => cs => CompressedString(char)(cs.coun)(cs.data)
+const CSupdateData2 = char => cs => CompressedString(cs.char)(cs.count)(gt2(0)(cs.count) ? $(sappend2(char), sappend2(cs.count))(cs.data) : sappend2(char)(cs.data))
 
 //overrides
-const sdata = cmap => mXfind('data')(CompressedString(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data))
-const sZList = lst => $(sdata, l2Map3(CompressedString())(CSappend2))(lst)
+const sbuild2 = cs => char => eq2(char)(cs.char) ? CSincrCount(cs) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cs)
+const sdata = cs => mXfind('data')(CompressedString(cs.char)(cs.count)(gt2(1)(cs.count) ? $(sappend2(cs.count))(cs.data) : cs.data))
+const sZList = lst => $(sdata, l2Map3(CompressedString())(sbuild2))(lst)
 
 /**
  * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
