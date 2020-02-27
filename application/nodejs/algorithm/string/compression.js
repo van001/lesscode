@@ -9,9 +9,8 @@
  * 3. Return the CompressedString.
  * 
  * CompressedSring - Internally prepresented as a Map : { 'char': null, 'count': 0, 'data': ''}
- * We will implement String functions to add and build CompressedString. External categories will be prefixed with Category acronym
- * CompressedSring : CS
- * 
+ * We will implement String functions to add and build CompressedString. 
+ * External categories will be prefixed with Category acronym; CompressedSring : CS
  */
 /** ToolSet */
 const { sappend2, s2List2, l2Map3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
