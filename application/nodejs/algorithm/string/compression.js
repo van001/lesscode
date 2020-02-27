@@ -31,7 +31,7 @@ const CSappend2 = cmap => char => eq2(char)(cmap.char) ? CSincrCount(cmap) : $p(
 
 //overrides
 const sdata = cmap => mXfind('data')(CompressedString(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data))
-const sZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
+const sZList = lst => $(sdata, l2Map3(CompressedString())(CSappend2))(lst)
 
 /**
  * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
@@ -40,7 +40,7 @@ const sZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
  */
 
 /** Function */
-const scompress = str => $(sdata, sZList, s2List2(blank))(str)
+const scompress = str => $(sZList, s2List2(blank))(str)
 
 let data = [['aabcccccaaa', 'a2b1c5a3']]
 data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
