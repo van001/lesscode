@@ -71,6 +71,7 @@ const l2Map2 = func => lst => lst.reduce(func,{})
 const l2String2 = ptrn => lst => lst.join(ptrn)
 const lXfoldR3 = init => func2 => lst => lst.reduce((acc, val) => func2(val)(acc),init)
 const lXfoldL3 = init => func2 => lst => lst.reduce((acc, val) => func2(acc)(val),init)
+const l2Map3 = map => func2 => lst => lXfoldL3(map)(func2)(lst)
 
 
 /*****************************************************************************
@@ -106,7 +107,7 @@ module.exports = {
     min2, minA, gt2, gtlt2, 
     $, $p, memoize, 
     isMap, mfilter2, mXfind, m2List2,
-    isList,  leqEmpty,lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, 
+    isList,  leqEmpty,lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3, 
     isString, snoWhitespace, suppercase, sadd2,sappend2,ssplit2, sreplace3, s2List2, sreverse,
     print,assert
 

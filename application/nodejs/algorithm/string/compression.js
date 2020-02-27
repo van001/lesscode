@@ -10,7 +10,7 @@
  * create helper functions to add, update data.
  */
 /** ToolSet */
-const { sappend2, gt2, lXfoldL3, mXfind, assert, $p, $, blank, s2List2, eq2 } = require('../../lc-core')
+const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2 } = require('../../lc-core')
 
 /** New tool */
 const CompressMap = () => ({ 'char': null, 'count': 0, 'data': '' })
@@ -24,7 +24,7 @@ const cupdateChar2 = char => cmap => cupdate3(char)(cmap.coun)(cmap.data)
 const cupdateData2 = char => cmap => cupdate3(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
 const cgetData = cmap => cupdate3(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data)
 const cadd2 = cmap => char => eq2(char)(cmap.char) ? cincrCount(cmap) : $p(cresetCount, cupdateChar2(char), cupdateData2(char))(cmap)
-const cbuildFromList = lst => lXfoldL3(CompressMap())(cadd2)(lst)
+const cbuildFromList = lst => l2Map3(CompressMap())(cadd2)(lst)
 
 /**
  * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
