@@ -5,7 +5,7 @@
  * one of the Categories with a new Category (Structure preserving), and how to name functions using naming convetions of a given Category.
  * 
  * 1. Transfrom the String to List
- * 2. Transform the List to CompressedSring
+ * 2. Transform the List to CompressedString
  * 3. Return the CompressedSring
  * 
  * CompressedSring - Internally prepresented as a Map : { 'char': null, 'count': 0, 'data': ''}
