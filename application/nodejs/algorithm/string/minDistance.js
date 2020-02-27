@@ -14,11 +14,11 @@
  */
 
 /** Toolset */
-const { assert, memoize, blank, s2List2, lsliceTail2, lXtail, minA, eq2 } = require('../../lc-core')
+const {s2List2, lsliceTail2, lXtail, minA, eq2 , assert, memoize, blank} = require('../../lc-core')
 
 /** Function  */
 // me :: string -> string -> int
-const sminEditDistance = from => to => {
+const sminDistance2 = from => to => {
     const eq0 = eq2(0)
     const shaveTail = lsliceTail2(1)
     const meR = memoize((from, to) => {
@@ -43,4 +43,4 @@ const data = [
     [['INTENTION','EXECUTION'],5]
 ]
 
-data.forEach( val => assert(sminEditDistance(val[0][0])(val[0][1]))(val[1])(`${val}`))
+data.forEach( val => assert(sminDistance2(val[0][0])(val[0][1]))(val[1])(`${val}`))
