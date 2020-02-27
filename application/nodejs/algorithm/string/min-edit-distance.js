@@ -14,21 +14,21 @@
  */
 
 /** Toolset */
-const { assert, memoize, blank, s2List2, lXshave2, lXtail, minA, eq2 } = require('../../lc-core')
+const { assert, memoize, blank, s2List2, lsliceTail2, lXtail, minA, eq2 } = require('../../lc-core')
 
 /** Function  */
 // me :: string -> string -> int
 const sminEditDistance = from => to => {
     const eq0 = eq2(0)
-    const shaveTop = lXshave2(1)
+    const shaveTail = lsliceTail2(1)
     const meR = memoize((from, to) => {
         if (eq0(from.length)) return to.length
         if (eq0(to.length)) return from.length
-        if (eq2(lXtail(from))(lXtail(to)))return meR(shaveTop(from), shaveTop(to))
+        if (eq2(lXtail(from))(lXtail(to)))return meR(shaveTail(from), shaveTail(to))
         return 1 + minA(
-            meR(from, shaveTop(to)),
-            meR(shaveTop(from), to),
-            meR(shaveTop(from), shaveTop(to))
+            meR(from, shaveTail(to)),
+            meR(shaveTail(from), to),
+            meR(shaveTail(from), shaveTail(to))
         )
     })
     return meR(s2List2(blank)(from), s2List2(blank)(to))

@@ -57,13 +57,16 @@ const leqEmpty = l => eq0(l.length)
 const lapply2 = func => lst => lst.map(func)
 const lpush2 = lst => val => lst.push(val)
 const lappend2 = lst1 => lst2 =>  lst1.forEach( val => lst2.push(val)) 
+const lslice3 = start => end => lst => lst.slice(start, end)
+const lsliceTail2 = count => lst => lst.slice(0, lst.length - count)
+const lsliceHead2 = count => lst => lst.slice(count, lst.length)
 
 // Conversion functions
 const lXhead = lst => lst[0]
 const lXtail = lst => lst[lst.length -1]
 const lXpop = lst => lst.pop()
 const lXshift = lst => lst.shift()
-const lXshave2 = count => lst => lst.slice(0, lst.length - count)
+
 const l2Map2 = func => lst => lst.reduce(func,{})
 const l2String2 = ptrn => lst => lst.join(ptrn)
 const lXfoldR3 = init => func2 => lst => lst.reduce((acc, val) => func2(val)(acc),init)
@@ -103,7 +106,7 @@ module.exports = {
     min2, minA, gt2, gtlt2, 
     $, $p, memoize, 
     isMap, mfilter2, mXfind, m2List2,
-    isList,  leqEmpty,lapply2, lpush2, lappend2, l2Map2, l2String2, lXhead, lXtail, lXshave2, lXpop, lXshift, lXfoldR3, lXfoldL3, 
+    isList,  leqEmpty,lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, 
     isString, snoWhitespace, suppercase, sadd2,sappend2,ssplit2, sreplace3, s2List2, sreverse,
     print,assert
 
