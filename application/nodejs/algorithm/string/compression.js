@@ -4,7 +4,7 @@
  * 
  * 1. Transfrom String to List
  * 2. Transform List to CompressMap
- * 3. Return the comrressed data from the CompressMap
+ * 3. Return the compressed data from the CompressMap
  * 
  * Compress Map - { 'char': null, 'count': 0, 'data': '' }
  * create helper functions to add, update data.
@@ -15,8 +15,8 @@ const { sappend2, gt2, lXfoldL3, mXfind, assert, $p, $, blank, s2List2, eq2 } = 
 /** New tool */
 const CompressMap = () => ({ 'char': null, 'count': 0, 'data': '' })
 
-// Compress map manipulators. See how the data is separate and each operastion produces a new version.
-// Following our naming convention to name the functions.
+// Compress map manipulators. See how the data is separate and each operation produces a new version.
+// Following the naming convention to name the functions.
 const cupdate3 = char => count => data => ({char,count,data})
 const cresetCount = cmap => cupdate3(cmap.char)(1)(cmap.data)
 const cincrCount = cmap => cupdate3(cmap.char)(cmap.count + 1)(cmap.data)
