@@ -4,9 +4,9 @@
  * This problem has elegant way of showing how to use the existing Categories, helper functions and transformations along with extending
  * one of the Categories with a new Category (Structure preserving), and how to name functions using naming convetions of a given Category.
  * 
- * 1. Transfrom the String to List
- * 2. Transform the List to CompressedString
- * 3. Return the CompressedSring
+ * 1. Transfrom the String to List.
+ * 2. Transform the List to CompressedString.
+ * 3. Return the CompressedString.
  * 
  * CompressedSring - Internally prepresented as a Map : { 'char': null, 'count': 0, 'data': ''}
  * We will implement String functions to add and build CompressedString. External categories will be prefixed with Category acronym
