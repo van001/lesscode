@@ -14,7 +14,7 @@
  */
 
 /** Toolset */
-const { assert,memoize,blank,s2List2,lXshave2, lXtail,minA, eq2 } = require('../../lc-core')
+const { assert, memoize, blank, s2List2, lXshave2, lXtail, minA, eq2 } = require('../../lc-core')
 
 /** Function  */
 // me :: string -> string -> int
