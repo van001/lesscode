@@ -22,7 +22,7 @@ Sentence is a just a String of Strings (words) separated by a whitespace, so
 or programatically :
 const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
 ```
-[reverse-sentence.js](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/reverse-sentence.js)
+[reverse-sentence.js](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/reverseSentence.js)
 
 > Or if I ask you to find intersection of 2 Lists of Strings : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
