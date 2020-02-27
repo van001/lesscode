@@ -27,10 +27,9 @@ const CSresetCount = cmap => CompressedString(cmap.char)(1)(cmap.data)
 const CSincrCount = cmap => CompressedString(cmap.char)(cmap.count + 1)(cmap.data)
 const CSupdateChar2 = char => cmap => CompressedString(char)(cmap.coun)(cmap.data)
 const CSupdateData2 = char => cmap => CompressedString(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
-const CSgetData = cmap => mXfind('data')(CompressedString(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data))
-
 const CSappend2 = cmap => char => eq2(char)(cmap.char) ? CSincrCount(cmap) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cmap)
-const CSZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
+const sdata = cmap => mXfind('data')(CompressedString(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data))
+const sZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
 
 /**
  * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
@@ -39,7 +38,7 @@ const CSZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
  */
 
 /** Function */
-const scompress = str => $(CSgetData, CSZList, s2List2(blank))(str)
+const scompress = str => $(sdata, sZList, s2List2(blank))(str)
 
 let data = [['aabcccccaaa', 'a2b1c5a3']]
 data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
