@@ -76,10 +76,11 @@ const l2Map3 = map => func2 => lst => lXfoldL3(map)(func2)(lst)
  ****************************************************************************/
 // Helper functions
 const isString = str => typeof str == 'string'
+const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
 const sadd2 = str1 => str2 => str1 + str2
-const sappend2 = str2 => str1 => str1 + str2
+const sappend2 = str2 => str1 => snoNull(str1) + snoNull(str2)
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = pattern => replaceWith => str => str.replace(pattern, replaceWith)
 
@@ -103,6 +104,6 @@ module.exports = {
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
     isList, leqEmpty, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
-    isString, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
+    isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
     print, assert
 }

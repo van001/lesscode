@@ -3,28 +3,29 @@
  * Solution to this is one of the best display of functional programming. 
  * 
  * 1. Transfrom String to List
- * 2. Transform List to CompressMap
- * 3. Return the compressed data from the CompressMap
+ * 2. Transform List to CompressedSring
+ * 3. Return the data from the CompressedSring
  * 
- * Compress Map - { 'char': null, 'count': 0, 'data': '' }
- * create helper functions to add, update data.
+ * CompressedSring - Internally prepresented as a Map : { 'char': null, 'count': 0, 'data': ''}
+ * We will implement String functions to add and build CompressedString. External categories will be prefixed with Category acronym
+ * CompressedSring : CS
+ * 
  */
 /** ToolSet */
-const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2 } = require('../../lc-core')
+const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2, snoNull } = require('../../lc-core')
 
 /** New tool */
-const CompressMap = () => ({ 'char': null, 'count': 0, 'data': '' })
+const CompressedString = char => count => data => ({char,count,data})
 
 // Compress map manipulators. See how the data is separate and each operation produces a new version.
 // Following the naming convention to name the functions.
-const cnew3 = char => count => data => ({char,count,data})
-const cresetCount = cmap => cnew3(cmap.char)(1)(cmap.data)
-const cincrCount = cmap => cnew3(cmap.char)(cmap.count + 1)(cmap.data)
-const cupdateChar2 = char => cmap => cnew3(char)(cmap.coun)(cmap.data)
-const cupdateData2 = char => cmap => cnew3(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
-const cgetData = cmap => cnew3(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data)
-const cadd2 = cmap => char => eq2(char)(cmap.char) ? cincrCount(cmap) : $p(cresetCount, cupdateChar2(char), cupdateData2(char))(cmap)
-const cbuildFromList = lst => l2Map3(CompressMap())(cadd2)(lst)
+const CSresetCount = cmap => CompressedString(cmap.char)(1)(cmap.data)
+const CSincrCount = cmap => CompressedString(cmap.char)(cmap.count + 1)(cmap.data)
+const CSupdateChar2 = char => cmap => CompressedString(char)(cmap.coun)(cmap.data)
+const CSupdateData2 = char => cmap => CompressedString(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
+const CSgetData = cmap => mXfind('data')(CompressedString(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data))
+const CSappend2 = cmap => char => eq2(char)(cmap.char) ? CSincrCount(cmap) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cmap)
+const CSZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
 
 /**
  * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
@@ -33,7 +34,7 @@ const cbuildFromList = lst => l2Map3(CompressMap())(cadd2)(lst)
  */
 
 /** Function */
-const scompress = str => $(mXfind('data'), cgetData, cbuildFromList, s2List2(blank))(str)
+const scompress = str => $(CSgetData, CSZList, s2List2(blank))(str)
 
 let data = [['aabcccccaaa', 'a2b1c5a3']]
 data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
