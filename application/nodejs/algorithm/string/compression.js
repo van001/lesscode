@@ -35,7 +35,8 @@ const sZList = lst => $(sdata, l2Map3(CompressedString())(CSappend2))(lst)
 
 /**
  * Philosophically the above Category along with it's manipulatars can be specificed as a class and then we can do OO :). 
- * Did we get OO wrong or lack of compositional structure forced the OO to become what it has become. 
+ * Also you can see how similar the above is with OO without mannrying the data with the maipulators.
+ * Did we get OO wrong or lack of compositional structure forced the OO to become what it has become? 
  * As I am noticing, the key to successful FP is ability to compose, I am also thinking, what if other programming paradigms make composition trivial?
  */
 
