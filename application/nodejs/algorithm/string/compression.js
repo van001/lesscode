@@ -59,7 +59,7 @@ data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
     { char: 'a', count: 5, data: 'a2b1c5a' }
     { char: 'a', count: 1, data: 'a2b1c5a' }
 
-    PS : One of my colleague complained about the lack of debugging with FP or recursions, so I thought why not make $(compose function), 
-    print the result of each function application as so $p was born.
+    PS : One of my colleague complained about the lack of debugging with FP, so I thought why not make 
+    $(compose function) print the result of each function application and that's how '$p' was born.
  */
 
