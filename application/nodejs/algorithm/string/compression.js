@@ -14,13 +14,15 @@
  * 
  */
 /** ToolSet */
-const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2, eqNull } = require('../../lc-core')
+const { sappend2, s2List2, l2Map3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
 
 /** New tool */
 const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
 
-// CompressedString  functions. See how the data is separate and each operation produces a new version.
-// Following the naming convention to name the functions.
+/**
+* CompressedString  functions. See how the data is separate and each operation produces a new version.
+* Following the naming convention to name the functions.
+**/
 const CSresetCount = cmap => CompressedString(cmap.char)(1)(cmap.data)
 const CSincrCount = cmap => CompressedString(cmap.char)(cmap.count + 1)(cmap.data)
 const CSupdateChar2 = char => cmap => CompressedString(char)(cmap.coun)(cmap.data)
@@ -56,5 +58,8 @@ data.forEach(val => assert(scompress(val[0]))(val[1])(`${val}`))
     { char: 'c', count: 5, data: 'a2b1c5a' }
     { char: 'a', count: 5, data: 'a2b1c5a' }
     { char: 'a', count: 1, data: 'a2b1c5a' }
+
+    PS : One of my colleague complained about the lack of debugging with FP or recursions, so I thought why not make $(compose function), 
+    print the result of each function application as so $p was born.
  */
 
