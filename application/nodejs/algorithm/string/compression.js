@@ -1,6 +1,6 @@
 /**
  * Compress a string. e.g aabcccccaaa would become a2b1c5a3.
- * Solution to this is one of the best display of functional programming. 
+ * IMO this is one of finest display of functional programming. 
  * This problem has elegant way of showing how to use the existing Categories, helper functions and transformations along with extending
  * one of the Categories with a new Category (Structure preserving), and how to name functions using naming convetions of a given Category.
  * 
