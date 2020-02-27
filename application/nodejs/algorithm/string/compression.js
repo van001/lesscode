@@ -1,6 +1,8 @@
 /**
  * Compress a string. e.g aabcccccaaa would become a2b1c5a3.
  * Solution to this is one of the best display of functional programming. 
+ * This problem has elegant way of showing how to use the existing Categories, helper functions and transformations along with extending
+ * one of the Categories with a new Category (Structure preserving), and how to name functions using naming convetions of a given Category.
  * 
  * 1. Transfrom String to List
  * 2. Transform List to CompressedSring
@@ -24,6 +26,7 @@ const CSincrCount = cmap => CompressedString(cmap.char)(cmap.count + 1)(cmap.dat
 const CSupdateChar2 = char => cmap => CompressedString(char)(cmap.coun)(cmap.data)
 const CSupdateData2 = char => cmap => CompressedString(cmap.char)(cmap.count)(gt2(0)(cmap.count) ? $(sappend2(char), sappend2(cmap.count))(cmap.data) : sappend2(char)(cmap.data))
 const CSgetData = cmap => mXfind('data')(CompressedString(cmap.char)(cmap.count)(gt2(1)(cmap.count) ? $(sappend2(cmap.count))(cmap.data) : cmap.data))
+
 const CSappend2 = cmap => char => eq2(char)(cmap.char) ? CSincrCount(cmap) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cmap)
 const CSZList = lst => l2Map3(CompressedString())(CSappend2)(lst)
 
