@@ -19,7 +19,7 @@ const { sappend2, gt2, l2Map3, mXfind, assert, $p, $, blank, s2List2, eq2, eqNul
 /** New tool */
 const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
 
-// Compress map manipulators. See how the data is separate and each operation produces a new version.
+// CompressedString  functions. See how the data is separate and each operation produces a new version.
 // Following the naming convention to name the functions.
 const CSresetCount = cmap => CompressedString(cmap.char)(1)(cmap.data)
 const CSincrCount = cmap => CompressedString(cmap.char)(cmap.count + 1)(cmap.data)
