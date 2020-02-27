@@ -1,10 +1,10 @@
-
-# Inspiration
+# Functional Thinking
+## Inspiration
 ![Lego Kids](lego-kid.jpeg) Inspired by the work of [Alonzo Church](https://en.wikipedia.org/wiki/Alonzo_Church)(Lambda Calculus) & John Backus's paper '[Can programming be liberated...](https://github.com/van001/lesscode/blob/master/can-programming-be-liberated.pdf)', this is my first attempt to define a functional library/construct that could be implemented in any programming language that supports functional programming and can be applied to solve complex problems in variety of industry/ domain. 
 
 > Lost in translation is real.
 
-# Philosophy
+## Philosophy
 > Universe is either expanding or contracting - Albert Eienstien.
 
 In the grand scheme of things, the entire universe can be described in terms of few a abstractions. We call them the law of nature. Programming is no exception. While imperative thinking allows each individual to be an individual, it may confuse others if they are not used to "their" way of thinking :). Functional thinking abstracts the complexity (function) and opinion (implementation) & provide us a generic way to  communicate and work together. Nonetheless, we need both,  individualism and the ability to work/exist as a group.
@@ -41,7 +41,7 @@ const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? [] : $
 
 Even-though it is started by an individual 'I', it cannot be functional unless it's adopted by 'You/We'. Please feel free to send me your your feedbacks, suggestions or whatever way you feel like connecting/ contributing. 
 My email is neelesh.vaikhary@gmail.com
-# Goal
+## Goal
 > Eating your own dog food.
 
 The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and construct programs using pure functions (no side-effect), function composition (lego blocks), fewer data-structures and tools (functions).
@@ -50,19 +50,19 @@ Eventually I want to solve many real-world complex problems and see how practica
 
 > One of the finest display : [Compress a String](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/compression.js)
 
-# Approach
+## Approach
 I will try to solve [common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/application/nodejs) using FP and see if it's possible to stick to the [design principles outlined below](https://github.com/van001/lesscode/blob/master/readme.md#Design). I will use javscript for the initial implementation but the goal is to come up with a functional construct that is language independent and can be implemented in any language that supports functional programming.
 
 I will also solve real-world programming problems like making Http calls, Fetching data from database etc and that is when I will introduce parallel composition techniques.
 
 I will not impelement any number or mathemetical functions but reuse it form the stardard libraries provided by the language itself.
 
-# Design
+## Design
 > I like to [KISS](https://en.wikipedia.org/wiki/KISS_principle) ;)
 
 The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
 
-## 1. Fewer objects and categories
+### 1. Fewer objects and categories
 I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 
 
 Single object will belong to String category and bunch of objects will belong to either List or Map. 
@@ -99,7 +99,7 @@ Map may contain another String, List or a Map, uniquely itendified by a key (Str
 Most programming language provide the implementation of the above categories, so we may not have to implement but just use them.
 In future I may use this base object and categories to build complex categories like Heap, Tree & Graph.
 
-## 2. Pure Functions 
+### 2. Pure Functions 
 > Be a rebel but have few rules in life.
 
 For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
@@ -186,7 +186,7 @@ const l2String = lst => lst.join(space)
 
 
 
-## 3. Function composition
+### 3. Function composition
 > Whole is greater than the sum of parts.
 
 A single function is limited, but combined can accomplish major task. I will define clear composition strategy to combine functions from similar or different categories, or the functions that transform categories (String to List, List to Map etc).
@@ -227,7 +227,7 @@ hseleen si eman ym // sreverse
 neelesh is name my // l2String2(space)
 ```
 
-# Application
+## Application
 > There is a saying in the valley - ideas are dime a dozen. So let's execute & prove it...
 
 1. [Common algorithm and interview questions](https://github.com/van001/lesscode/tree/master/application/nodejs)
