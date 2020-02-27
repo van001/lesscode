@@ -8,10 +8,10 @@
  */
 
 /** ToolSet */
-let {assert, $, sreverse, snoWhitespace, eq} = require('../../lc-core')
+let {sreverse, snoWhitespace, eq2, assert, $ } = require('../../lc-core')
 
 /** Function */
-const isPalindrome = str => $(eq(snoWhitespace(str)),sreverse,snoWhitespace)(str)
+const sisPalindrome = str => $(eq2(snoWhitespace(str)),sreverse,snoWhitespace)(str)
 
 /** Test */
 const data =[
@@ -19,5 +19,4 @@ const data =[
     ['nursesdonotrun',false],
     ['',true]
 ]
-
-data.forEach( val => assert(isPalindrome(val[0]))(val[1])(`{val}`))
+data.forEach( val => assert(sisPalindrome(val[0]))(val[1])(`{val}`))
