@@ -8,10 +8,10 @@ const line = '\r\n'
 const space = ' '
 
 // Equality functions
-const type = val => type => (typeof val == type) ? true : false
+const eqType2 = val => type => (typeof val == type) ? true : false
 const eq2 = a => b => {
-    if (type(a)('array') && type(b)('array')) return a.join('') === b.join('')
-    if (type(a)('object') && type(b)('object')) return a.toString() === b.toString()
+    if (eqType2(a)('array') && eqType2(b)('array')) return a.join('') === b.join('')
+    if (eqType2(a)('object') && eqType2(b)('object')) return a.toString() === b.toString()
     return (a === b)
 }
 const eqNull = val => (val == null || val == undefined) ? true : false
@@ -100,7 +100,7 @@ const assert = a => b => m => console.assert(eq2(a)(b), `${m}`)
 
 module.exports = {
     blank, space, comma, line,
-    type, eq2, eqNull,
+    eqType2, eq2, eqNull,
     histogram, zeroOnNull,
     min2, minA, gt2, gtlt2,
     $, $p, memoize,
