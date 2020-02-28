@@ -106,6 +106,8 @@ For each of the above categories(String, List & Map), I will build functions to 
 
 #### Function-naming
 
+> Will the real slim shaddy, please standup, please standup...
+
 Name makes a huge difference. Just looking at the function name we should be able to tell on what category it applies, what it does and what is the arity. 
 I suggest we name functions as 
 ```

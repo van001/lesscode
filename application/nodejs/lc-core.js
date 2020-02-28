@@ -8,13 +8,13 @@ const line = '\r\n'
 const space = ' '
 
 // Equality functions
+const eqNull = val => (val == null || val == undefined) ? true : false
 const eqType2 = val => type => (typeof val == type) ? true : false
 const eq2 = a => b => {
     if (eqType2(a)('array') && eqType2(b)('array')) return a.join('') === b.join('')
     if (eqType2(a)('object') && eqType2(b)('object')) return a.toString() === b.toString()
     return (a === b)
 }
-const eqNull = val => (val == null || val == undefined) ? true : false
 
 // Generic Helpers
 const histogram = (map, val) => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
@@ -25,6 +25,7 @@ const zeroOnNull = val => eqNull(val) ? 0 : val
  ****************************************************************************/
 const min2 = (a, b) => Math.min(a, b)
 const minA = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
+const lt2 = lt => val => val < lt
 const gt2 = gt => val => val > gt
 const gtlt2 = gt => lt => v => (v >= gt && v <= lt)
 
@@ -102,7 +103,7 @@ module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
     histogram, zeroOnNull,
-    min2, minA, gt2, gtlt2,
+    min2, minA, lt2, gt2, gtlt2,
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
     isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
