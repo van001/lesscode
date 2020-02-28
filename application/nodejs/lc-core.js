@@ -82,7 +82,7 @@ const snoWhitespace = str => str.replace(space, blank)
 const sadd2 = str1 => str2 => str1 + str2
 const sappend2 = str2 => str1 => snoNull(str1) + snoNull(str2)
 const ssplit2 = ptrn => str => str.split(ptrn)
-const sreplace3 = pattern => replaceWith => str => str.replace(pattern, replaceWith)
+const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 
 // Conversion functions
 const s2List2 = ptrn => str => str.split(ptrn)
