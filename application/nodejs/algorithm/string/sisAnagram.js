@@ -2,17 +2,21 @@
  * How to check if two Strings are anagrams of each other
  * Army is anagram of Mary
  * 
- * 1. Sort the 2 arrays.
- * 2. convert to string and compare if they are equal. Return the value.
+ * 1. Transform both Strings to Lists.
+ * 2. Sort the List. Use compose.
+ * 3. Return is Lists are equal.
 **/
-const {$, toList, toString, sort, blank, eq2} = require('../lib/fp')
 
-/** const  sortStr = $(toString,sort,toList)
-const sisAnagram = str1 => str2 => eq (sortStr(str1))(sortStr(str2))
+/** ToolSet */
+let {lsort, s2List2, eq2, blank,  assert, $ } = require('../../lc-core')
 
+/** Function */
+const sisAnagram = str1 => str2 => eq2($(lsort,s2List2(blank))(str1))($(lsort,s2List2(blank))(str2))
+
+/** Test */
 const data =[
-    [['army','mary'],true],
-    [['one','two'],false]
-]**/
+    ['army','mary',true],
+    ['one','two',false]
+]
 
-//test(isAnagram)(data)
+data.forEach( val => assert(sisAnagram(val[0])(val[1]))(val[2])(`${val}`))

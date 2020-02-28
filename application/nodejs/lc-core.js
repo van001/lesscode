@@ -52,6 +52,7 @@ const m2List2 = lst => map => lst.filter(val => map[val] != null)
 // Helper functions
 const isList = obj => Array.isArray(obj)
 const leqEmpty = l => eq0(l.length)
+const lsort = lst => lst.sort()
 const lapply2 = func => lst => lst.map(func)
 const lpush2 = lst => val => lst.push(val)
 const lappend2 = lst1 => lst2 => lst1.forEach(val => lst2.push(val))
@@ -79,6 +80,7 @@ const isString = str => typeof str == 'string'
 const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
+
 const sadd2 = str1 => str2 => str1 + str2
 const sappend2 = str2 => str1 => snoNull(str1) + snoNull(str2)
 const ssplit2 = ptrn => str => str.split(ptrn)
@@ -103,7 +105,7 @@ module.exports = {
     min2, minA, gt2, gtlt2,
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
-    isList, leqEmpty, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
-    isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
+    isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
+    isString, snoNull, snoWhitespace, suppercase,  sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
     print, assert
 }
