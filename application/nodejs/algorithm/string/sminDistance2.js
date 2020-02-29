@@ -21,14 +21,15 @@ const {s2List2, lsliceTail2, lXtail, minA, eq2 , assert, memoize, blank} = requi
 const sminDistance2 = from => to => {
     const eq0 = eq2(0)
     const shaveTail = lsliceTail2(1)
-    const meR = memoize((from, to) => {
+    // Convert into arbitrary input function, so that you can memoize it. Without memoization, this in 3^N;
+    const sminDistanceA = memoize((from, to) => {
         if (eq0(from.length)) return to.length
         if (eq0(to.length)) return from.length
-        if (eq2(lXtail(from))(lXtail(to)))return meR(shaveTail(from), shaveTail(to))
+        if (eq2(lXtail(from))(lXtail(to)))return sminDistanceA(shaveTail(from), shaveTail(to))
         return 1 + minA(
-            meR(from, shaveTail(to)),
-            meR(shaveTail(from), to),
-            meR(shaveTail(from), shaveTail(to))
+            sminDistanceA(from, shaveTail(to)),
+            sminDistanceA(shaveTail(from), to),
+            sminDistanceA(shaveTail(from), shaveTail(to))
         )
     })
     return meR(s2List2(blank)(from), s2List2(blank)(to))
