@@ -32,7 +32,7 @@ const sminDistance2 = from => to => {
             sminDistanceA(shaveTail(from), shaveTail(to))
         )
     })
-    return sminDistanceA(s2List2(blank)(from), s2List2(blank)(to))
+    return $(id)(sminDistanceA(s2List2(blank)(from), s2List2(blank)(to)))
 }
 
 /** Test */
