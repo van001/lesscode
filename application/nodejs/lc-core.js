@@ -29,11 +29,13 @@ const lt2 = lt => val => val < lt
 const gt2 = gt => val => val > gt
 const gtlt2 = gt => lt => v => (v >= gt && v <= lt)
 const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
+const add2 = val1 => val2 => val1 + val2
 
 /*****************************************************************************
  * Composition
  ****************************************************************************/
 const lc = name => arg => arg
+const id = x => x
 const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
 const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
 const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
@@ -108,8 +110,8 @@ module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
     histogram, zeroOnNull,
-    min2, minA, lt2, gt2, gtlt2, ltOf2, 
-    $, $p, memoize,
+    min2, minA, lt2, gt2, gtlt2, ltOf2, add2,
+    id, $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
     isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lpushHeadCF4, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
     isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,

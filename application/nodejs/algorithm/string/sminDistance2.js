@@ -14,7 +14,7 @@
  */
 
 /** Toolset */
-const { s2List2, lsliceTail2, lXtail, minA, eq2, print, assert, memoize, blank } = require('../../lc-core')
+const { s2List2, lsliceTail2, lXtail, minA, eq2, add2, assert, id, $, memoize, blank } = require('../../lc-core')
 
 /** Function  */
 // sminDistanceA :: string -> string -> int
@@ -23,10 +23,10 @@ const sminDistance2 = from => to => {
     const shaveTail = lsliceTail2(1)
     // Convert into arbitrary input function, so that you can memoize it. Without memoization, this in 3^N;
     const sminDistanceA = memoize((from, to) => {
-        if (eq0(from.length)) return to.length
-        if (eq0(to.length)) return from.length
-        if (eq2(lXtail(from))(lXtail(to))) return sminDistanceA(shaveTail(from), shaveTail(to))
-        return 1 + minA(
+        if (eq0(from.length)) return $(id)(to.length)
+        if (eq0(to.length)) return $(id)(from.length)
+        if (eq2(lXtail(from))(lXtail(to))) return $(id)(sminDistanceA(shaveTail(from), shaveTail(to)))
+        return $(add2(1),minA)(
             sminDistanceA(from, shaveTail(to)),
             sminDistanceA(shaveTail(from), to),
             sminDistanceA(shaveTail(from), shaveTail(to))
