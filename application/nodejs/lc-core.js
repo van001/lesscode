@@ -33,6 +33,7 @@ const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
 /*****************************************************************************
  * Composition
  ****************************************************************************/
+const lc = name => arg => arg
 const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
 const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
 const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
@@ -61,6 +62,7 @@ const lappend2 = to => from => { from.forEach(val => to.push(val)); return to }
 const lslice3 = start => end => lst => lst.slice(start, end)
 const lsliceTail2 = count => lst => lst.slice(0, lst.length - count)
 const lsliceHead2 = count => lst => lst.slice(count, lst.length)
+const lpushHeadCF4 = func2 => l1 => l2 => l =>  $p(lappend2(l), lXshift)(func2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
 
 // Conversion functions
 
@@ -86,7 +88,7 @@ const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
 
 const sadd2 = str1 => str2 => str1 + str2
-const sappend2 = str2 => str1 => snoNull(str1) + snoNull(str2)
+const sappend2 = str2 => str1 =>  lc('sappend2')(snoNull(str1) + snoNull(str2))
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 
@@ -109,7 +111,7 @@ module.exports = {
     min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
-    isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
+    isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lpushHeadCF4, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
     isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
     print, assert
 }
