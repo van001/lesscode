@@ -32,7 +32,7 @@ const sminDistance2 = from => to => {
             sminDistanceA(shaveTail(from), shaveTail(to))
         )
     })
-    return meR(s2List2(blank)(from), s2List2(blank)(to))
+    return sminDistanceA(s2List2(blank)(from), s2List2(blank)(to))
 }
 
 /** Test */
