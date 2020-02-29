@@ -14,10 +14,10 @@
  */
 
 /** Toolset */
-const { s2List2, lsliceTail2, lXtail, minA, eq2, assert, memoize, blank } = require('../../lc-core')
+const { s2List2, lsliceTail2, lXtail, minA, eq2, print, assert, memoize, blank } = require('../../lc-core')
 
 /** Function  */
-// me :: string -> string -> int
+// sminDistanceA :: string -> string -> int
 const sminDistance2 = from => to => {
     const eq0 = eq2(0)
     const shaveTail = lsliceTail2(1)
@@ -36,12 +36,6 @@ const sminDistance2 = from => to => {
 }
 
 /** Test */
-const data = [
-    [['experiment', 'experiment'], 0],
-    [['experiments', 'experiment'], 1],
-    [['experiment', ''], 10],
-    [['', 'experiment'], 10],
-    [['INTENTION', 'EXECUTION'], 5]
-]
+const data = [[['INTENTION', 'EXECUTION'], 5]]
 
 data.forEach(val => assert(sminDistance2(val[0][0])(val[0][1]))(val[1])(`${val}`))
