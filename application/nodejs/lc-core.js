@@ -28,6 +28,7 @@ const minA = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
 const lt2 = lt => val => val < lt
 const gt2 = gt => val => val > gt
 const gtlt2 = gt => lt => v => (v >= gt && v <= lt)
+const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
 
 /*****************************************************************************
  * Composition
@@ -52,11 +53,11 @@ const m2List2 = lst => map => lst.filter(val => map[val] != null)
  ****************************************************************************/
 // Helper functions
 const isList = obj => Array.isArray(obj)
-const leqEmpty = l => eq0(l.length)
+const leqEmpty = l => eq2(0)(l.length)
 const lsort = lst => lst.sort()
 const lapply2 = func => lst => lst.map(func)
-const lpush2 = lst => val => lst.push(val)
-const lappend2 = lst1 => lst2 => lst1.forEach(val => lst2.push(val))
+const lpush2 = lst => val => { lst.push(val); return lst }
+const lappend2 = to => from => { from.forEach(val => to.push(val)); return to }
 const lslice3 = start => end => lst => lst.slice(start, end)
 const lsliceTail2 = count => lst => lst.slice(0, lst.length - count)
 const lsliceHead2 = count => lst => lst.slice(count, lst.length)
@@ -66,7 +67,7 @@ const lsliceHead2 = count => lst => lst.slice(count, lst.length)
 const lXhead = lst => lst[0]
 const lXtail = lst => lst[lst.length - 1]
 const lXpop = lst => lst.pop()
-const lXshift = lst => lst.shift()
+const lXshift = lst => [lst.shift()]
 
 const lXi2 = index => lst = lst[index]
 const l2Map2 = func => lst => lst.reduce(func, {})
@@ -105,10 +106,10 @@ module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
     histogram, zeroOnNull,
-    min2, minA, lt2, gt2, gtlt2,
+    min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
     isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
-    isString, snoNull, snoWhitespace, suppercase,  sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
+    isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
     print, assert
 }
