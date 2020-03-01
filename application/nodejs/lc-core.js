@@ -57,6 +57,8 @@ const m2List2 = lst => map => lst.filter(val => map[val] != null)
 // Helper functions
 const isList = obj => Array.isArray(obj)
 const leqEmpty = l => eq2(0)(l.length)
+const lhead = 0
+const ltail = lst => lst.length
 const lsort = lst => lst.sort()
 const lapply2 = func => lst => lst.map(func)
 const lpush2 = lst => val => { lst.push(val); return lst }
@@ -64,12 +66,11 @@ const lappend2 = to => from => { from.forEach(val => to.push(val)); return to }
 const lslice3 = start => end => lst => lst.slice(start, end)
 const lsliceHead = lst => [lst.shift()]
 const lsliceTail = lst => [lst.pop()]
-const lsliceTail2 = count => lst => lst.slice(0, lst.length - count)
-const lsliceHead2 = count => lst => lst.slice(count, lst.length)
+const lsliceTail2 = count => lst => lst.slice(0, ltail - count)
+const lsliceHead2 = count => lst => lst.slice(lhead, count)
 const lpushHead4 = func2 => l1 => l2 => l =>  $p(lappend2(l), lsliceHead)(func2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
 
 // Conversion functions
-
 const lXhead = lst => lst[0]
 const lXtail = lst => lst[lst.length - 1]
 const lXpop = lst => lst.pop()
@@ -91,20 +92,18 @@ const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
 const s2Integer = str => parseInt(str)
-
 const sadd2 = str1 => str2 => str1 + str2
 const sappend2 = str2 => str1 =>  lc('sappend2')(snoNull(str1) + snoNull(str2))
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 
-
 // Conversion functions
 const s2List2 = ptrn => str => str.split(ptrn)
 
-//Composite 
+// Composite 
 const sreverse = $(lXfoldR3(blank)(sadd2), s2List2(blank))
 
-//creation
+// Creation
 sZInteger = num => ''+num
 
 /*****************************************************************************

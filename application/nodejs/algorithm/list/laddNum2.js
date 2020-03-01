@@ -13,17 +13,17 @@
     3. Convert Integer to String , revrese it and convert back to List - 807 -> 708; 708 -> [7, 0, 8]
 **/
 
- /** Toolset */
- const { lXfoldR3, s2List2, s2Integer, sreverse, sZInteger, add2, blank, assert, $, $p } = require('../../lc-core')
+/** Toolset */
+const { lXfoldR3, s2List2, s2Integer, sreverse, sZInteger, add2, blank, assert, $, $p } = require('../../lc-core')
 
 /** New Tool */
-const lXfoldR2Int =  $p(s2Integer, lXfoldR3(blank)(add2))
+const lXfoldR2Int = $p(s2Integer, lXfoldR3(blank)(add2))
 
 /** Function */
-const add2Num = num1 => num2 => $p(s2List2(blank), sreverse, sZInteger)(add2(lXfoldR2Int(num1))(lXfoldR2Int(num2)))
+const laddNum2 = num1 => num2 => $p(s2List2(blank), sreverse, sZInteger)(add2(lXfoldR2Int(num1))(lXfoldR2Int(num2)))
 
 /** Test */
-const data = [[[2,4,3],[5,6,4],[7,0,8]]]
+const data = [[[2, 4, 3], [5, 6, 4], [7, 0, 8]]]
 
-data.forEach( val => assert(add2Num(val[0])(val[1]))(val[2])(`${val}`))
+data.forEach(val => assert(laddNum2(val[0])(val[1]))(val[2])(`${val}`))
 
