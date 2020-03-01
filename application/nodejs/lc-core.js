@@ -29,6 +29,8 @@ const lt2 = lt => val => val < lt
 const gt2 = gt => val => val > gt
 const gtlt2 = gt => lt => v => (v >= gt && v <= lt)
 const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
+const add2 = a => b => a + b
+
 
 /*****************************************************************************
  * Composition
@@ -59,6 +61,8 @@ const lapply2 = func => lst => lst.map(func)
 const lpush2 = lst => val => { lst.push(val); return lst }
 const lappend2 = to => from => { from.forEach(val => to.push(val)); return to }
 const lslice3 = start => end => lst => lst.slice(start, end)
+const lsliceHead = lst => [lst.shift()]
+const lsliceTail = lst => [lst.pop()]
 const lsliceTail2 = count => lst => lst.slice(0, lst.length - count)
 const lsliceHead2 = count => lst => lst.slice(count, lst.length)
 
@@ -67,14 +71,14 @@ const lsliceHead2 = count => lst => lst.slice(count, lst.length)
 const lXhead = lst => lst[0]
 const lXtail = lst => lst[lst.length - 1]
 const lXpop = lst => lst.pop()
-const lXshift = lst => [lst.shift()]
-
+const lXshift = lst => lst.shift()
 const lXi2 = index => lst = lst[index]
 const l2Map2 = func => lst => lst.reduce(func, {})
 const l2String2 = ptrn => lst => lst.join(ptrn)
 const lXfoldR3 = cat => func2 => lst => lst.reduce((acc, val) => func2(val)(acc), cat)
 const lXfoldL3 = cat => func2 => lst => lst.reduce((acc, val) => func2(acc)(val), cat)
 const l2Map3 = map => func2 => lst => lXfoldL3(map)(func2)(lst)
+const lXtranspose2 = lst1 => lst2 => lst1.map( val => [val,lXshift(lst2)])
 
 /*****************************************************************************
  * String 
@@ -84,17 +88,22 @@ const isString = str => typeof str == 'string'
 const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
+const s2Integer = str => parseInt(str)
 
 const sadd2 = str1 => str2 => str1 + str2
 const sappend2 = str2 => str1 => snoNull(str1) + snoNull(str2)
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 
+
 // Conversion functions
 const s2List2 = ptrn => str => str.split(ptrn)
 
 //Composite 
 const sreverse = $(lXfoldR3(blank)(sadd2), s2List2(blank))
+
+//creation
+sZInteger = num => ''+num
 
 /*****************************************************************************
  * Testing
@@ -106,10 +115,11 @@ module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
     histogram, zeroOnNull,
-    min2, minA, lt2, gt2, gtlt2, ltOf2, 
+    add2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
-    isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
-    isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
+    isList, leqEmpty, lsort, lsliceHead, lsliceTail, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, 
+    lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3, lXtranspose2, 
+    isString, snoNull, snoWhitespace, suppercase, s2Integer, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse, sZInteger,
     print, assert
 }

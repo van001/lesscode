@@ -5,10 +5,10 @@
  */
 
 /** Toolset */
-const { leqEmpty, lXhead, lXshift, lappend2, ltOf2, lt2, assert, $p, $ } = require('../../lc-core')
+const { leqEmpty, lXhead, lsliceHead, lappend2, ltOf2, lt2, assert, $p, $ } = require('../../lc-core')
 
 /** New Tool */
-const lpushSmaller3 = l1 => l2 => l =>  $p(lappend2(l), lXshift)(lt2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
+const lpushSmaller3 = l1 => l2 => l =>  $p(lappend2(l), lsliceHead)(lt2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
 
 const lmerge2 = l1 => l2 => {
     // Let's create an accumulator function
