@@ -8,7 +8,7 @@
  */
 
  /** Toolset */
-const {eq2, memoize, assert} = require('../../lc-core')
+const {eq2, assert} = require('../../lc-core')
 
 
 /** Function */
