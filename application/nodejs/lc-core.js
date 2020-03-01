@@ -47,7 +47,7 @@ const memoize = f => { const cache = {}; return (...args) => { const argStr = ar
 const isMap = a => typeof a == 'object'
 const mfilter2 = filter => map => { const xmap = {}; Object.keys(map).forEach(key => filter(map[key]) ? xmap[key] = map[key] : ""); return xmap }
 
-// Conversion functions
+// Conversion (X|2) functions
 const mXfind = key => map => map[key]
 const m2List2 = lst => map => lst.filter(val => map[val] != null)
 
@@ -70,7 +70,7 @@ const lsliceTail2 = count => lst => lst.slice(0, ltail - count)
 const lsliceHead2 = count => lst => lst.slice(lhead, count)
 const lpushHead4 = func2 => l1 => l2 => l =>  $p(lappend2(l), lsliceHead)(func2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
 
-// Conversion functions
+// Conversion (X|2) functions
 const lXhead = lst => lst[0]
 const lXtail = lst => lst[lst.length - 1]
 const lXpop = lst => lst.pop()
@@ -78,10 +78,11 @@ const lXshift = lst => lst.shift()
 const lXi2 = index => lst = lst[index]
 const l2Map2 = func => lst => lst.reduce(func, {})
 const l2String2 = ptrn => lst => lst.join(ptrn)
+const lXtranspose2 = lst1 => lst2 => lst1.map( val => [val,lXshift(lst2)])
 const lXfoldR3 = cat => func2 => lst => lst.reduce((acc, val) => func2(val)(acc), cat)
 const lXfoldL3 = cat => func2 => lst => lst.reduce((acc, val) => func2(acc)(val), cat)
 const l2Map3 = map => func2 => lst => lXfoldL3(map)(func2)(lst)
-const lXtranspose2 = lst1 => lst2 => lst1.map( val => [val,lXshift(lst2)])
+
 
 /*****************************************************************************
  * String 
@@ -91,13 +92,13 @@ const isString = str => typeof str == 'string'
 const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
-const s2Integer = str => parseInt(str)
 const sadd2 = str1 => str2 => str1 + str2
 const sappend2 = str2 => str1 =>  lc('sappend2')(snoNull(str1) + snoNull(str2))
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 
-// Conversion functions
+// Conversion (X|2) functions
+const s2Integer = str => parseInt(str)
 const s2List2 = ptrn => str => str.split(ptrn)
 
 // Composite 
@@ -120,12 +121,8 @@ module.exports = {
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
     isList, leqEmpty, lsort, lsliceHead, lsliceTail, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, 
-    lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3, lXtranspose2, 
+    lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3, lXtranspose2, lpushHead4,
     isString, snoNull, snoWhitespace, suppercase, s2Integer, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse, sZInteger,
-    min2, minA, lt2, gt2, gtlt2, ltOf2, add2,
-    id, $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
-    isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lpushHead4, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
-    isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
     print, assert
 }
