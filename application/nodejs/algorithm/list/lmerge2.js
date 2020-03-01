@@ -8,8 +8,7 @@
 const { leqEmpty,lpushHead4, lappend2, lt2, assert, $p, $ } = require('../../lc-core')
 
 /** New Tool 
-- This function will be very handy for solving many list problems, essentially it
-allows you to compare 2 Lists Head using some function and Push one to another List.
+- Compare Lists Head using some function and Pushes one to an accumulator List.
 - We will move this to core libraray as it's a quite handy function to solve mnay List problems.
 - We will also bump Max arity to 4.
 **/
