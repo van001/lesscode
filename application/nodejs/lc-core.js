@@ -31,10 +31,11 @@ const gtlt2 = gt => lt => v => (v >= gt && v <= lt)
 const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
 const add2 = a => b => a + b
 
-
 /*****************************************************************************
  * Composition
  ****************************************************************************/
+const lc = name => arg => arg
+const id = x => x
 const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
 const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
 const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
@@ -65,6 +66,7 @@ const lsliceHead = lst => [lst.shift()]
 const lsliceTail = lst => [lst.pop()]
 const lsliceTail2 = count => lst => lst.slice(0, lst.length - count)
 const lsliceHead2 = count => lst => lst.slice(count, lst.length)
+const lpushHead4 = func2 => l1 => l2 => l =>  $p(lappend2(l), lsliceHead)(func2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
 
 // Conversion functions
 
@@ -91,7 +93,7 @@ const snoWhitespace = str => str.replace(space, blank)
 const s2Integer = str => parseInt(str)
 
 const sadd2 = str1 => str2 => str1 + str2
-const sappend2 = str2 => str1 => snoNull(str1) + snoNull(str2)
+const sappend2 = str2 => str1 =>  lc('sappend2')(snoNull(str1) + snoNull(str2))
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 
@@ -121,5 +123,10 @@ module.exports = {
     isList, leqEmpty, lsort, lsliceHead, lsliceTail, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, 
     lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3, lXtranspose2, 
     isString, snoNull, snoWhitespace, suppercase, s2Integer, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse, sZInteger,
+    min2, minA, lt2, gt2, gtlt2, ltOf2, add2,
+    id, $, $p, memoize,
+    isMap, mfilter2, mXfind, m2List2,
+    isList, leqEmpty, lsort, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lpushHead4, lXi2, l2Map2, l2String2, lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3,
+    isString, snoNull, snoWhitespace, suppercase, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse,
     print, assert
 }
