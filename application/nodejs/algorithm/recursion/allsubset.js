@@ -1,12 +1,11 @@
 /**
  * Write a method to return all sub sets of a set.
- * {} -> {}
- * {1} -> {},{1}
- * {1,2} -> {},{1},{2},{1,2}
- * {1,2,3} - > {},{1},{2},{3},{1,2}{1,3},{2,3},{1,2,3}
- */
-
-/**
+ * [] -> []
+ * [1] -> [],[1]
+ * [1,2] -> [],[1],[2],[1,2]
+ * [1,2,3] - > [],[1],[2],[3],[1,2][1,3],[2,3],[1,2,3]
+ * 
+ * 1. We are 
  * recurse till you reach n=0; return empty set
  * for each bottom up store the last result and and create more subset appling the current item.
  * [[]]

@@ -14,6 +14,8 @@ const { histogram, l2Map2, eq2, mfilter2, assert, $p, blank, s2List2 } = require
 
 /** Function */
 const mXHeadKey = map => Object.keys(map)[0]
+
+// sfirstNonRepeatChar :: String -> String
 const sfirstNonRepeatChar = $p(mXHeadKey,mfilter2(eq2(1)), l2Map2(histogram), s2List2(blank))
 
 const data =[['morning','m']]

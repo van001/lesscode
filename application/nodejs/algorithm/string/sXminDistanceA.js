@@ -17,8 +17,8 @@
 const { s2List2, lsliceTail2, lXtail, minA, eq2, add2, assert, id, $, memoize, blank } = require('../../lc-core')
 
 /** Function  */
-// sminDistanceA :: string -> string -> int
-const sminDistance2 = from => to => {
+// sXminDistanceA :: String -> String -> Integer
+const sXminDistance2 = from => to => {
     const eq0 = eq2(0)
     const shaveTail = lsliceTail2(1)
     // Convert into arbitrary input function, so that you can memoize it. Without memoization, this in 3^N;
@@ -38,4 +38,4 @@ const sminDistance2 = from => to => {
 /** Test */
 const data = [[['INTENTION', 'EXECUTION'], 5]]
 
-data.forEach(val => assert(sminDistance2(val[0][0])(val[0][1]))(val[1])(`${val}`))
+data.forEach(val => assert(sXminDistance2(val[0][0])(val[0][1]))(val[1])(`${val}`))

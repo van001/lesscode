@@ -13,6 +13,7 @@
 const {eq2, memoize, assert} = require('../../lc-core')
 
 /** Function */
+// fibonacci :: Integer -> Integer
 const fibonacci = memoize((n) => eq2(0)(n) ? 0 : eq2(1)(n)? 1 : fibonacci(n-1)+fibonacci(n-2))
 
 /** Test */

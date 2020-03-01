@@ -11,6 +11,7 @@
 let {sreverse, snoWhitespace, eq2, assert, $ } = require('../../lc-core')
 
 /** Function */
+// sisPalindrome :: String -> Boolean
 const sisPalindrome = str => $(eq2(snoWhitespace(str)),sreverse,snoWhitespace)(str)
 
 /** Test */

@@ -11,6 +11,7 @@
 let {lsort, s2List2, eq2, blank,  assert, $ } = require('../../lc-core')
 
 /** Function */
+// sisAnagram :: String -> Boolean
 const sisAnagram = str1 => str2 => eq2($(lsort,s2List2(blank))(str1))($(lsort,s2List2(blank))(str2))
 
 /** Test */

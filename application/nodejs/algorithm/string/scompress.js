@@ -42,6 +42,7 @@ const sZList = lst => $(sdata, l2Map3(CompressedString())(sbuild2))(lst)
  */
 
 /** Function */
+// scompress :: String -> String
 const scompress = str => $(sZList, s2List2(blank))(str)
 
 let data = [['aabcccccaaa', 'a2b1c5a3']]
