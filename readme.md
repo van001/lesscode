@@ -47,7 +47,8 @@ My email is neelesh.vaikhary@gmail.com
 The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and construct programs using pure functions (no side-effect), function composition (lego blocks), fewer categories/ data-structures and tools (functions).
 
 Eventually I want to solve many real-world complex problems and see how practical is it to do clutter-free programming using functional thinking.
-[Lego Car](lego-car.png)
+
+![Lego Car](lego-car.png)
 
 > Complex: [Compress a String](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/scompress.js) | [All subsets](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/list/lsubsets.js)
 
