@@ -195,7 +195,7 @@ const l2String = lst => lst.join(space)
 
 
 ### 3. Function composition
-> Whole is greater than the sum of parts.
+> Whole is greater than sum of parts.
 
 A single function is limited, but combined can accomplish major task. I will define clear composition strategy to combine functions from similar or different categories, or the functions that transform categories (String to List, List to Map etc).
 
