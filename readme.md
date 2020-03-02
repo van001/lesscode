@@ -14,9 +14,9 @@ In the grand scheme of things, the entire universe can be described in terms of 
 and you think
 ```
 Sentence is a just a String of Strings (words) separated by a whitespace, so
-1. Reverse the entire String so it becomes : 'hseleen si eman ym'
-2. Transform the String into List of Strings : [ 'hseleen', 'si', 'eman', 'ym' ]
-3. Apply reverse to all the Strings in the List : [ 'neelesh', 'is', 'name', 'my' ]
+1. Reverse the entire String so it becomes       : 'hseleen si eman ym'
+2. Transform the String into List of Strings     : [ 'hseleen', 'si', 'eman', 'ym' ]
+3. Apply reverse to all the Strings in the List  : [ 'neelesh', 'is', 'name', 'my' ]
 4. Transform the List of Strings to String again : neelesh is name my
 
 or programatically :
@@ -27,8 +27,8 @@ const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), 
 > Or if I ask you to find intersection of 2 Lists of Strings : ['dog','cat','horse','mouse'] ⨅ ['dog','cat','bird'] = ['dog','cat']
 ```
 And you say , 
-1. If either of the Lists are empty, return the empty List : []
-2. Transform one of the List to a Map (to save space convert smaller list to map) : {'dog':1,'cat':1,'bird':1}
+1. If either of the Lists are empty, return the empty List       : []
+2. Transform one of the List to a Map                            : {'dog':1,'cat':1,'bird':1}
 3. Transform the Map to List by matching it against another List : [dog','cat']
 
 or programatically : 
