@@ -208,8 +208,9 @@ I will define clear composition strategy to combine functions from similar or di
 > I will define composition function as '$'. It will be of arbitrary arity, so won't use currying. Also since it's a one of kind, we will not say $A (used lated for special case), but simple $. Eventaully I will define parallel composition using $$, $$$, $$$$ or $A, to allow upto 3 parallel composition or parallel composition of any arity ($A).
 
 #### Structure preserving functions
-By default all the functions that preserve the structure are composable within that category.
+By default all the functions that preserve structure and category are composable.
 ```
+$(suppercase, sreverse) // reverses the String and converts it to uppercase.
 ```
 
 #### Non-structure preserving functions
