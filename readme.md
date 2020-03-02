@@ -113,7 +113,7 @@ Name makes a huge difference. Just looking at the name we should be able to tell
 - What category it's operating (String List or Map) ?
 - What transformation it's performing (if any) - 2 (List 2 Map, List to String) or X (any of List, String or Map) ?
 - What is it really doing (sort, update, add etc.)?
-- Last but not least what's the arity - 1 (default),2,3,4 or A(arbitrart) (number of parameters it need)?
+- Last but not least what's the arity - 1 (default),2,3,4 or A(arbitrary) (number of parameters it need)?
 
 I suggest we name functions as 
 ```
