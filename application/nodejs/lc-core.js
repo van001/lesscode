@@ -9,10 +9,10 @@ const space = ' '
 
 // Equality functions
 const eqNull = val => (val == null || val == undefined) ? true : false
-const eqType2 = val => type => (typeof val == type) ? true : false
+const eqType2 = type => val => (typeof val == type) ? true : false
 const eq2 = a => b => {
-    if (eqType2(a)('array') && eqType2(b)('array')) return a.join('') === b.join('')
-    if (eqType2(a)('object') && eqType2(b)('object')) return a.toString() === b.toString()
+    if (eqType2('array')(a) && eqType2('array')(b)) return a.join('') === b.join('')
+    if (eqType2('object')(a)&& eqType2('object')(b)) return a.toString() === b.toString()
     return (a === b)
 }
 
@@ -27,7 +27,7 @@ const min2 = (a, b) => Math.min(a, b)
 const minA = (...args) => args.reduce(min2, Number.MAX_SAFE_INTEGER)
 const lt2 = lt => val => val < lt
 const gt2 = gt => val => val > gt
-const gtlt2 = gt => lt => v => (v >= gt && v <= lt)
+const gtlt2 = gt => lt => val => (v >= gt && val <= lt)
 const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
 const add2 = a => b => a + b
 
@@ -44,7 +44,7 @@ const memoize = f => { const cache = {}; return (...args) => { const argStr = ar
  * Map 
  ****************************************************************************/
 // Helper functions
-const isMap = a => typeof a == 'object'
+const isMap = map => typeof map == 'object'
 const mfilter2 = filter => map => { const xmap = {}; Object.keys(map).forEach(key => filter(map[key]) ? xmap[key] = map[key] : ""); return xmap }
 
 // Conversion (X|2) functions
@@ -69,7 +69,7 @@ const lsliceHead = lst => [lst.shift()]
 const lsliceTail = lst => [lst.pop()]
 const lsliceTail2 = count => lst => lst.slice(0, ltail - count)
 const lsliceHead2 = count => lst => lst.slice(lhead, count)
-const lpushHead4 = func2 => l1 => l2 => l =>  $p(lappend2(l), lsliceHead)(func2(lXhead(l2))(lXhead(l1)) ? l1 : l2)
+const lpushHead4 = func2 => lst1 => lst2 => lst =>  $p(lappend2(lst), lsliceHead)(func2(lXhead(lst2))(lXhead(lst1)) ? lst1 : lst2)
 
 // Conversion (X|2) functions
 const lXhead = lst => lst[0]
@@ -96,7 +96,7 @@ const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
 const sadd2 = str1 => str2 => str1 + str2
-const sappend2 = str2 => str1 =>  lc('sappend2')(snoNull(str1) + snoNull(str2))
+const sappend2 = fromStr => str =>  snoNull(str) + snoNull(fromStr)
 const ssplit2 = ptrn => str => str.split(ptrn)
 const sreplace3 = ptrn => replaceWith => str => str.replace(ptrn, replaceWith)
 

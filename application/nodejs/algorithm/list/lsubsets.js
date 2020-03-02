@@ -19,13 +19,14 @@ const { lappend2, lXfoldR3, lapply2, lZX, assert, $p } = require('../../lc-core'
  * 
  * As you can see that this problem transform List to List with a different structure. 
  * So we build a new List category called 'SubsetList'. The property of this list would be that
- * everytime you add a new item, it would generate all the subset automatically.
+ * everytime you add a new List (only list shuold be added), it would generate all the 
+ * subsets automatically.
 */
 
 const SubsetList = () => [[]]
 
 // Overrides
-const lpush2 = val =>lst =>  $p(lappend2(lst),lapply2(lappend2(val)))(lst)
+const lpush2 = fromLst =>lst =>  $p(lappend2(lst),lapply2(lappend2(fromLst)))(lst)
 const lZList = lst => lXfoldR3(SubsetList())(lpush2)(lst)
 
 /** Function */
