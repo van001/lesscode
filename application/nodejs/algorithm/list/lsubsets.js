@@ -1,15 +1,15 @@
 /**
  * Write a method to return all the subsets of a set.
- * [] -> []
- * [1] -> [],[1]
- * [1,2] -> [],[1],[2],[1,2]
- * [1,2,3] - > [],[1],[2],[3],[1,2][1,3],[2,3],[1,2,3]
+ * [] -> [[]]
+ * [1] -> [[],[1]]
+ * [1,2] -> [[],[1],[2],[1,2]]
+ * [1,2,3] - > [[],[1],[2],[3],[1,2][1,3],[2,3],[1,2,3]]
  * 
  * 1. Convert List to List of Lists : [ [ 1 ], [ 2 ], [ 3 ] ]
  * 2. Transform List to SubsetList 
  * 
  * SubsetList is a new List category which will always keep all the possible subsets of it's items
- * for e.g : [1,2] -> [],[1],[2],[1,2]
+ * for e.g : [1,2] -> [[],[1],[2],[1,2]]
  */
 
 /** Toolset */
