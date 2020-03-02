@@ -197,8 +197,15 @@ const l2String = lst => lst.join(space)
 ### 3. Function composition
 > Whole is greater than sum of parts.
 
-A single function is limited, but combined can accomplish major task. I will define clear composition strategy to combine functions from similar or different categories, or the functions that transform categories (String to List, List to Map etc).
+A single function is limited : 
 
+> l2Map2  // converts List to Map. 
+
+Combining them could accomplish some major task :
+
+> const search = key =>  $(mXfind(key), l2Map) // combines to function to create a new function search.
+
+. I will define clear composition strategy to combine functions from similar or different categories, or the functions that transform categories (String to List, List to Map etc).
 
 > I will define composition function as '$'. It will be of arbitrary arity, so won't use currying. Also since it's a one of kind, we will not say $A (used lated for special case), but simple $. Eventaully I will define parallel composition using $$, $$$, $$$$ or $A, to allow upto 3 parallel composition or parallel composition of any arity ($A).
 
