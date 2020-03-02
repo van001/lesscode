@@ -18,8 +18,8 @@ const lmerge2 = l1 => l2 => {
     // Let's create an accumulator function
     const $merge = l1 => l2 => l => {
         if (leqEmpty(l1) && leqEmpty(l2)) return []
-        if (leqEmpty(l1) && !leqEmpty(l2)) return $p(lappend2(l))(l2)
-        if (leqEmpty(l2) && !leqEmpty(l1)) return $p(lappend2(l))(l2)
+        if (leqEmpty(l1) && !leqEmpty(l2)) return $p(lappend2(l2))(l)
+        if (leqEmpty(l2) && !leqEmpty(l1)) return $p(lappend2(l1))(l)
         return $($merge(l1)(l2), lpushHead4(lt2)(l1)(l2))(l)
     }
     return $merge(l1)(l2)([])

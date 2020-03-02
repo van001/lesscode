@@ -11,9 +11,13 @@
  * CompressedSring - Internally prepresented as a Map : { 'char': null, 'count': 0, 'data': ''}
  * We will implement String functions to add and build CompressedString. 
  * External categories will be prefixed with Category acronym; CompressedSring : CS
+ * 
+ * This would become our pattern to solve problems, which transform to similar categories with
+ * modified structure. A List will remain List but either the Structure is different or semantic 
+ * changed - Complete Binry Tree
  */
 /** ToolSet */
-const { sappend2, s2List2, l2Map3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
+const { sappend2, s2List2, lXfoldL3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
 
 /** New Category */
 const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
@@ -30,7 +34,7 @@ const CSupdateData2 = char => cs => CompressedString(cs.char)(cs.count)(gt2(0)(c
 //overrides
 const sbuild2 = cs => char => eq2(char)(cs.char) ? CSincrCount(cs) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cs)
 const sdata = cs => mXfind('data')(CompressedString(cs.char)(cs.count)(gt2(1)(cs.count) ? $(sappend2(cs.count))(cs.data) : cs.data))
-const sZList = lst => $(sdata, l2Map3(CompressedString())(sbuild2))(lst)
+const sZList = lst => $(sdata, lXfoldL3(CompressedString())(sbuild2))(lst)
 
 /**
  * Philosophically : 

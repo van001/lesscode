@@ -12,8 +12,10 @@ const {eq2, assert} = require('../../lc-core')
 
 
 /** Function */
-const factorial2 = acc => n => eq2(0)(n)? acc : factorial2(acc * n)(n-1)
-const factorial = n => factorial2(1)(n)
+const factorial = n => {
+    const factorial2 = acc => n => eq2(0)(n)? acc : factorial2(acc * n)(n-1)
+    return factorial2(1)(n)
+}
 
 /** Test */
 const data = [[5, 120]]

@@ -56,13 +56,14 @@ const m2List2 = lst => map => lst.filter(val => map[val] != null)
  ****************************************************************************/
 // Helper functions
 const isList = obj => Array.isArray(obj)
-const leqEmpty = l => eq2(0)(l.length)
+const leqEmpty = lst => eq2(0)(lst.length)
+const lappendEmpty = lst => { const empty =[[]]; lst.forEach(val => empty.push(val)); return empty }
 const lhead = 0
 const ltail = lst => lst.length
 const lsort = lst => lst.sort()
 const lapply2 = func => lst => lst.map(func)
-const lpush2 = lst => val => { lst.push(val); return lst }
-const lappend2 = to => from => { from.forEach(val => to.push(val)); return to }
+const lpush2 = val => lst => { lst.push(val); return lst }
+const lappend2 = from => to => { const merged = []; to.forEach( val => merged.push(val)); from.forEach(val => merged.push(val)); return merged }
 const lslice3 = start => end => lst => lst.slice(start, end)
 const lsliceHead = lst => [lst.shift()]
 const lsliceTail = lst => [lst.pop()]
@@ -81,7 +82,9 @@ const l2String2 = ptrn => lst => lst.join(ptrn)
 const lXtranspose2 = lst1 => lst2 => lst1.map( val => [val,lXshift(lst2)])
 const lXfoldR3 = cat => func2 => lst => lst.reduce((acc, val) => func2(val)(acc), cat)
 const lXfoldL3 = cat => func2 => lst => lst.reduce((acc, val) => func2(acc)(val), cat)
-const l2Map3 = map => func2 => lst => lXfoldL3(map)(func2)(lst)
+
+// Creation
+const lZX = x => [x]
 
 
 /*****************************************************************************
@@ -120,8 +123,8 @@ module.exports = {
     add2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
-    isList, leqEmpty, lsort, lsliceHead, lsliceTail, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, 
-    lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, l2Map3, lXtranspose2, lpushHead4,
+    isList, leqEmpty, lappendEmpty, lhead, lsort, lsliceHead, lsliceTail, lapply2, lpush2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, 
+    lXhead, lXtail, lXpop, lXshift, lXfoldR3, lXfoldL3, lXtranspose2, lpushHead4,lZX, 
     isString, snoNull, snoWhitespace, suppercase, s2Integer, sadd2, sappend2, ssplit2, sreplace3, s2List2, sreverse, sZInteger,
     isMap, mfilter2, mXfind, m2List2,
     print, assert
