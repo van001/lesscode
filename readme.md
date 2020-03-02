@@ -201,7 +201,7 @@ A single function is limited :
 
 Combining them could accomplish some major task :
 
-> const search = key =>  $(mXfind(key), l2Map) // combines to function to create a new function search.
+> const search = key =>  $(mXfind(key), l2Map) // combines 2 functions to create a new function search.
 
 I will define clear composition strategy to combine functions from similar or different categories, or the functions that transform categories (String to List, List to Map etc).
 
