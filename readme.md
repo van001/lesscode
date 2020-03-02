@@ -110,10 +110,10 @@ For each of the above categories(String, List & Map), I will build functions to 
 > Will the real slim shaddy, please standup, please standup...
 
 Name makes a huge difference. Just looking at the name we should be able to tell :
-- What category it's operatin ?
-- What transformation it's performing (if any) ?
-- What is it really doing ?
-- Last but not least what's the arity (number of parameters it need)?
+- What category it's operating (String List or Map) ?
+- What transformation it's performing (if any) - 2 (List 2 Map, List to String) or X (any of List, String or Map) ?
+- What is it really doing (sort, update, add etc.)?
+- Last but not least what's the arity - 1 (default),2,3,4 or A(arbitrart) (number of parameters it need)?
 
 I suggest we name functions as 
 ```
