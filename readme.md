@@ -97,8 +97,8 @@ Map may contain another String, List or a Map, uniquely identified by a key (Str
     'patents' : ['123','456','8910']
 }
 ```
-Most programming language provide the implementation of the above categories, so we may not have to implement but just use them.
-In future I may use this base object and categories to build complex categories like Heap, Tree & Graph.
+Most programming language provide the implementation of the above categories, so I will just re-use them.
+In future I may use the above categories to build more complex categories like Heap, Tree & Graph.
 
 ### 2. Pure Functions 
 > Be a rebel but have few rules in life.
