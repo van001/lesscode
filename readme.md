@@ -65,13 +65,13 @@ The goal of any functional programming language is to have pure functions (funct
 ### 1. Fewer objects and categories
 I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 
 
-Single object (like char or number) will belong to String category and bunch of objects will belong to either List or Map. 
+Single object (like characters or number) will belong to String category and bunch of objects will belong to either List or Map. 
 
 #### String (single object)
 ![String](string.png)
-String may conatin bunch of characters. e.g, 
+String may conatin bunch of characters or numbers. e.g, 
 ```
-'Neelesh Vaikhary'
+'Neelesh Vaikhary 123'
 ```
 
 #### List (container - multiple objects; serially accessible) 
@@ -80,12 +80,13 @@ String may conatin bunch of characters. e.g,
 List may contain list of Strings or List itself.
 ```
 ['My','Name','is','Neelesh Vaikhary']
+[[1,2],[3,4],[5,6]]
 ```
 
 #### Map (dictionary - multiple objects; randomly accessible via key)
 ![Map](map.jpeg)
 
-Map may contain another String, List or a Map, uniquely itendified by a key (String). 
+Map may contain another String, List or a Map, uniquely identified by a key (String). 
 ```
 {
     'name' : 'Neelesh Vaikhary',
