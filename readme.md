@@ -103,7 +103,7 @@ In future I may use this base object and categories to build complex categories 
 ### 2. Pure Functions 
 > Be a rebel but have few rules in life.
 
-For each of the above categories(String, List & Map), I will build functions to consume & transform (similar or other) categories.
+For each of the above categories(String, List & Map), I will build functions to consume, modify & transform (similar or other) categories.
 
 #### Function-naming
 
