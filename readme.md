@@ -65,7 +65,7 @@ The goal of any functional programming language is to have pure functions (funct
 ### 1. Fewer objects and categories
 I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 
 
-Single object (like characters or number) will belong to String category and bunch of objects will belong to either List or Map. 
+> Single object (like characters or number) will belong to String category and bunch of objects will belong to either List or Map. 
 
 #### String (single object)
 ![String](string.png)
