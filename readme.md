@@ -60,7 +60,7 @@ I will not impelement any number or mathemetical functions but reuse it form the
 ## Design
 > I like to [KISS](https://en.wikipedia.org/wiki/KISS_principle) ;)
 
-The goal of any functional programming language is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) to deal with & ways to compose those functions to do complex things (glue/ attach).
+The goal is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) & ways to compose those functions to do complex things (glue/ attach).
 
 ### 1. Fewer objects and categories
 I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 

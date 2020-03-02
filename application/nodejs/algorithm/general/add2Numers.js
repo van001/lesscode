@@ -20,7 +20,7 @@ const { lXfoldR3, s2List2, s2Integer, sreverse, sZInteger, add2, blank, assert, 
 const lXfoldR2Int = $p(s2Integer, lXfoldR3(blank)(add2))
 
 /** Function */
-const laddNum2 = num1 => num2 => $p(s2List2(blank), sreverse, sZInteger)(add2(lXfoldR2Int(num1))(lXfoldR2Int(num2)))
+const laddNum2 = lst1 => lst2 => $p(s2List2(blank), sreverse, sZInteger)(add2(lXfoldR2Int(lst1))(lXfoldR2Int(lst2)))
 
 /** Test */
 const data = [[[2, 4, 3], [5, 6, 4], [7, 0, 8]]]
