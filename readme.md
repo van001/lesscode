@@ -134,9 +134,9 @@ const sreplace3 = pattern => replaceWith => str =>  str.replace(pattern,replaceW
 #### Single-input 
 Most of the functions will have only one input and one output. Both input and/or output can be functions.
 ```
-const lhead = l => l[0]
+const lXhead = l => l[0]
 ```
-> 'l' denotes a List function, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
+> 'l' denotes a List function, X for transformation, head tells about the operation. A single input function defined for a given category will always act on the same category object - List, String or Map
 
 #### Multiple-input 
 ###### Currying
