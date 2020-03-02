@@ -60,7 +60,7 @@ I will not impelement any number or mathemetical functions but reuse it form the
 ## Design
 > I like to [KISS](https://en.wikipedia.org/wiki/KISS_principle) ;)
 
-The goal is to have pure functions (function without any side effect), fewer constructs (lego blocks or moving parts) & ways to compose those functions to do complex things (glue/ attach).
+Three basic rules - fewer data-structures (categories), pure functions (function without any side effect),  & function composition to glue them together. 
 
 ### 1. Fewer objects and categories
 I will start with frequently used objects and categories that are used in real-world to solve many complex business problems. 
