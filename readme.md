@@ -192,7 +192,7 @@ const l2String = lst => lst.join(space)
 > l2String is declared in Point free style 
 
 ### 3. Function composition
-![Lego Car](lego-car.png)
+![Lego Car](lego-car.png)  Lego 
 > Whole is greater than sum of parts.
 
 A single function is limited : 
