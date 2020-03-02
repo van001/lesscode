@@ -109,7 +109,12 @@ For each of the above categories(String, List & Map), I will build functions to 
 
 > Will the real slim shaddy, please standup, please standup...
 
-Name makes a huge difference. Just looking at the function name we should be able to tell on what category it applies, what it does and what is the arity. 
+Name makes a huge difference. Just looking at the name we should be able to tell :
+- What category it's operatin ?
+- What transformation it's performing (if any) ?
+- What is it really doing ?
+- Last but not least what's the arity (number of parameters it need)?
+
 I suggest we name functions as 
 ```
 <l|s|m>[2|X]<operation>[arity] 
