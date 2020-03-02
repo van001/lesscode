@@ -9,10 +9,10 @@
  */
 
  /** Toolset */
-const { assert, leqEmpty, histogram, l2Map2, m2List2, id, $, $p } = require('../../lc-core')
+const { assert, leqEmpty, histogram2, l2Map2, m2List2, id, $, $p } = require('../../lc-core')
 
 /** Function */
-const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? $(id)([]) : $p(m2List2(lst2), l2Map2(histogram))(lst1)
+const lintersection2 = lst1 => lst2 => leqEmpty(lst1) || leqEmpty(lst2) ? $(id)([]) : $p(m2List2(lst2), l2Map2(histogram2))(lst1)
 
 /** Test */
 const data = [

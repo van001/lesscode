@@ -23,7 +23,8 @@ const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[
 const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
 const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
 
-const histogram = (map, val) => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
+// filters
+const histogram2 = map => val => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
 
 
 /*****************************************************************************
@@ -43,7 +44,7 @@ const minus2 = b => a => a-b
  * Map 
  ****************************************************************************/
 // Helper functions
-const isMap = map => typeof map == 'object'
+const isMap = eqType2('object')
 const mfilter2 = filter => map => { const xmap = {}; Object.keys(map).forEach(key => filter(map[key]) ? xmap[key] = map[key] : ""); return xmap }
 
 // Conversion (X|2) functions
@@ -69,6 +70,7 @@ const lsliceHead = lst => [lst.shift()]
 const lsliceTail = lst => [lst.pop()]
 const lsliceTail2 = count => lst => lst.slice(0, ltail - count)
 const lsliceHead2 = count => lst => lst.slice(lhead, count)
+// applicative 
 const lapply3 = func2 => lst1 => lst2 => lst1.map ((val, index) => func2(val)(lXi2(index)(lst2)))
 const lpushHead4 = func2 => lst1 => lst2 => lst =>  $p(lappend2(lst), lsliceHead)(func2(lXhead(lst2))(lXhead(lst1)) ? lst1 : lst2)
 
@@ -78,7 +80,7 @@ const lXtail = lst => lst[lst.length - 1]
 const lXpop = lst => lst.pop()
 const lXshift = lst => lst.shift()
 const lXi2 = index => lst => lst[index]
-const l2Map2 = func => lst => lst.reduce(func, {})
+const l2Map2 = func2 => lst => lst.reduce((acc, val) => func2(acc)(val), {})
 const l2String2 = ptrn => lst => lst.join(ptrn)
 const lXtranspose2 = lst1 => lst2 => lst1.map( val => [val,lXshift(lst2)])
 const lXfoldR3 = cat => func2 => lst => lst.reduce((acc, val) => func2(val)(acc), cat)
@@ -92,7 +94,7 @@ const lZX = x => [x]
  * String 
  ****************************************************************************/
 // Helper functions
-const isString = str => typeof str == 'string'
+const isString = eqType2('string')
 const snoNull = str => eqNull(str) ? blank : str
 const suppercase = str => str.toUpperCase()
 const snoWhitespace = str => str.replace(space, blank)
@@ -120,7 +122,7 @@ const assert = a => b => m => console.assert(eq2(a)(b), `${m}`)
 module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
-    histogram, zeroOnNull, id, 
+    histogram2, zeroOnNull, id, 
     add2, minus2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
