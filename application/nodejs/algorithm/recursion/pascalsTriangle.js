@@ -13,6 +13,7 @@
  * [ 1, 2, 1 ]
  * [ 1, 3, 3, 1 ]
  * [ 1, 4, 6, 4, 1 ]
+ * 
  */
 
 /** Toolset */
@@ -21,7 +22,7 @@ const { lappend2, lpreappend2, lZX, lapply3, add2, eq2, print, memoize, assert, 
 /** Functions */
 const PT = () => lZX(1)
 // We also introduced applicative here - lapply3 
-const PTnext = pt => lapply3(add2)($(lappend2([0]))(pt))($(lpreappend2([0]))(pt))
+const PTnext = pt => lapply3(add2)(lappend2([0])(pt))(lpreappend2([0])(pt))
 
 pascalsTriangle = memoize(n => eq2(1)(n) ? $(print)(PT()) : $(print)(PTnext(pascalsTriangle(n - 1))))
 
