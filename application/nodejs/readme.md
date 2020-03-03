@@ -1,14 +1,13 @@
 # Download
-
 git clone https://github.com/van001/lesscode.git
 
 # Run
-node application/nodejs/algorithm/list/lintersection.js
+node application/nodejs/algorithm/list/lintersection2.js
 
 # Function Library
 [lc-core.js](https://github.com/van001/lesscode/tree/master/application/nodejs/lc-core.js)
 
-### Organization
+# Organization
 [Algorithm](https://github.com/van001/lesscode/tree/master/application/nodejs/algorithm)
   - [General](https://github.com/van001/lesscode/tree/master/application/nodejs/algorithm/general)
   - [List](https://github.com/van001/lesscode/tree/master/application/nodejs/algorithm/list)
