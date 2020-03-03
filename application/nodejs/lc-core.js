@@ -65,7 +65,7 @@ const lappendEmpty = lst => { const empty =[[]]; lst.forEach(val => empty.push(v
 const lhead = 0
 const ltail = lst => lst.length
 const lsort = lst => lst.sort()
-// Essentially a functor
+// Essentially a functor. Preserves the structure.
 const lmap2 = func => lst => lst.map(func)
 const lpush2 = val => lst => { lst.push(val); return lst }
 const lpreappend2 = from => to => from.concat(to)
