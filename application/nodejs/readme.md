@@ -1,9 +1,12 @@
-### Download
+# Download
 
 git clone https://github.com/van001/lesscode.git
 
-### Run
-node application/nodejs/algorithm/list/intersection.js
+# Run
+node application/nodejs/algorithm/list/lintersection.js
+
+# Function Library
+[lc-core.js](https://github.com/van001/lesscode/tree/master/application/nodejs/lc-core.js)
 
 ### Organization
 [Algorithm](https://github.com/van001/lesscode/tree/master/application/nodejs/algorithm)
