@@ -16,9 +16,15 @@ const eq2 = a => b => {
     return (a === b)
 }
 
-// Generic Helpers
-const histogram = (map, val) => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
+// Helpers
+const id = x => x
 const zeroOnNull = val => eqNull(val) ? 0 : val
+const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
+const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
+const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
+
+const histogram = (map, val) => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
+
 
 /*****************************************************************************
  * Math
@@ -32,14 +38,6 @@ const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
 const add2 = a => b => a + b
 const minus2 = b => a => a-b
 
-/*****************************************************************************
- * Composition
- ****************************************************************************/
-const lc = name => arg => arg
-const id = x => x
-const $ = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
-const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))], args)[0] // use for debugging
-const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
 
 /*****************************************************************************
  * Map 
@@ -122,7 +120,7 @@ const assert = a => b => m => console.assert(eq2(a)(b), `${m}`)
 module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
-    histogram, zeroOnNull,
+    histogram, zeroOnNull, id, 
     add2, minus2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
