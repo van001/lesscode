@@ -8,11 +8,11 @@ Problem : reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is nam
 **/
 
 /** Toolset **/ 
-const {l2String2, lapply2, s2List2, sreverse, assert, $, $p , space} = require('../../lc-core')
+const {l2String2, lmap2, s2List2, sreverse, assert, $, $p , space} = require('../../lc-core')
 
 /** Function */
 // sreverseSentence :: String -> String
-const sreverseSentence = $p(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+const sreverseSentence = $p(l2String2(space), lmap2(sreverse), s2List2(space), sreverse)
 
 /** Test */
 const data = [

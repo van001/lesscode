@@ -20,7 +20,7 @@ Sentence is a just a String of Strings (words) separated by a whitespace, so
 4. Transform the List of Strings to String again : neelesh is name my
 
 or programatically :
-const sreverseSentence = $(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+const sreverseSentence = $(l2String2(space), lmap2(sreverse), s2List2(space), sreverse)
 ```
 [reverse-sentence.js](https://github.com/van001/lesscode/blob/master/application/nodejs/algorithm/string/sreverseSentence.js)
 
@@ -216,7 +216,7 @@ $(suppercase, sreverse) // reverses the String and converts it to uppercase.
 #### Non-structure preserving functions
 After applying non-structure preserving function you can keep composing with structure preserving functions of the transformed category.
 ```
-const { $,  l2String2, lapply2, space, s2List2, sreverse} = require('../lib/lc-core')
+const { $,  l2String2, lmap2, space, s2List2, sreverse} = require('../lib/lc-core')
 
 /** 
 reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
@@ -226,18 +226,18 @@ reverse words in a sentence :: 'my name is neelesh' -> 'neelesh is name my'
 4. Convert List back to String
 **/
 
-const reverseSentence = $p(l2String2(space), lapply2(sreverse), s2List2(space), sreverse)
+const reverseSentence = $p(l2String2(space), lmap2(sreverse), s2List2(space), sreverse)
 
 console.log(reverseSentence('my name is neelesh'))
 ```
-> After s2List2 (String to List transformation), one could only compose with List functions - lapply2, l2String2 etc.
+> After s2List2 (String to List transformation), one could only compose with List functions - lmap2, l2String2 etc.
 
 ***$ is a composition function. Enabling printing with $p, we get...***
 
 ```
 hseleen si eman ym // sreverse
 [ 'hseleen', 'si', 'eman', 'ym' ] // s2List2(space)
-[ 'neelesh', 'is', 'name', 'my' ] // lapply2(sreverse)
+[ 'neelesh', 'is', 'name', 'my' ] // lmap2(sreverse)
 neelesh is name my // l2String2(space)
 ```
 

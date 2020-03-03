@@ -13,7 +13,7 @@
  */
 
 /** Toolset */
-const { lappend2, lXfoldR3, lapply2, lZX, assert, $p } = require('../../lc-core')
+const { lappend2, lXfoldR3, lmap2, lZX, assert, $p } = require('../../lc-core')
 
 /** New Category 
  * 
@@ -26,11 +26,11 @@ const { lappend2, lXfoldR3, lapply2, lZX, assert, $p } = require('../../lc-core'
 const SubsetList = () => [[]]
 
 // Overrides
-const lpush2 = fromLst =>lst =>  $p(lappend2(lst),lapply2(lappend2(fromLst)))(lst)
+const lpush2 = fromLst =>lst =>  $p(lappend2(lst),lmap2(lappend2(fromLst)))(lst)
 const lZList = lst => lXfoldR3(SubsetList())(lpush2)(lst)
 
 /** Function */
-const lsubsets = $p(lZList, lapply2(lZX))
+const lsubsets = $p(lZList, lmap2(lZX))
 
 /** Test */
 const data = [
