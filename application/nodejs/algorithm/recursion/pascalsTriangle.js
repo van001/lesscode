@@ -17,7 +17,7 @@
  * 1. When N = 1, we return :  [1]
  * 2. For N> 1, we pad N-1th row left and right with 0 : [1,0] [0,1]
  * 3. We then add those 2 Lists. We will use List applicative (lapply3) : [1,1]
- * 4. We just recursively build for any 'N'.
+ * 4. We just recursively build for any 'N', using memoization ofcourse ;)
  */
 
 /** Toolset */
