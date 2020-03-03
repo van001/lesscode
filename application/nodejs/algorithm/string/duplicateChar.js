@@ -4,10 +4,10 @@
  */
 
 /** Toolset */
-const { histogram, l2Map2, gt2, mfilter2, assert, $p, blank, s2List2 } = require('../../lc-core')
+const { histogram2, l2Map2, gt2, mfilter2, assert, $p, blank, s2List2 } = require('../../lc-core')
 
 /** Function */
-const sdulpicateChar = $p(mfilter2(gt2(1)), l2Map2(histogram), s2List2(blank))
+const sdulpicateChar = $p(mfilter2(gt2(1)), l2Map2(histogram2), s2List2(blank))
 
 /** Test */
 
