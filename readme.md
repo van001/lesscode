@@ -44,7 +44,7 @@ My email is neelesh.vaikhary@gmail.com
 ## Goal
 > Eating your own dog food.
 
-The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and construct programs using pure functions (no side-effect), function composition (lego blocks), fewer categories/ data-structures and tools (functions). Also I want to find few patterns that could be used to solve any problem using FP. 
+The initial goal is to influence programmers (including myself), to start thinking in terms of functional programming and construct programs using pure functions (no side-effect), function composition (lego blocks), fewer categories/ data-structures and tools (functions). Also I want to find few patterns that could be used to solve any problem using FT (functionla thinking). 
 
 Eventually I want to solve many real-world complex problems and see how practical is it to do clutter-free programming using functional thinking.
 
