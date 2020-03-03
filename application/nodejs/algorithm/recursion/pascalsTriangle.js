@@ -27,7 +27,7 @@ const { lappend2, lpreappend2, lZX, lapply3, add2, eq2, print, memoize, assert, 
 const PT = () => lZX(1)
 // We also introduced applicative here - lapply3 
 const PTnext = pt => lapply3(add2)(lappend2([0])(pt))(lpreappend2([0])(pt))
-
+// pascalsTriangle :: Integer -> List
 pascalsTriangle = memoize(n => eq2(1)(n) ? $(print)(PT()) : $(print)(PTnext(pascalsTriangle(n - 1))))
 
 /** Test */
