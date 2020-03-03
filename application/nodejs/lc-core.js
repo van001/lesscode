@@ -37,6 +37,7 @@ const gtlt2 = gt => lt => val => (v >= gt && val <= lt)
 const ltOf2 = val1 => val2 => gt2(val1)(val2) ? val2 : val1
 const add2 = a => b => a + b
 const minus2 = b => a => a-b
+const multiply2 = b => a => a * b
 
 
 /*****************************************************************************
@@ -121,7 +122,7 @@ module.exports = {
     blank, space, comma, line,
     eqType2, eq2, eqNull,
     histogram, zeroOnNull, id, 
-    add2, minus2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
+    add2, minus2, multiply2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
     $, $p, memoize,
     isMap, mfilter2, mXfind, m2List2,
     isList, leqEmpty, lappendEmpty, lhead, ltail, lsort, lsliceHead, lsliceTail, lmap2, lpush2, lpreappend2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, l2Map2, l2String2, 
