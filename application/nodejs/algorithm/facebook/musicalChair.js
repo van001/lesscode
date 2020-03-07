@@ -29,4 +29,10 @@ const musicalChair = pos => circ => {
 
 const circ = circle(4)
 //console.log(removeChair(0)(circ))
-console.log(musicalChair(0)(circ))
+//console.log(musicalChair(0)(circ))
+
+//console.log([1,2,3,4,5,6].slice(3))
+const add = a => b => c=>  a + b +c
+$A = func => lst => { const $$A = func => lst => count => (count == lst.length -1)? func(lst[count]) : $$A(func(lst[count]))(lst)(count+1); return $$A(func)(lst)(0)}
+
+console.log($A(add)([1,1,3]))
