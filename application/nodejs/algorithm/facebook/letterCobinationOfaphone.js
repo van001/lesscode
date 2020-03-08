@@ -1,9 +1,9 @@
 /**
  * Logic is simple
  * 1. You initial an empty array.
- * 1. For each letter you dial, you pick the chars assicaited.
- * 2. Each letter you picked you then append to the previous array.
- * 3. You keep doing this for each number
+ * 1. For each letter you dial, you pick the chars assocaited.
+ * 2. Each letter you picked you then append to the previous array (multiply).
+ * 3. You keep doing this for each number.
  */
 // Generics
 const print = val => { console.log(val); return val } //print
@@ -48,5 +48,10 @@ const dial = str => {
 
 }
 
-//print(dial('8'))
+// Test
+const data =[
+    {in : '23', out : ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']}
+]
+
+data.forEach (val => assert(dial(val.in))(val.out)(val))
 //print([''].reduce( (cat, val) => lappend(cat)( ['a','b','c'].map((val2) => val+val2)), []))
