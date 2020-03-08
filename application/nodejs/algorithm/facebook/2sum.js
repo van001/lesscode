@@ -5,7 +5,7 @@
  * Logic is very self explanatory :
  * 1. Convert List to index Map. 
  * 2. Filter the 1st matching key (value) form the map, whose sum matches the List item + key
- * 3. Pick only valid entries - unique & valid index. 
+ * 3. Pick only valid entries - non self 
 **/
 
 // Generic toolset that you will use to solve any problem
@@ -15,12 +15,9 @@ const $ = (...func) => (...args) => func.reduceRight((args, func) => [func(...ar
 const assert = input => output => msg => console.assert((typeof output === 'object') ? input.join('') === output.join('') : input === output, msg)
 
 // List
-l2indexMap = lst => lst.reduce ( (cat, val, index) => {(cat[val])? cat[val].push(index):cat[val] = [index] ; return cat},{}) // List to index Map - very helpful function to solve many problems
-lfold = cat => func  => lst => lst.reduce ((cat, val) => func(cat)(val),cat)// reducer
-
-// Map
-// Takes the Category &  List as input and apply the function to find the matching key - again very helpful function for many problems 
-mfindl = cat => func => lst => map => lst.reduce ((cat, val, index) => func(map)(cat)(index)(val),cat) 
+const lappend = lst1 => lst2 => lst1.concat(lst2) // append lst2 to lst1
+const l2indexMap = lst => lst.reduce ( (cat, val, index) => { cat[val] = index; return cat},{} ) // List to index Map - very helpful function to solve many problems
+const lfold = cat => func  => lst => lst.reduce ((cat, val, index) => func(cat)(index)(val),cat)// reducer
 
 /**
  * Actual Code : 
@@ -34,27 +31,28 @@ mfindl = cat => func => lst => map => lst.reduce ((cat, val, index) => func(map)
  * That's what the goal of my reseach : https://github.com/van001/lesscode.
 **/
 
-const twoSum = max => lst => {
-    // pick the 1st valid n unique index value : [ [ 0, -1 ], [ 1, 2 ], [ 2, 1 ] ] -> [1,2]
-    const validNunique = cat => val => (cat.length == 0 && val[0] != val[1] && val[1] != -1)? val : cat 
+// Like always, we just compose the solution. Here we are mainly using 2 generic tools - l2indexMap, lfold
+const twoSum = sum => lst => {
+   
     // match the keys that equates to sum. The return the list of matching indices, ignoring the self match.
-    const matchSum = sum => map => cat => index => val => {(map[sum-val])?cat.push([index,map[sum-val].reduce((cat, val) => (val != index && cat == -1)? val : cat , -1)]) : cat; return cat}
+    const matchSum = sum => map => cat => index => val => (cat.length == 0 && map[sum-val] && map[sum-val] != index ) ? lappend(cat)([index,map[sum-val]]) : cat
+    const map = $(trace('Converted List to index Map...'), l2indexMap)(lst) 
+    const matchSumWithMap =matchSum(sum)(map)
     
-    // Like always, we just compose the solution. Here we are mainly using 3 generic tools - l2indexMap, mfindL, lfold
-    return $(
-        // Using trace, you can actually see how your solution is built...
-        trace('Picked 1st valid and unique...................................'), lfold([])(validNunique),        // [ 0, 1 ]
-        trace('Found the 1st key (value(s) ignoring self) that matched sum...'), mfindL([])(matchSum(max))(lst), // [ [ 0, 1 ], [ 1, 0 ] ]
-        trace('Converted List to index Map...................................'), l2indexMap)(lst)                // { '3': [ 0, 1 ] }
+    return $(trace('Picked 1st valid match.............'), lfold([])(matchSumWithMap))(lst) 
+    
 }
 
 //Test
 const data =[
     { in : [ 9, [2, 7, 11, 15]], out : [0,1] },
     { in : [ 6, [3,3]], out : [0,1] },
+    { in : [6, [1,3,4,2]], out : [2,3]}, 
     { in : [ 6, [3,2,4]], out : [1,2] }
 ]
 data.forEach (val => assert(twoSum(val.in[0])(val.in[1]))(val.out)(val))
+//print(twoSum(9)([2, 7, 11, 15]))
+
 /**
  * Sample Output :
  * 

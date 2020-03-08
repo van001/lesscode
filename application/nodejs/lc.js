@@ -9,7 +9,11 @@ const assert = input => output => msg => console.assert((typeof output === 'obje
 /** String **/
 // Constants
 const space = ' '
-const blank = ' '
+const blank = ''
+const comma = ','
+
+// Category Changers
+const s2List = ptrn => str => str.split(ptrn)
 
 /** Math */
 const max = a => b => Math.max(a,b);
@@ -17,7 +21,7 @@ const min = a => b => Math.min(a,b);
 
 /** List **/
 // Creator
-lcreate = start => end => lst => ( start === end ) ? lst : lrange(start+1)(end)(lappend(lst)(start)) // Creates a List with specified range.
+const lcreate = start => end => lst => ( start === end ) ? lst : lrange(start+1)(end)(lappend(lst)(start)) // Creates a List with specified range.
 // Boolean
 const leqEmpty = lst => lst.length == 0
 // Positional
@@ -26,7 +30,7 @@ const ltail = lst => lst[lst.length]
 const lat = index => lst[index]
 // Modifiers
 const lsort = lst => lst.sort()
-const lreverse = lst => lst.reduce((acc, val) => lappend([val])(acc))
+const lreverse = lst => lst.reduce((acc, val) => lappend([val])(acc), [])
 const lswap = pos1 => pos2 => lst => lst.slice(0, pos1). //slice to pos1
                                     concat(lst.slice(pos2, pos2 + 1)). // concat pos2
                                     concat(lst.slice(pos1 + 1, pos2)). // concat pos1+1 to pos2
@@ -41,9 +45,11 @@ const lmapDelta = lst => index => val => (index === 0)? 0 : val - lst[index-1] /
 // Expander
 const lprepend = lst1 => lst2 => lst2.concat(lst1) // prepend lst2 to lst1
 const lappend = lst1 => lst2 => lst1.concat(lst2) // append lst2 to lst1
+const lallSubset = lst => lst.reduce((lst, val) => lappend(lst)( lst.map(lprepend([val]))),[[]])
 const lmapN2 = func => lst => lmap(val => lmap(func(val))(lst))(lst) // NXN map function - List to List of List
 
 // Collapsers
+const lremove = index => lst => lst.slice(0,index).concat(lst.slice(index+1,lst.length))
 const lsliceHead = lst => (lst.length > 0) ? lst.slice(1, lst.length) : [] // slices head
 const lsliceTail = lst => lst.slice(0, lst.length - 1) // slice tail
 const lslice = start => end => lst = lst.slice(start, end) // slicer
@@ -70,10 +76,9 @@ const lfoldKadane = acc => lst => index => val => {
 const lsum = lst => lst.reduce( (acc, val) => acc+val)
 const lmax = lst => lst.reduce((acc, val) => Math.max(acc,val),Number.MIN_SAFE_INTEGER) // find the max from the list
 const lmin = lst => lst.reduce((acc, val) => Math.min(acc,val),Number.MAX_SAFE_INTEGER) // find the max from the list
-const l2String = lst => lst.reduce( (acc, val) => ''+acc+val)
+const l2String = sep => lst => lst.reduce( (acc, val) => ''+acc + sep + val)
 const l2countMap = lst => lst.reduce((map, val) => mincr(val)(map) ,{}) //histogram
-const l2indexMap = lst => lst.reduce ( (cat, val, index) => {(cat[val])? cat[val].push(index):cat[val] = [index] ; return cat},{}) // Creates an index Map
-
+const l2indexMap = lst => lst.reduce ( (cat, val, index) => { (cat[val]) ? cat[val][index] = index : cat[val] = $(mset(index)(index))({}); return cat},{} ) // List to index Map - very helpful function to solve many problems
 // Map
 // Positional
 const mget = key => map => map[key] // retrieves the value for key
@@ -91,8 +96,9 @@ const m2keyList = map => Object.keys(map) // Map to List (values)
 module.exports = {
     // Generic
     print, trace, $, $P, $A, assert,                             // Generics
-    // Constants
-    blank, space,                                                // Constants
+    // // String
+    blank, space, comma,                                         // Constants
+    s2List,
     // Math
     max, min,                                                    // Math
     // List
@@ -101,7 +107,7 @@ module.exports = {
     lhead, ltail, lat,                                           // List : Positional
     lsort, lreverse, lswap ,                                     // List : Modifiers
     lmap, lmapDelta,                                             // List : Mapper & Presets
-    lprepend, lappend, lmapN2,                                   // List : Expander
+    lremove, lprepend, lappend, lallSubset, lmapN2,              // List : Expander
     lsliceHead, lsliceTail, lslice, lzip, lflat,                 // List : Collapsers                     
     lfold, lfoldr, lfoldLeftMax, lfoldrRightMax,                 // List : Folders & Presets
     lfoldKadane,

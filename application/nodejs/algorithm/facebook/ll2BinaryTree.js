@@ -4,6 +4,7 @@ const print = val => { console.log(val); return val } //print
 const trace = label => val => { print(label); print(val); print(' ');return val } // trace with label
 const $ = (...func) => (...args) => func.reduceRight((args, func) => [func(...args)], args)[0] // composition function
 const assert = input => output => msg => console.assert((typeof output === 'object') ? input.join('') === output.join('') : input === output, msg)
+
 const isNull = val => val === null || val === undefined
 
 // List
