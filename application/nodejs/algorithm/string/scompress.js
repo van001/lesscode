@@ -17,7 +17,7 @@
  * changed - Complete Binry Tree
  */
 /** ToolSet */
-const { sappend2, s2List2, lXfoldL3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
+const { sappend2, s2List2, lXfold3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
 
 /** New Category */
 const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
@@ -28,13 +28,13 @@ const CompressedString = char => count => data => ({char,'count': eqNull(count) 
 **/
 const CSresetCount = cs => CompressedString(cs.char)(1)(cs.data)
 const CSincrCount = cs => CompressedString(cs.char)(cs.count + 1)(cs.data)
-const CSupdateChar2 = char => cs => CompressedString(char)(cs.coun)(cs.data)
+const CSupdateChar2 = char => cs => CompressedString(char)(cs.count)(cs.data)
 const CSupdateData2 = char => cs => CompressedString(cs.char)(cs.count)(gt2(0)(cs.count) ? $(sappend2(char), sappend2(cs.count))(cs.data) : sappend2(char)(cs.data))
 
 //overrides
-const sbuild2 = cs => char => eq2(char)(cs.char) ? CSincrCount(cs) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cs)
+const sbuild2 = index => cs => char => eq2(char)(cs.char) ? CSincrCount(cs) : $p(CSresetCount, CSupdateChar2(char), CSupdateData2(char))(cs)
 const sdata = cs => mXfind('data')(CompressedString(cs.char)(cs.count)(gt2(1)(cs.count) ? $(sappend2(cs.count))(cs.data) : cs.data))
-const sZList = lst => $(sdata, lXfoldL3(CompressedString())(sbuild2))(lst)
+const sZList = lst => $(sdata, lXfold3(CompressedString())(sbuild2))(lst)
 
 /**
  * Philosophically : 
