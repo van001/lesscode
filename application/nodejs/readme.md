@@ -1,5 +1,5 @@
 # Disclaimer
-The code here is wrok in progress. As I discover more commonality between problems, I re-assess the strategy. In other words, sometime it may not work.
+The code here is work in progress. As I discover more commonality between problems, I re-assess the strategy. In other words, sometime it may not work.
 
 # Download
 git clone https://github.com/van001/lesscode.git
