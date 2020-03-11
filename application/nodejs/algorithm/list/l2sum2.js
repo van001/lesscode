@@ -13,10 +13,7 @@
  * In general, we are in 3 states : steady, expanding and contracting. Any steady state problem could be solved by pure composition.
  * When we are expanding, we need to be the ability to  excetue concurrently. On contraction, we need to converge to a point.
  * We will introduse '$$' as a parallel execution function. It will take arbitarary functions and execute them concurrently, 
- * producing results as List
- * 
- 
- * 
+ * producing results as a List.
  * 
  */
 
