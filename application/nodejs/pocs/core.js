@@ -19,7 +19,7 @@ const lxid4 = lst => index => cat => val => { lappend2(cat)([val])}
 const lxprint4 = lst => index => cat => val => {console.log(`${val}`); ;return  lappend2(cat)([val])}
 const lxchainleft = func4 => lst => index => cat => val => func4(lst)(index)(cat)([lst[index-1],val])
 const lxsum4 = lst => index => cat => val => lappend2(cat)([val[0]? val[0]+val[1]: val[1]])
-const lxsumList4 = lst => index => cat => val => lappend2(cat)([val[0]? val[0]+val[1]: val[1]])
+const lxmaxsum4 = lst => index => cat => val => lappend2(cat)([lXtail(cat)? (lXtail(cat)+val[1] > val[1])? lXtail(cat)+val[1] : val[1]: val[1]])
 const lxmaxsum4 = lst => index => cat => val => lappend2(cat)([lXtail(cat)? (lXtail(cat)+val[1] > val[1])? lXtail(cat)+val[1] : val[1]: val[1]])
 const lxdelta4 = lst => index => cat => val => lappend2(cat)([val[0]? val[1]-val[0]: 0])
 

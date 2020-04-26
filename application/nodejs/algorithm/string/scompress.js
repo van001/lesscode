@@ -20,7 +20,7 @@
 const { sappend2, s2List2, lXfold3, mXfind, $p, $, gt2, eq2, eqNull, blank , assert} = require('../../lc-core')
 
 /** New Category */
-const CompressedString = char => count => data => ({char,'count': eqNull(count) ? 0 : count,data})
+const CompressedString = char => count => data => ({char, count: eqNull(count) ? 0 : count,data})
 
 /**
 * CompressedString  functions. See how the data is separate and each operation produces a new version.
@@ -43,7 +43,7 @@ const sZList = lst => $(sdata, lXfold3(CompressedString())(sbuild2))(lst)
  * We are already overriding functions :).
  * Did we get OO wrong by forcing mutation & tight coupling of functions?
  * As I am noticing, the key to successful FP is ability to compose, I am also thinking, what if other programming paradigms made composition trivial?
- */
+ **/
 
 /** Function */
 // scompress :: String -> String

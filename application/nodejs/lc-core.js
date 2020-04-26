@@ -1,3 +1,4 @@
+const util = require('util')
 /*****************************************************************************
  * Generic
  ****************************************************************************/
@@ -17,6 +18,7 @@ const eq2 = a => b => {
 }
 
 // Helpers
+
 const id = x => x
 const zeroOnNull = val => eqNull(val) ? 0 : val
 // Compoistion functions. ALlows you to compose functions as long as you follow the rules.
@@ -30,6 +32,8 @@ const $p = (...f) => (...args) => f.reduceRight((res, fn) => [print(fn(...res))]
 // Handy function to memoize (cache) result of dynmanic programming.
 const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
 
+const $C = (...f) => (...args) => f.reduceRight((res, fn) => [fn(...res)], args)[0]
+const $X = toCat => func3 => fromCat => fromCat.reduce((toCat, val, index) => func3(index)(val)(toCat), toCat)
 //const fork = (...f) => args => ({ 'join' : f2 => Promise.all(args.map(f)).then(f2)})
 
 /*****************************************************************************
@@ -105,11 +109,10 @@ const lXapply3 = func2 => lst1 => lst2 => lst1.map ((val, index) => func2(val)(l
 const lXflatapply2 = func2 => lst => func2(lXshift(lst))(lXshift(lst)) // flat apply the List to specified function
 
 // filters - built in reducer filters
-// Typically a List would either contain unique or duplicate items.
 // When List has unique items you can trivially convert it to Index Map - Given a key return the index.
+const lxIndexMap3 = index => map => val => { map[val] = index; return map }
 // When List has duplicats you can convert it to Count Map. Given a key's return the count.
 const lxCountMap3 = index => map => val => { (map[val]) ? map[val] += 1 : map[val] = 1; return map }
-const lxIndexMap3 = index => map => val => { map[val] = index; return map }
 const lxmax3 = index => count => val => gt2(count)(val)? val : count
 
 // List to List Transformation
@@ -147,7 +150,7 @@ sZInteger = num => ''+num
 /*****************************************************************************
  * Testing
  ****************************************************************************/
-const print = arg => { console.log(arg); return arg; }
+const print = arg => { console.log(JSON.stringify(arg, null, 4)); return arg; }
 const assert = a => b => m => console.assert(eq2(a)(b), `${m}`)
 
 module.exports = {
@@ -155,7 +158,7 @@ module.exports = {
     eqType2, eq2, eqNull,
     zeroOnNull, id, 
     add2, minus2, minusFrom2, min2, minA, lt2, gt2, gtlt2, ltOf2, 
-    $, $p, $$, $$p , memoize,
+    $, $p, $$, $$p , memoize, $X, $C,  
     isMap, mfilter2, mXfind, m2List2, m2List3, mxallMatching2, mxallMatchingIndex2, 
     isList, leqEmpty, lappendEmpty, lsort, lsliceHead, lsliceTail, lmap2, lpush2, lpreappend2, lappend2, lslice3, lsliceHead2, lsliceTail2, lXi2, 
     l2Map2, l2String2,  lXhead, lXtail, lXpop, lXshift, lXfold3, lXtranspose2, lXflatapply2, lXapply3, lpushHead4,lZX, lxCountMap3, lxIndexMap3, l2MaxsumList, lxmax3, 
