@@ -4,13 +4,24 @@ const trace = label => val => { print(label); print(val); print(' '); return val
 const $ = (...func) => (...args) => func.reduceRight((args, func) => [func(...args)], args)[0] // composition function
 const $P = (...f) => (...args) => f.map(fn => fn(...args))// Executes the functions in parallel and return the reuslt as List
 const $A = func => lst => { const $$A = func => lst => count => (count == lst.length -1)? func(lst[count]) : $$A(func(lst[count]))(lst)(count+1); return $$A(func)(lst)(0)} // applicative
-const assert = input => output => msg => console.assert((typeof output === 'object') ? input.join('') === output.join('') : input === output, msg)
+const assert = input => output => msg => console.assert((typeof output === 'object' && output != null) ? input.join('') === output.join('') : input === output, msg)
 
 /** String **/
 // Constants
 const space = ' '
 const blank = ''
 const comma = ','
+
+// Positional
+const shead = str => str.charAt(0)
+const slen = str => str.length
+
+// Expanders
+const sappend = str1 => str2 => str1 + str2
+const srepeat = count => str => { const $srepeat = acc => count => str => (count == 0) ? acc : $srepeat(sappend(str)(str))(count-1)(str) ; return $srepeat([])(count)(str)}
+
+// Collapsers
+const sslice  = start => end => str => str.slice(start,end)
 
 // Category Changers
 const s2List = ptrn => str => str.split(ptrn)
@@ -26,7 +37,7 @@ const lcreate = start => end => lst => ( start === end ) ? lst : lrange(start+1)
 const leqEmpty = lst => lst.length == 0
 // Positional
 const lhead = lst => lst[0] // return the head element of the List
-const ltail = lst => lst[lst.length]
+const ltail = lst => lst[lst.length-1]
 const lat = index => lst[index]
 // Modifiers
 const lsort = lst => lst.sort()
@@ -70,6 +81,18 @@ const lfoldKadane = acc => lst => index => val => {
         : ( sum >= val) 
             ? print({ max : max(acc.max)(sum), sum , start :  index, end : (acc.max > sum) ? acc.end : index , incr : (sum < 0) ? acc.incr+1 : acc.incr })
             : print({ max : max(acc.max)(val), sum : val , start : acc.start, end : (acc.max > val) ? acc.end : index + acc.incr, incr : 1})// Kadane's algorithm
+}
+// folds the List based on move function which dictate the folding direction - zigzag
+// move :: cat => lst => j => i -> bool ; true move left pointer, false right
+const lfoldZ = cat => move => func => lst => {
+    const $lfoldZ = cat => func => lst => j => i =>{
+        if( i > j) return cat
+        const res = func(cat)(lst)(j)(i)
+        
+        if(move(cat)(lst)(j)(i)) return $lfoldZ(res)(func)(lst)(j)(i+1)
+        else return $lfoldZ(res)(func)(lst)(j-1)(i)
+    }  
+    return $lfoldZ(cat)(func)(lst)(lst.length-1)(0)
 }
 
 // Category Changers

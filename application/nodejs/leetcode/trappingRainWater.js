@@ -30,10 +30,13 @@ const max = a => b => Math.max(a,b);
 const min = a => b => Math.min(a,b);
 
 // List
-const lconcat = lst1 => lst2 => lst1.concat(lst2) // concat 2 Lists
-const lupSlope = lst => lst.reduce((acc, val, index ) => {(index > 0)? acc.push(max(val)(acc[index-1])) : acc.push(val); return acc},[]) // uphill slope
-const ldownSlope = lst => lst.reduceRight((acc, val, index, lst) =>  lconcat((index < lst.length-1)? [max(val)(acc[0])] : [val])(acc), [])// downhill slope
-const lfold = cat => func  => lst => lst.reduce ((cat, val, index, lst) => func(cat)(lst)(index)(val),cat)// reducer
+const lappend = lst1 => lst2 => lst1.concat(lst2) // concat 2 Lists
+const lfold = cat => func => lst => lst.reduce((cat, val, index, lst) => func(cat)(lst)(index)(val), (cat)? cat : []) // left reducer
+const lfoldr = cat => func => lst => lst.reduceRight((cat, val, index, lst) => func(cat)(lst)(index)(val), (cat)? cat : []) // right reducer
+
+// This could be a generic fold fucction
+const lfoldLeftMax = acc => lst => index => val =>  lappend(acc)((index > 0) ? [max(val)(acc[index - 1])] : [val])  // uphill slope
+const lfoldrRightMax =  acc => lst => index => val =>  lappend((index < lst.length - 1) ? [max(val)(acc[0])] : [val])(acc) // downhill slope
 
 /**
  * Actual Code : 
@@ -53,8 +56,8 @@ const trap = lst => {
     const sumTrapCount = maxLeft => maxRight => count => lst  => index => val => (index > 0 && index < lst.length -1)? count + min(maxLeft[index])(maxRight[index]) - val : count 
     
     // As usual we will just compose the solution. 
-    const upSlope =     $(trace('Built leftMax List........'), lupSlope)(lst)
-    const downSlope =   $(trace('Built rightMax List.......'), ldownSlope)(lst)
+    const upSlope =     $(trace('Built leftMax List........'), lfold([])(lfoldLeftMax))(lst)
+    const downSlope =   $(trace('Built rightMax List.......'), lfoldr([])(lfoldrRightMax))(lst)
     const sumTrapWithMaps = sumTrapCount(upSlope)(downSlope) // partially apply
     // now just fold the original list, calculating trap
     return $(trace('Folded the List to compute the count...'), lfold(0)(sumTrapWithMaps))(lst)
