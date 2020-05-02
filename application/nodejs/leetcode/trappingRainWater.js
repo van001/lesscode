@@ -26,17 +26,15 @@ const $ = (...func) => (...args) => func.reduceRight((args, func) => [func(...ar
 const assert = input => output => msg => console.assert((typeof output === 'object') ? input.join('') === output.join('') : input === output, msg)
 
 // Math
-const max = a => b => Math.max(a,b);
-const min = a => b => Math.min(a,b);
+const max = a => b => Math.max(a, b);
+const min = a => b => Math.min(a, b);
 
 // List
 const lappend = lst1 => lst2 => lst1.concat(lst2) // concat 2 Lists
-const lfold = cat => func => lst => lst.reduce((cat, val, index, lst) => func(cat)(lst)(index)(val), (cat)? cat : []) // left reducer
-const lfoldr = cat => func => lst => lst.reduceRight((cat, val, index, lst) => func(cat)(lst)(index)(val), (cat)? cat : []) // right reducer
+const lfold = cat => func => lst => lst.reduce((cat, val, index, lst) => func(cat)(lst)(index)(val), (cat) ? cat : []) // left reducer
+const lfoldr = cat => func => lst => lst.reduceRight((cat, val, index, lst) => func(cat)(lst)(index)(val), (cat) ? cat : []) // right reducer
 
-// This could be a generic fold fucction
-const lfoldLeftMax = acc => lst => index => val =>  lappend(acc)((index > 0) ? [max(val)(acc[index - 1])] : [val])  // uphill slope
-const lfoldrRightMax =  acc => lst => index => val =>  lappend((index < lst.length - 1) ? [max(val)(acc[0])] : [val])(acc) // downhill slope
+
 
 /**
  * Actual Code : 
@@ -51,13 +49,17 @@ const lfoldrRightMax =  acc => lst => index => val =>  lappend((index < lst.leng
 **/
 
 const trap = lst => {
-
-    // function to calculate trap from the maxLeft, maxRight & original List 
-    const sumTrapCount = maxLeft => maxRight => count => lst  => index => val => (index > 0 && index < lst.length -1)? count + min(maxLeft[index])(maxRight[index]) - val : count 
     
+    // This could be a generic fold function
+    const lfoldLeftMax = acc => lst => index => val => lappend(acc)((index > 0) ? [max(val)(acc[index - 1])] : [val])  // uphill slope
+    const lfoldrRightMax = acc => lst => index => val => lappend((index < lst.length - 1) ? [max(val)(acc[0])] : [val])(acc) // downhill slope
+    
+    // function to calculate trap from the maxLeft, maxRight & original List 
+    const sumTrapCount = maxLeft => maxRight => count => lst => index => val => (index > 0 && index < lst.length - 1) ? count + min(maxLeft[index])(maxRight[index]) - val : count
+
     // As usual we will just compose the solution. 
-    const upSlope =     $(trace('Built leftMax List........'), lfold([])(lfoldLeftMax))(lst)
-    const downSlope =   $(trace('Built rightMax List.......'), lfoldr([])(lfoldrRightMax))(lst)
+    const upSlope = $(trace('Built leftMax List........'), lfold([])(lfoldLeftMax))(lst)
+    const downSlope = $(trace('Built rightMax List.......'), lfoldr([])(lfoldrRightMax))(lst)
     const sumTrapWithMaps = sumTrapCount(upSlope)(downSlope) // partially apply
     // now just fold the original list, calculating trap
     return $(trace('Folded the List to compute the count...'), lfold(0)(sumTrapWithMaps))(lst)
@@ -66,15 +68,15 @@ const trap = lst => {
 // Test
 
 const data = [
-    {in : [0,1,0,2,1,0,1,3,2,1,2,1], out :6},
-    {in : [2,0,2], out :2},
+    { in: [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1], out: 6 },
+    { in: [2, 0, 2], out: 2 },
 ]
 
-data.forEach( val => assert(trap(val.in))(val.out)(val))
+data.forEach(val => assert(trap(val.in))(val.out)(val))
 
 /**
  * Sample output :
- * 
+ *
  * Built leftMax List........
  * [ 0, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3 ]
 

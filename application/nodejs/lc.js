@@ -27,8 +27,9 @@ const sslice  = start => end => str => str.slice(start,end)
 const s2List = ptrn => str => str.split(ptrn)
 
 /** Math */
-const max = a => b => Math.max(a,b);
-const min = a => b => Math.min(a,b);
+const max = a => b => Math.max(a,b)
+const min = a => b => Math.min(a,b)
+const sum = a => b => a + b
 
 /** List **/
 // Creator
@@ -96,9 +97,6 @@ const lfoldZ = cat => move => func => lst => {
 }
 
 // Category Changers
-const lsum = lst => lst.reduce( (acc, val) => acc+val)
-const lmax = lst => lst.reduce((acc, val) => Math.max(acc,val),Number.MIN_SAFE_INTEGER) // find the max from the list
-const lmin = lst => lst.reduce((acc, val) => Math.min(acc,val),Number.MAX_SAFE_INTEGER) // find the max from the list
 const l2String = sep => lst => lst.reduce( (acc, val) => ''+acc + sep + val)
 const l2countMap = lst => lst.reduce((map, val) => mincr(val)(map) ,{}) //histogram
 const l2indexMap = lst => lst.reduce ( (cat, val, index) => { (cat[val]) ? cat[val][index] = index : cat[val] = $(mset(index)(index))({}); return cat},{} ) // List to index Map - very helpful function to solve many problems
@@ -120,10 +118,10 @@ module.exports = {
     // Generic
     print, trace, $, $P, $A, assert,                             // Generics
     // // String
-    blank, space, comma,                                         // Constants
-    s2List,
+    blank, space, comma,                                         // String : Constants
+    s2List,                                                      // Sring : Category changers
     // Math
-    max, min,                                                    // Math
+    max, min, sum,                                               // Math : Calculations
     // List
     lcreate,                                                     // List : Creator
     leqEmpty,                                                    // List : Boolean
@@ -134,7 +132,7 @@ module.exports = {
     lsliceHead, lsliceTail, lslice, lzip, lflat,                 // List : Collapsers                     
     lfold, lfoldr, lfoldLeftMax, lfoldrRightMax,                 // List : Folders & Presets
     lfoldKadane,
-    lsum, lmax, lmin, l2String, l2countMap, l2indexMap,          // List : Category Changers
+    l2String, l2countMap, l2indexMap,                            // List : Category Changers
     // Map
     mget, mlen, mheadKey, 
     mset, mincr,
