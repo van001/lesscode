@@ -33,7 +33,7 @@ const sum = a => b => a + b
 
 /** List **/
 // Creator
-const lcreate = start => end => lst => ( start === end ) ? lst : lrange(start+1)(end)(lappend(lst)(start)) // Creates a List with specified range.
+const lcreate = start => end => lst => ( start === end ) ? lst : lcreate(start+1)(end)(lappend(lst)(start)) // Creates a List with specified range.
 // Boolean
 const leqEmpty = lst => lst.length == 0
 // Positional

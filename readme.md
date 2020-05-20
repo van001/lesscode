@@ -241,7 +241,7 @@ hseleen si eman ym // sreverse
 neelesh is name my // l2String2(space)
 ```
 
-[Function Library](https://github.com/van001/lesscode/blob/master/application/nodejs/lc-core.js)
+[Function Library](https://github.com/van001/lesscode/blob/master/application/nodejs/lc.js)
 
 ## Application
 > There is a saying in the valley - ideas are dime a dozen. So let's execute & prove it...
