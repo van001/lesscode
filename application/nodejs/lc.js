@@ -5,6 +5,16 @@ const $ = (...func) => (...args) => func.reduceRight((args, func) => [func(...ar
 const $P = (...f) => (...args) => f.map(fn => fn(...args))// Executes the functions in parallel and return the reuslt as List
 const $A = func => lst => { const $$A = func => lst => count => (count == lst.length -1)? func(lst[count]) : $$A(func(lst[count]))(lst)(count+1); return $$A(func)(lst)(0)} // applicative
 const assert = input => output => msg => console.assert((typeof output === 'object' && output != null) ? input.join('') === output.join('') : input === output, msg)
+const memoize = f => { const cache = {}; return (...args) => { const argStr = args.join(''); return cache[argStr] = cache[argStr] || f(...args); } }
+
+// Equality functions
+const eqNull = val => (val == null || val == undefined) ? true : false
+const eqType = type => val => (typeof val == type) ? true : false
+const eq = a => b => {
+    if (eqType('array')(a) && eqType('array')(b)) return a.join('') === b.join('')
+    if (eqType('object')(a)&& eqType('object')(b)) return a.toString() === b.toString()
+    return (a === b)
+}
 
 /** String **/
 // Constants
@@ -116,7 +126,7 @@ const m2keyList = map => Object.keys(map) // Map to List (values)
 
 module.exports = {
     // Generic
-    print, trace, $, $P, $A, assert,                             // Generics
+    print, trace, $, $P, $A, assert, memoize,                    // Generics
     // // String
     blank, space, comma,                                         // String : Constants
     s2List,                                                      // Sring : Category changers

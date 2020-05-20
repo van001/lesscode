@@ -55,10 +55,10 @@ const printRight = tree => {
     const $printRight = res => lst => {
         if (lst.length == 0) return res
         const visited = lst.reduce((acc, val) => { acc[0] = val.val; if (val.left) acc[1].push(val.left); if (val.right) acc[1].push(val.right); return acc }, [[], []])
-        //console.log(visited)
         res = res.concat(visited[0])
         return $printRight(res)(visited[1])
     }
+    if(tree == null) return []
     return $printRight([])([tree])
 
 }
